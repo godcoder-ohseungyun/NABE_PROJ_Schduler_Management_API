@@ -1,13 +1,13 @@
-package we.graduationproj.myScaeduler;
+package we.graduationProj.scheduler;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyScaedulerApplication {
+public class SchedulerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyScaedulerApplication.class, args);
+		SpringApplication.run(SchedulerApplication.class, args);
 	}
 
 }

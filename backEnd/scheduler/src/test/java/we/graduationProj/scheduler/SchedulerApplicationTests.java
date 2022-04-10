@@ -1,10 +1,10 @@
-package we.graduationproj.myScaeduler;
+package we.graduationProj.scheduler;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MyScaedulerApplicationTests {
+class SchedulerApplicationTests {
 
 	@Test
 	void contextLoads() {
