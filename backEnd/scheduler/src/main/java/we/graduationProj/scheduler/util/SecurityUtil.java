@@ -15,9 +15,6 @@ public class SecurityUtil {
    private SecurityUtil() {
    }
 
-   /**
-    * Security context에 존재하는 인증객체로부터 유저이름을 얻어 반환함
-    */
    public static Optional<String> getCurrentUsername() {
       final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

@@ -1,6 +1,5 @@
 package we.graduationProj.scheduler.service;
 
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,9 +21,6 @@ public class CustomUserDetailsService implements UserDetailsService {
       this.userRepository = userRepository;
    }
 
-   /**
-    * 유저 이름으로 유저정보와 권한 정보를 함께 받아온다.
-    */
    @Override
    @Transactional
    public UserDetails loadUserByUsername(final String username) {

@@ -2,7 +2,6 @@ package we.graduationProj.scheduler.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
 import we.graduationProj.scheduler.entity.User;
 
 import javax.validation.constraints.NotNull;

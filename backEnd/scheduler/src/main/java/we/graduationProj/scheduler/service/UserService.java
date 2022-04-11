@@ -23,15 +23,18 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * 회원가입 로직
+     * 파라미터의 username을 기준으로 db
+     */
     @Transactional
     public UserDto signup(UserDto userDto) {
         if (userRepository.findOneWithAuthoritiesByUsername(userDto.getUsername()).orElse(null) != null) {
             throw new DuplicateMemberException("이미 가입되어 있는 유저입니다.");
         }
 
-        //신규가입 진행
         Authority authority = Authority.builder()
-                .authorityName("ROLE_USER")  //유저 권한 부여
+                .authorityName("ROLE_USER")
                 .build();
 
         User user = User.builder()

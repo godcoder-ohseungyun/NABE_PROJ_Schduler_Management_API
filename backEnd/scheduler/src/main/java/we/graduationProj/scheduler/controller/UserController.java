@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("hello guest");
+        return ResponseEntity.ok("hello");
     }
 
     @PostMapping("/test-redirect")

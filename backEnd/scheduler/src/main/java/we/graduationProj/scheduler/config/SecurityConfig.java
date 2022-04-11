@@ -17,10 +17,6 @@ import we.graduationProj.scheduler.jwt.JwtAuthenticationEntryPoint;
 import we.graduationProj.scheduler.jwt.JwtSecurityConfig;
 import we.graduationProj.scheduler.jwt.TokenProvider;
 
-
-/**
- * jwt package에 정의한 5개의 클래스를 이용해 config 완성
- */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -51,8 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring()
                 .antMatchers(
                         "/h2-console/**"
-                        , "/favicon.ico"
-                        , "/error"
+                        ,"/favicon.ico"
+                        ,"/error"
                 );
     }
 
@@ -82,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/hello").permitAll()
-                .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/api/kakao_authenticate").permitAll()
                 .antMatchers("/api/signup").permitAll()
 
                 .anyRequest().authenticated()
