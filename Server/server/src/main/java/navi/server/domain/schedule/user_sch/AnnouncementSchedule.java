@@ -1,6 +1,6 @@
 package navi.server.domain.schedule.user_sch;
 
-public class User_Anno_sc {
+public class AnnouncementSchedule {
     //private String date = "2022-04-29";
     //private String owner = "userId";
     private String anno_id ="공고번호"; //사람인 공고번호

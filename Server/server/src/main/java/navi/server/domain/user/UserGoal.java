@@ -1,6 +1,6 @@
 package navi.server.domain.user;
 
-public class User_goal {
+public class UserGoal {
     private String name;
     private String deadline = "2023-06-02";
 }

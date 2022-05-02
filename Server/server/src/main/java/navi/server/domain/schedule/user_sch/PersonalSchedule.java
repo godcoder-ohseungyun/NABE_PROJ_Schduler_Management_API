@@ -1,6 +1,6 @@
 package navi.server.domain.schedule.user_sch;
 
-public class User_ps_sc {
+public class PersonalSchedule {
     //private String date = "2022-04-29";
     //private String owner = "userId";
     private String s_time = "08:30";
