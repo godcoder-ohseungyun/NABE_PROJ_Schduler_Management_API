@@ -18,8 +18,10 @@ public interface ScheduleService {
    UserSchedule search(User findUser, String date); // ByOne
    Map<String, UserSchedule> searchAll(User findUser); //all
 
-   UserSchedule updateUser();
+   void updateUserPS(User findUser, String date, Long psId , PersonalSchedule personalSchedule);
 
    void deletePS(User findUser,  String date  ,Long psId);
+   void deleteAN(User findUser, String date , Long anId);
+   void deleteSP(User findUser, String date , Long spId);
 
 }

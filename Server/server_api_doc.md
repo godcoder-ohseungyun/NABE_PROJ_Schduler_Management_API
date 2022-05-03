@@ -133,3 +133,14 @@ user_sc_list , user_anno_sc , user_lc_sc = true or false
 유저가 특별일정 데드라인 수정 -> 해당 특별일정 UserSchedule 객체에서 모두 삭제
 ~~~
 
+
+
+
+
+## 계층
+
+~~~
+UserScheduleService
+
+~~~
+
