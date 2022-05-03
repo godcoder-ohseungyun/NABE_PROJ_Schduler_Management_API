@@ -1,16 +1,33 @@
 package navi.server.domain.schedule;
 
-import navi.server.domain.schedule.user_sch.AnnouncementSchedule;
-import navi.server.domain.schedule.user_sch.specialSchedule;
-import navi.server.domain.schedule.user_sch.PersonalSchedule;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class UserSchedule {
-    private String date = "2022-04-29";
+    private Long id;
+    private String date;
     //private String owner = "userId";
 
-    private HashSet<PersonalSchedule> user_sc_list = null; //개인 일정 데이터
-    private HashSet<AnnouncementSchedule> user_anno_sc_list = null; //취업 일정 데이터
-    private HashSet<specialSchedule> user_lc_sc_list = null; //공식 일정 데이터
+    private Map<Long,PersonalSchedule> personalSchedules; //개인 일정 데이터
+    private Map<Long,AnnouncementSchedule> announcementSchedules; //취업 일정 데이터
+    private Map<Long,SpecialSchedule> specialSchedules; //공식 일정 데이터
+
+    public UserSchedule(String date) {
+        this.id = 0l; //임시값 save에서 할당됨
+        this.date = date;
+        this.personalSchedules = new HashMap();
+        this.announcementSchedules = new HashMap<>();
+        this.specialSchedules = new HashMap<>();
+    }
 }
