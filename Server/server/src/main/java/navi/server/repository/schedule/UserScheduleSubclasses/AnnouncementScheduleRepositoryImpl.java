@@ -2,6 +2,7 @@ package navi.server.repository.schedule.UserScheduleSubclasses;
 
 
 import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,30 +14,26 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class AnnouncementScheduleRepositoryImpl implements AnnouncementScheduleRepository{
-    private Map<Long, AnnouncementSchedule> store = new ConcurrentHashMap<>();
-    private Long uniqueId = 0L; //임시
+    private Map<String, AnnouncementSchedule> store = new ConcurrentHashMap<>();
+
 
     @Override
     public AnnouncementSchedule save(AnnouncementSchedule announcementSchedule) {
-        announcementSchedule.setId(uniqueId++);//임시: 별도 unique id 생성 로직 짜야함
-        store.put(announcementSchedule.getId(),announcementSchedule);
+
+        store.put(announcementSchedule.getAnno_id(),announcementSchedule);
         return announcementSchedule;
     }
 
     @Override
-    public AnnouncementSchedule findById(Long id) {
-        return store.get(id);
+    public AnnouncementSchedule findById(String anId) {
+        return store.get(anId);
     }
 
 
-    @Override
-    public AnnouncementSchedule update(String LoginId, AnnouncementSchedule updateParam) {
-        return null;
-    }
 
     @Override
-    public void delete(Long id) {
-        store.remove(id);
+    public void delete(String anId) {
+        store.remove(anId);
     }
 
     @Override

@@ -6,11 +6,10 @@ import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
 public interface AnnouncementScheduleRepository {
     AnnouncementSchedule save(AnnouncementSchedule announcementSchedule);
 
-    AnnouncementSchedule findById(Long id);
-    
-    AnnouncementSchedule update(String LoginId, AnnouncementSchedule updateParam);
+    AnnouncementSchedule findById(String anId);
 
-    void delete(Long id);
+
+    void delete(String anId);
 
     void clearStore();
 }

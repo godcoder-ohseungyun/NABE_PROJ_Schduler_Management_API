@@ -1,5 +1,6 @@
 package navi.server.repository.schedule.UserScheduleSubclasses;
 
+import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import org.springframework.stereotype.Repository;
 
@@ -23,12 +24,6 @@ public class SpecialScheduleRepositoryImpl implements SpecialScheduleRepository 
     @Override
     public SpecialSchedule findById(Long id) {
         return store.get(id);
-    }
-
-
-    @Override
-    public SpecialSchedule update(String LoginId, SpecialSchedule updateParam) {
-        return null;
     }
 
     @Override

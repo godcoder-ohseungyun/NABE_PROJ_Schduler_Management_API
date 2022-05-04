@@ -2,19 +2,17 @@ package navi.server.controller.scheduler;
 
 
 import lombok.RequiredArgsConstructor;
-import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
+import navi.server.domain.schedule.UserSchedule;
 import navi.server.domain.user.User;
-import navi.server.dto.PersonalScheduleDTO;
-import navi.server.repository.schedule.UserScheduleRepository;
-import navi.server.repository.schedule.UserScheduleSubclasses.PersonalScheduleRepository;
-import navi.server.service.schedule.ScheduleService;
+import navi.server.dto.announcementDTO.AddingAnDTO;
+import navi.server.dto.announcementDTO.DeletingAnDTO;
+import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
+import navi.server.dto.personalScheduleDTO.DeletingDTO;
+import navi.server.service.scheduler.SchedulerService;
 import navi.server.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -22,19 +20,87 @@ import org.springframework.web.bind.annotation.RestController;
 public class ScheduleController {
 
 
-    private final ScheduleService scheduleService;
-    private final PersonalScheduleRepository personalScheduleRepository;
+    private final SchedulerService schedulerService;
+    private final UserService userService;
 
-    @PostMapping("/user-schedule/ps")
-    public String addPersonalSchedule(@RequestBody PersonalScheduleDTO psDTO){
+    /**
+     * 인증 유저의 스캐쥴 전체 조회
+     */
+    @GetMapping("/user-schedules")
+    public Map<String,UserSchedule> getUserSchedules(){
+        User master = userService.findUserByUniqueId(0l);
 
-        //jwt 유저인증된 객체
-        User findUser = new User();
-
-        PersonalSchedule createPersonalSchedule = personalScheduleRepository.save(new PersonalSchedule(psDTO.getS_time(),psDTO.getE_time(),psDTO.isObservation(),psDTO.getDetail()));
-
-        scheduleService.createPS(findUser,psDTO.getDate(),createPersonalSchedule);
-
-        return "ok";
+        return master.getUserSchedules();
     }
+
+
+    /**
+     * 인증 유저의 스캐쥴에 개인 스캐쥴 추가
+     */
+    @PostMapping("/user-schedules/ps")
+    public User addPersonalSchedule(@RequestBody CreatingPsDTO dto){
+        User master = userService.findUserByUniqueId(0l);
+
+        schedulerService.createPersonalSchedule(master,dto);
+
+        return master;
+    }
+
+
+    /**
+     * 인증 유저의 스캐쥴에 개인 스캐쥴 삭제
+     */
+    @DeleteMapping("/user-schedules/ps")
+    public User deletePersonalSchedule(@RequestBody DeletingDTO dto){
+        User master = userService.findUserByUniqueId(0l);
+
+        schedulerService.deletePersonalSchedule(master,dto);
+
+        return master;
+    }
+
+    /**
+     * 인증된 유저의 타겟 공고 추가
+     */
+    @PostMapping("/user-target")
+    public User addTargetAnnouncement(@RequestBody AddingAnDTO dto){
+        User master = userService.findUserByUniqueId(0l);
+
+        schedulerService.createAnnouncementSchedule(master,dto);
+
+        return master;
+
+    }
+
+
+    /**
+     * 인증된 유저의 타겟 공고 삭제
+     */
+    @DeleteMapping("/user-target")
+    public User addTargetAnnouncement(@RequestBody DeletingAnDTO dto){
+        User master = userService.findUserByUniqueId(0l);
+
+        schedulerService.deleteAnnouncementSchedule(master,dto);
+
+        return master;
+
+    }
+
+
+
+    /**
+     * 인증된 유저의 특별 일정 추가
+     */
+
+
+    /**
+     * 인증된 유저의 특별 일정 삭제
+     */
+
+
+
+
+
+
+
 }

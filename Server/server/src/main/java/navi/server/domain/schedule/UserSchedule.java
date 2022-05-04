@@ -20,7 +20,7 @@ public class UserSchedule {
     //private String owner = "userId";
 
     private Map<Long,PersonalSchedule> personalSchedules; //개인 일정 데이터
-    private Map<Long,AnnouncementSchedule> announcementSchedules; //취업 일정 데이터
+    private Map<String,AnnouncementSchedule> announcementSchedules; //취업 일정 데이터
     private Map<Long,SpecialSchedule> specialSchedules; //공식 일정 데이터
 
     public UserSchedule(String date) {

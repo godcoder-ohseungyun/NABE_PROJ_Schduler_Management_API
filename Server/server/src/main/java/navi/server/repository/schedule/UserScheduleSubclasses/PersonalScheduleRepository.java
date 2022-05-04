@@ -7,7 +7,7 @@ public interface PersonalScheduleRepository {
 
     PersonalSchedule findById(Long id);
 
-    PersonalSchedule update(String LoginId, PersonalSchedule updateParam);
+    PersonalSchedule update(Long id, PersonalSchedule update);
 
     void delete(Long id);
 

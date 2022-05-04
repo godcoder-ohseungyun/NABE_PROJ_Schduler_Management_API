@@ -7,8 +7,6 @@ public interface SpecialScheduleRepository {
 
     SpecialSchedule findById(Long id);
 
-    SpecialSchedule update(String LoginId, SpecialSchedule updateParam);
-
     void delete(Long id);
 
     void clearStore();

@@ -15,8 +15,6 @@ public interface UserScheduleRepository {
 
     public List<UserSchedule> findAll();
 
-    UserSchedule update(String LoginId, UserSchedule updateParam);
-
     void delete(Long id);
 
     void clearStore();

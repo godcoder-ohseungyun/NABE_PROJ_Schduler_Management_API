@@ -42,11 +42,6 @@ public class UserScheduleRepositoryImpl implements UserScheduleRepository {
 
 
     @Override
-    public UserSchedule update(String LoginId, UserSchedule updateParam) {
-        return null;
-    }
-
-    @Override
     public void delete(Long id) {
         store.remove(id);
     }
