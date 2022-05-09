@@ -5,11 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class DeletingAnDTO {
-
-    private String targetDate;
-    private String targetAnId;
-
+@NoArgsConstructor
+public class RequestDTO {
+    private String keywords;
+    private String loc_cd;
+    private String ind_cd;
 }

@@ -1,4 +1,4 @@
-package navi.server.dto.announcementDTO;
+package navi.server.dto.announcementScheduleDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

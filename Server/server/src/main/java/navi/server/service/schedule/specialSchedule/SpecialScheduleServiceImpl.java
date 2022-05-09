@@ -12,12 +12,12 @@ public class SpecialScheduleServiceImpl implements  SpecialScheduleService{
     private final SpecialScheduleRepository specialScheduleRepository;
 
     @Override
-    public SpecialSchedule createSpecialScheduleService(SpecialSchedule specialSchedule) {
+    public SpecialSchedule createSpecialSchedule(SpecialSchedule specialSchedule) {
         return specialScheduleRepository.save(specialSchedule);
     }
 
     @Override
-    public void deleteSpecialScheduleService(Long id) {
+    public void deleteSpecialSchedule(Long id) {
         specialScheduleRepository.delete(id);
     }
 }

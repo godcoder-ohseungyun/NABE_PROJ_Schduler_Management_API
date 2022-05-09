@@ -4,8 +4,9 @@ package navi.server.controller.scheduler;
 import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.UserSchedule;
 import navi.server.domain.user.User;
-import navi.server.dto.announcementDTO.AddingAnDTO;
-import navi.server.dto.announcementDTO.DeletingAnDTO;
+import navi.server.dto.SpecialScheduleDTO.AddingSpDTO;
+import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
+import navi.server.dto.announcementScheduleDTO.DeletingAnDTO;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
 import navi.server.dto.personalScheduleDTO.DeletingDTO;
 import navi.server.service.scheduler.SchedulerService;
@@ -77,7 +78,7 @@ public class ScheduleController {
      * 인증된 유저의 타겟 공고 삭제
      */
     @DeleteMapping("/user-target")
-    public User addTargetAnnouncement(@RequestBody DeletingAnDTO dto){
+    public User deleteTargetAnnouncement(@RequestBody DeletingAnDTO dto){
         User master = userService.findUserByUniqueId(0l);
 
         schedulerService.deleteAnnouncementSchedule(master,dto);
@@ -87,16 +88,30 @@ public class ScheduleController {
     }
 
 
-
     /**
      * 인증된 유저의 특별 일정 추가
      */
+    @PostMapping("/sp")
+    public User addSpecialSchedule(@RequestBody AddingSpDTO dto){
+        User master = userService.findUserByUniqueId(0l);
+
+        schedulerService.createSpecialSchedule(master,dto);
+
+        return master;
+    }
 
 
     /**
      * 인증된 유저의 특별 일정 삭제
      */
+    @DeleteMapping("/sp")
+    public User deleteSpecialSchedule(@RequestBody DeletingDTO dto){
+        User master = userService.findUserByUniqueId(0l);
 
+        schedulerService.deleteSpecialSchedule(master,dto);
+
+        return master;
+    }
 
 
 

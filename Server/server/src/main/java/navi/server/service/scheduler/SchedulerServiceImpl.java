@@ -5,9 +5,11 @@ import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.UserSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
-import navi.server.dto.announcementDTO.AddingAnDTO;
-import navi.server.dto.announcementDTO.DeletingAnDTO;
+import navi.server.dto.SpecialScheduleDTO.AddingSpDTO;
+import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
+import navi.server.dto.announcementScheduleDTO.DeletingAnDTO;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
 import navi.server.dto.personalScheduleDTO.DeletingDTO;
 import navi.server.dto.personalScheduleDTO.UpdatingPsDTO;
@@ -27,7 +29,7 @@ public class SchedulerServiceImpl implements SchedulerService {
     private final UserScheduleService userScheduleService;
     private final PersonalScheduleService personalScheduleService;
     private final AnnouncementScheduleService announcementScheduleService;
-    private final SpecialScheduleService scheduleService;
+    private final SpecialScheduleService specialScheduleService;
 
     //개인일정 추가
     @Override
@@ -59,7 +61,6 @@ public class SchedulerServiceImpl implements SchedulerService {
             findUserSchedule.getPersonalSchedules().put(createdPersonalSchedule.getId(), createdPersonalSchedule);
         }
     }
-
 
     //공고일정 추가
     @Override
@@ -97,8 +98,28 @@ public class SchedulerServiceImpl implements SchedulerService {
 
     //특별일정 추가
     @Override
-    public void createSpecialSchedule() {
+    public void createSpecialSchedule(User loginUser, AddingSpDTO dto) {
+        String date = dto.getDate();
 
+
+        UserSchedule findUserSchedule = loginUser.getUserSchedules().get(date);
+
+        if (findUserSchedule == null) {
+            UserSchedule createdUserSchedule = userScheduleService.createUserSchedule(new UserSchedule(date));
+            findUserSchedule = loginUser.getUserSchedules().put(date, createdUserSchedule);
+        }
+
+        if (findUserSchedule != null) {
+
+            //서버에 저장된 공고가 아니라면
+
+            SpecialSchedule createdSpecialSchedule = specialScheduleService.createSpecialSchedule(
+                    new SpecialSchedule(dto.getName(), dto.getCertificationScheduleType()));
+
+            findUserSchedule.getSpecialSchedules().put(createdSpecialSchedule.getId(), createdSpecialSchedule);
+
+
+        }
     }
 
 
@@ -114,6 +135,12 @@ public class SchedulerServiceImpl implements SchedulerService {
     public void deleteAnnouncementSchedule(User loginUser, DeletingAnDTO dto) {
         loginUser.getUserSchedules().get(dto.getTargetDate()).getAnnouncementSchedules().remove(dto.getTargetAnId());
         //한번저장된 객체는 유지함
+    }
+
+    @Override
+    public void deleteSpecialSchedule(User loginUser, DeletingDTO dto) {
+        loginUser.getUserSchedules().get(dto.getTargetDate()).getSpecialSchedules().remove(dto.getTargetId());
+        specialScheduleService.deleteSpecialSchedule(dto.getTargetId());
     }
 
     //특별일정 삭제
