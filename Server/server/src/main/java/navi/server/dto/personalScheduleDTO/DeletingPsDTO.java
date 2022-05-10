@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeletingDTO {
+public class DeletingPsDTO {
     private String targetDate;
     private Long targetId;
 }

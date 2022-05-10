@@ -6,9 +6,9 @@ import navi.server.domain.schedule.UserSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.SpecialScheduleDTO.AddingSpDTO;
 import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
-import navi.server.dto.announcementScheduleDTO.DeletingAnDTO;
+import navi.server.dto.delDTO.DeletingDTO;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
-import navi.server.dto.personalScheduleDTO.DeletingDTO;
+import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
 import navi.server.service.scheduler.SchedulerService;
 import navi.server.service.user.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -52,7 +52,7 @@ public class ScheduleController {
      * 인증 유저의 스캐쥴에 개인 스캐쥴 삭제
      */
     @DeleteMapping("/user-schedules/ps")
-    public User deletePersonalSchedule(@RequestBody DeletingDTO dto){
+    public User deletePersonalSchedule(@RequestBody DeletingPsDTO dto){
         User master = userService.findUserByUniqueId(0l);
 
         schedulerService.deletePersonalSchedule(master,dto);
@@ -78,7 +78,7 @@ public class ScheduleController {
      * 인증된 유저의 타겟 공고 삭제
      */
     @DeleteMapping("/user-target")
-    public User deleteTargetAnnouncement(@RequestBody DeletingAnDTO dto){
+    public User deleteTargetAnnouncement(@RequestBody DeletingDTO dto){
         User master = userService.findUserByUniqueId(0l);
 
         schedulerService.deleteAnnouncementSchedule(master,dto);
@@ -105,7 +105,7 @@ public class ScheduleController {
      * 인증된 유저의 특별 일정 삭제
      */
     @DeleteMapping("/sp")
-    public User deleteSpecialSchedule(@RequestBody DeletingDTO dto){
+    public User deleteSpecialSchedule(@RequestBody DeletingPsDTO dto){
         User master = userService.findUserByUniqueId(0l);
 
         schedulerService.deleteSpecialSchedule(master,dto);
