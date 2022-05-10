@@ -2,21 +2,15 @@ package navi.server.controller.announcement;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import navi.server.dto.announcementDTO.AnnouncementDTO;
-import navi.server.dto.announcementDTO.RequestDTO;
 import navi.server.dto.announcementDTO.ResponseDTO;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import java.nio.charset.Charset;
 
 
@@ -34,11 +28,11 @@ public class AnnouncementAPIController {
 
 
     @GetMapping("/api/ans")
-    public ResponseDTO restTempateTestMethod(@RequestBody RequestDTO dto){
+    public ResponseDTO restTempateTestMethod(HttpServletRequest request){
 
         HttpEntity<String> entity = makeEntity();
 
-        String url = makeUri(dto.getKeywords());
+        String url = makeUri(request.getQueryString());
 
         ResponseEntity<ResponseDTO> response = restTemplate.exchange(url,HttpMethod.GET,entity ,ResponseDTO.class);
 
@@ -47,9 +41,13 @@ public class AnnouncementAPIController {
         return r;
     }
 
-    private String makeUri(String keywords){
-        String url = "https://oapi.saramin.co.kr/job-search?access-key="+APP_KEY+"&keywords="+keywords;
-        return url;
+    private String makeUri(String param){
+        //param : localhost:8080?keywords=개발자&job_type=1&edu_lv=0&loc_cd=101010&job_mid_cd=2
+        // -> keywords=개발자&job_type=1&edu_lv=0&loc_cd=101010&job_mid_cd=2 이부분만 추출
+
+        String defaultUrl = "https://oapi.saramin.co.kr/job-search?access-key="+APP_KEY;
+
+        return String.format("%s&",defaultUrl,param);
     }
 
 
