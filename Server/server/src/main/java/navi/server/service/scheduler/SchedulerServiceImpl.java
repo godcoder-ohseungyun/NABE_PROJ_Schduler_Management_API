@@ -7,7 +7,7 @@ import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
-import navi.server.dto.SpecialScheduleDTO.AddingSpDTO;
+import navi.server.dto.specialScheduleDTO.AddingSpDTO;
 import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
 import navi.server.dto.delDTO.DeletingDTO;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;

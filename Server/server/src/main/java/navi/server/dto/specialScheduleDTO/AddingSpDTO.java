@@ -1,4 +1,4 @@
-package navi.server.dto.SpecialScheduleDTO;
+package navi.server.dto.specialScheduleDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
