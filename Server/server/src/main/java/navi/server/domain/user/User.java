@@ -19,8 +19,7 @@ public class User {
     private String email;
     private String name;
 
-    //특별일정
-    private ArrayList<UserGoal> userGoals;
+
     //스캐쥴일정
     private Map<String,UserSchedule> userSchedules;
 
@@ -29,8 +28,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.name = name;
-
-        this.userGoals = new ArrayList<>();
         this.userSchedules = new HashMap<>();
     }
 }
