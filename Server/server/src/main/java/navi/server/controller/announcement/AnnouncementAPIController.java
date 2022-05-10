@@ -2,7 +2,7 @@ package navi.server.controller.announcement;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import navi.server.dto.announcementDTO.ResponseDTO;
+import navi.server.dto.announcementApiDTO.ResponseDTO;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;

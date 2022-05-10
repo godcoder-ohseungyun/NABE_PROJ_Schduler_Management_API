@@ -1,17 +1,12 @@
 package navi.server;
 
-import navi.server.domain.schedule.UserSchedule;
-import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
-import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
-import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
-import navi.server.domain.schedule.userScheduleSubclasses.enumType.CertificationScheduleType;
 import navi.server.domain.user.User;
-import navi.server.repository.schedule.UserScheduleRepository;
-import navi.server.repository.schedule.UserScheduleRepositoryImpl;
+import navi.server.repository.schedule.userSchedule.UserScheduleRepository;
+import navi.server.repository.schedule.userSchedule.UserScheduleRepositoryImpl;
 import navi.server.repository.user.UserRepository;
 import navi.server.repository.user.UserRepositoryImpl;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

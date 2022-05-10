@@ -1,6 +1,5 @@
-package navi.server.repository.schedule.UserScheduleSubclasses;
+package navi.server.repository.schedule.specialSchedule;
 
-import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import org.springframework.stereotype.Repository;
 
@@ -16,8 +15,10 @@ public class SpecialScheduleRepositoryImpl implements SpecialScheduleRepository 
 
     @Override
     public SpecialSchedule save(SpecialSchedule specialSchedule) {
+
         specialSchedule.setId(uniqueId++);//임시: 별도 unique id 생성 로직 짜야함
         store.put(specialSchedule.getId(),specialSchedule);
+
         return specialSchedule;
     }
 

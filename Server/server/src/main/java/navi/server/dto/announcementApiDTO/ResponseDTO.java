@@ -1,4 +1,4 @@
-package navi.server.dto.announcementDTO;
+package navi.server.dto.announcementApiDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company {
-    private Detail detail;
+public class ResponseDTO {
+    private AnnouncementDTO jobs;
 }

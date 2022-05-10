@@ -2,7 +2,7 @@ package navi.server.service.schedule.personalSchedule;
 
 import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
-import navi.server.repository.schedule.UserScheduleSubclasses.PersonalScheduleRepository;
+import navi.server.repository.schedule.userSchedule.personalSchedule.PersonalScheduleRepository;
 import org.springframework.stereotype.Service;
 
 @Service

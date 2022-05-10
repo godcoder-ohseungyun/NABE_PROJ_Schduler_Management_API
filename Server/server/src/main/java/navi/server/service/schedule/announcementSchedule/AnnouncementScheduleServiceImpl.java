@@ -2,7 +2,7 @@ package navi.server.service.schedule.announcementSchedule;
 
 import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
-import navi.server.repository.schedule.UserScheduleSubclasses.AnnouncementScheduleRepository;
+import navi.server.repository.schedule.announcementSchedule.AnnouncementScheduleRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +14,13 @@ public class AnnouncementScheduleServiceImpl implements AnnouncementScheduleServ
     @Override
     public AnnouncementSchedule createAnnouncementSchedule(AnnouncementSchedule announcementSchedule) {
         return announcementScheduleRepository.save(announcementSchedule);
+    }
+
+    @Override
+    public boolean isIn(String anId){
+        if(findAnnouncementSchedule(anId)==null) return false;
+
+        return true;
     }
 
     @Override

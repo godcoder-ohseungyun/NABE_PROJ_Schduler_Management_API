@@ -2,7 +2,7 @@ package navi.server.service.schedule.specialSchedule;
 
 import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
-import navi.server.repository.schedule.UserScheduleSubclasses.SpecialScheduleRepository;
+import navi.server.repository.schedule.specialSchedule.SpecialScheduleRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +17,19 @@ public class SpecialScheduleServiceImpl implements  SpecialScheduleService{
     }
 
     @Override
+    public boolean isIn(Long spId){
+        if(findSpecialSchedule(spId)==null) return false;
+
+        return true;
+    }
+
+    @Override
     public void deleteSpecialSchedule(Long id) {
         specialScheduleRepository.delete(id);
+    }
+
+    @Override
+    public SpecialSchedule findSpecialSchedule(Long spId) {
+        return specialScheduleRepository.findById(spId);
     }
 }

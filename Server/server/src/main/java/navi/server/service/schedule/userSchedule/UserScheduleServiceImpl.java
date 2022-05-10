@@ -3,8 +3,7 @@ package navi.server.service.schedule.userSchedule;
 
 import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.UserSchedule;
-import navi.server.domain.user.User;
-import navi.server.repository.schedule.UserScheduleRepository;
+import navi.server.repository.schedule.userSchedule.UserScheduleRepository;
 import org.springframework.stereotype.Service;
 
 @Service

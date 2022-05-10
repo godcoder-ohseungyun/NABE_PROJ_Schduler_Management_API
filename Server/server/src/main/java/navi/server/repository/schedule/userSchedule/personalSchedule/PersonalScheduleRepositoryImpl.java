@@ -1,8 +1,6 @@
-package navi.server.repository.schedule.UserScheduleSubclasses;
+package navi.server.repository.schedule.userSchedule.personalSchedule;
 
 import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
-import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
-import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;

@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DeletingAnDTO {
-
-    private String targetDate;
     private String targetAnId;
 
 }

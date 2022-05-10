@@ -17,17 +17,15 @@ import java.util.Map;
 public class UserSchedule {
     private Long id;
     private String date;
-    //private String owner = "userId";
+
 
     private Map<Long,PersonalSchedule> personalSchedules; //개인 일정 데이터
-    private Map<String,AnnouncementSchedule> announcementSchedules; //취업 일정 데이터
-    private Map<Long,SpecialSchedule> specialSchedules; //특별 일정 데이터
+
 
     public UserSchedule(String date) {
         this.id = 0l; //임시값 save에서 할당됨
         this.date = date;
         this.personalSchedules = new HashMap();
-        this.announcementSchedules = new HashMap<>();
-        this.specialSchedules = new HashMap<>();
+
     }
 }

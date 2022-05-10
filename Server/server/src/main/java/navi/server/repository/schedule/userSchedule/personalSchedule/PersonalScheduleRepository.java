@@ -1,4 +1,4 @@
-package navi.server.repository.schedule.UserScheduleSubclasses;
+package navi.server.repository.schedule.userSchedule.personalSchedule;
 
 import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 

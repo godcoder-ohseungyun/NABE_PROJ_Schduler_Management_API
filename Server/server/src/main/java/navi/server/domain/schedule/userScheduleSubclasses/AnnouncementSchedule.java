@@ -8,15 +8,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AnnouncementSchedule {
 
-    private String anno_id ="공고번호"; //사람인 공고번호
-    private String Announcement_url = "사람인 url";
-    private String Announcement_name = "공고명";
-    private String detail = "그외 축약정보";
+    private String anno_id; //사람인 공고번호
+    private String Announcement_url;
+    private String Announcement_name;
+    private String detail;
+    private String s_date;
+    private String e_date;
 
-    public AnnouncementSchedule(String anno_id, String announcement_url, String announcement_name, String detail) {
+    public AnnouncementSchedule(String anno_id,
+                                String announcement_url,
+                                String announcement_name,
+                                String detail,
+                                String s_date,
+                                String e_date) {
         this.anno_id = anno_id;
         this.Announcement_url = announcement_url;
         this.Announcement_name = announcement_name;
         this.detail = detail;
+        this.s_date = s_date;
+        this.e_date = e_date;
     }
 }

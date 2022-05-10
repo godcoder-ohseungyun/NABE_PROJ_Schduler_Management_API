@@ -1,7 +1,6 @@
-package navi.server.repository.schedule;
+package navi.server.repository.schedule.userSchedule;
 
 import navi.server.domain.schedule.UserSchedule;
-import navi.server.domain.user.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package navi.server.repository.schedule;
+package navi.server.repository.schedule.userSchedule;
 
 
 import navi.server.domain.schedule.UserSchedule;

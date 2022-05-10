@@ -9,9 +9,9 @@ import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.SpecialScheduleDTO.AddingSpDTO;
 import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
-import navi.server.dto.announcementScheduleDTO.DeletingAnDTO;
+import navi.server.dto.delDTO.DeletingDTO;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
-import navi.server.dto.personalScheduleDTO.DeletingDTO;
+import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
 import navi.server.dto.personalScheduleDTO.UpdatingPsDTO;
 import navi.server.service.schedule.announcementSchedule.AnnouncementScheduleService;
 import navi.server.service.schedule.personalSchedule.PersonalScheduleService;
@@ -65,85 +65,65 @@ public class SchedulerServiceImpl implements SchedulerService {
     //공고일정 추가
     @Override
     public void createAnnouncementSchedule(User loginUser, AddingAnDTO dto) {
-        String date = dto.getDate();
+
+        if(!announcementScheduleService.isIn(dto.getAnno_id())){
+            announcementScheduleService.createAnnouncementSchedule(new AnnouncementSchedule(dto.getAnno_id(),
+                    dto.getAnnouncement_url(),
+                    dto.getAnnouncement_name(),
+                    dto.getDetail(),
+                    dto.getS_date(),
+                    dto.getE_date()));
+        }
 
         AnnouncementSchedule findAnnouncementSchedule = announcementScheduleService.findAnnouncementSchedule(dto.getAnno_id());
 
-        UserSchedule findUserSchedule = loginUser.getUserSchedules().get(date);
-
-        if (findUserSchedule == null) {
-            UserSchedule createdUserSchedule = userScheduleService.createUserSchedule(new UserSchedule(date));
-            findUserSchedule = loginUser.getUserSchedules().put(date, createdUserSchedule);
+        if(findAnnouncementSchedule!=null){
+            loginUser.getAnnouncementSchedules().put(findAnnouncementSchedule.getAnno_id(),findAnnouncementSchedule);
         }
 
-        if (findUserSchedule != null) {
-
-            //서버에 저장된 공고가 아니라면
-            if (findAnnouncementSchedule == null) {
-                AnnouncementSchedule createdAnnouncementSchedule = announcementScheduleService.createAnnouncementSchedule(
-                        new AnnouncementSchedule(dto.getAnno_id(),
-                                dto.getAnnouncement_url(),
-                                dto.getAnnouncement_name(),
-                                dto.getDetail()));
-
-                findUserSchedule.getAnnouncementSchedules().put(createdAnnouncementSchedule.getAnno_id(), createdAnnouncementSchedule);
-
-            } else {
-
-                findUserSchedule.getAnnouncementSchedules().put(dto.getAnno_id(), findAnnouncementSchedule);
-
-            }
-        }
     }
 
     //특별일정 추가
     @Override
     public void createSpecialSchedule(User loginUser, AddingSpDTO dto) {
-        String date = dto.getDate();
 
 
-        UserSchedule findUserSchedule = loginUser.getUserSchedules().get(date);
-
-        if (findUserSchedule == null) {
-            UserSchedule createdUserSchedule = userScheduleService.createUserSchedule(new UserSchedule(date));
-            findUserSchedule = loginUser.getUserSchedules().put(date, createdUserSchedule);
+        if(!specialScheduleService.isIn(dto.getId())){
+            specialScheduleService.createSpecialSchedule(new SpecialSchedule(dto.getName(),
+                    dto.getCertificationScheduleType(),
+                    dto.getS_date(),
+                    dto.getE_date()));
         }
 
-        if (findUserSchedule != null) {
+        SpecialSchedule findSpecialSchedule = specialScheduleService.findSpecialSchedule(dto.getId());
 
-            //서버에 저장된 공고가 아니라면
-
-            SpecialSchedule createdSpecialSchedule = specialScheduleService.createSpecialSchedule(
-                    new SpecialSchedule(dto.getName(), dto.getCertificationScheduleType()));
-
-            findUserSchedule.getSpecialSchedules().put(createdSpecialSchedule.getId(), createdSpecialSchedule);
-
-
+        if(findSpecialSchedule!=null){
+            loginUser.getSpecialSchedules().put(findSpecialSchedule.getId(),findSpecialSchedule);
         }
     }
 
 
     //개인일정 삭제
     @Override
-    public void deletePersonalSchedule(User loginUser, DeletingDTO dto) {
+    public void deletePersonalSchedule(User loginUser, DeletingPsDTO dto) {
         loginUser.getUserSchedules().get(dto.getTargetDate()).getPersonalSchedules().remove(dto.getTargetId());
         personalScheduleService.deletePersonalSchedule(dto.getTargetId());
     }
 
     //공고일정 삭제
     @Override
-    public void deleteAnnouncementSchedule(User loginUser, DeletingAnDTO dto) {
-        loginUser.getUserSchedules().get(dto.getTargetDate()).getAnnouncementSchedules().remove(dto.getTargetAnId());
+    public void deleteAnnouncementSchedule(User loginUser, DeletingDTO dto) {
+        loginUser.getAnnouncementSchedules().remove(dto.getTargetAnId());
         //한번저장된 객체는 유지함
     }
 
+    //특별일정 삭제
     @Override
-    public void deleteSpecialSchedule(User loginUser, DeletingDTO dto) {
-        loginUser.getUserSchedules().get(dto.getTargetDate()).getSpecialSchedules().remove(dto.getTargetId());
-        specialScheduleService.deleteSpecialSchedule(dto.getTargetId());
+    public void deleteSpecialSchedule(User loginUser, DeletingPsDTO dto) {
+        loginUser.getSpecialSchedules().remove(dto.getTargetId());
     }
 
-    //특별일정 삭제
+
 
 
     //개인일정 시간 및 내용 변경(날짜유지)

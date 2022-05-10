@@ -1,4 +1,4 @@
-package navi.server.dto.announcementDTO;
+package navi.server.dto.announcementApiDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
