@@ -9,7 +9,6 @@ import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.specialScheduleDTO.AddingSpDTO;
 import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
-import navi.server.dto.delDTO.DeletingDTO;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
 import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
 import navi.server.dto.personalScheduleDTO.UpdatingPsDTO;
@@ -112,39 +111,35 @@ public class SchedulerServiceImpl implements SchedulerService {
 
     //공고일정 삭제
     @Override
-    public void deleteAnnouncementSchedule(User loginUser, DeletingDTO dto) {
-        loginUser.getAnnouncementSchedules().remove(dto.getTargetAnId());
+    public void deleteAnnouncementSchedule(User loginUser, String targetId) {
+        loginUser.getAnnouncementSchedules().remove(targetId);
         //한번저장된 객체는 유지함
     }
 
     //특별일정 삭제
     @Override
-    public void deleteSpecialSchedule(User loginUser, DeletingPsDTO dto) {
-        loginUser.getSpecialSchedules().remove(dto.getTargetId());
+    public void deleteSpecialSchedule(User loginUser, Long targetId) {
+        loginUser.getSpecialSchedules().remove(targetId);
     }
 
 
 
-
-    //개인일정 시간 및 내용 변경(날짜유지)
+    //개인일정 내용만 변경
     @Override
-    public void updatePersonalScheduleDetail(Long targetId, CreatingPsDTO dto) {
+    public void updatePersonalScheduleContents(UpdatingPsDTO dto) {
 
-        personalScheduleService.updatePersonalSchedule(targetId, new PersonalSchedule(dto.getS_time(), dto.getE_time(), dto.isObservation(), dto.getDetail()));
+        personalScheduleService.updatePersonalSchedule(dto.getTargetId(), new PersonalSchedule(dto.getS_time(), dto.getE_time(), dto.isObservation(), dto.getDetail()));
 
     }
 
     //개인일정 날짜변경
+    //이 메서드는 필요한게 맞나 의구심이 든다. 그냥 삭제요청이후 생성요청 보내면 되는건데..없앨까?
     @Override
-    public void updatePersonalScheduleDate(User loginUser, UpdatingPsDTO dto) {
-        //해당 개인일정을 원래 객체에서 제거
-        PersonalSchedule ps = loginUser.getUserSchedules().get(dto.getOldDate()).getPersonalSchedules().remove(dto.getTargetId());
-        //해당 개인일정을 알맞은 날짜에 추가
-        loginUser.getUserSchedules().get(dto.getNewDate()).getPersonalSchedules().put(ps.getId(), ps);
-
+    public void updatePersonalSchedule(User loginUser, DeletingPsDTO oldOne , CreatingPsDTO newOne) {
+        deletePersonalSchedule(loginUser,oldOne);
+        createPersonalSchedule(loginUser,newOne);
     }
-
-    //만약 날짜 변경와 시간변경을 드래그앤 드롭조작으로 한번에할시 먼저 날짜변경호출 후 시간변경 적용
+    
 
 
 }

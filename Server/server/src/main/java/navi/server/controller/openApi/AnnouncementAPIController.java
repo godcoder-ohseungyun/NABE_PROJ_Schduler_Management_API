@@ -1,4 +1,4 @@
-package navi.server.controller.announcement;
+package navi.server.controller.openApi;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,6 +6,7 @@ import navi.server.dto.announcementApiDTO.ResponseDTO;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,6 +18,7 @@ import java.nio.charset.Charset;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@RequestMapping("/api")
 public class AnnouncementAPIController {
 
     /**
@@ -27,10 +29,12 @@ public class AnnouncementAPIController {
     private final String APP_KEY = "jSzmOzrqgCNGWwUGJbBVBxqIPLxwXRz2ZfUGUtAlQOyUmmr5NTka";
 
 
-    @GetMapping("/api/ans")
+    @GetMapping("/announcements")
     public ResponseDTO restTempateTestMethod(HttpServletRequest request){
 
         HttpEntity<String> entity = makeEntity();
+
+        log.info(request.getQueryString());
 
         String url = makeUri(request.getQueryString());
 

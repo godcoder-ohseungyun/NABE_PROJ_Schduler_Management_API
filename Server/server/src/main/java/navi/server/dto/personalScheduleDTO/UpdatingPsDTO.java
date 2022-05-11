@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdatingPsDTO {
-    private String oldDate;
-    private String newDate;
     private Long targetId;
+    private String s_time;
+    private String e_time;
+    private boolean observation;
+    private String detail;
 
 
 }
