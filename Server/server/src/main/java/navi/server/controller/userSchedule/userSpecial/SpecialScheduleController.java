@@ -6,8 +6,12 @@ import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
 import navi.server.dto.specialScheduleDTO.AddingSpDTO;
+import navi.server.hateos.HateosCreator;
 import navi.server.service.scheduler.SchedulerService;
 import navi.server.service.user.UserService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -19,24 +23,29 @@ public class SpecialScheduleController {
 
     private final SchedulerService schedulerService;
     private final UserService userService;
+    private final HateosCreator hateosCreator;
 
     /**
      * 인증된 유저의 특별 일정 추가
      */
     @PostMapping("/special-schedules")
-    public User addSpecialSchedule(@RequestBody AddingSpDTO dto) {
+    public ResponseEntity<String> addSpecialSchedule(@RequestBody AddingSpDTO dto) {
         User master = userService.findUserByUniqueId(0l);
 
         schedulerService.createSpecialSchedule(master, dto);
 
-        return master;
+        HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
+
+        return new ResponseEntity<String>("ok",headers, HttpStatus.valueOf(200));
     }
 
     @GetMapping("/special-schedules")
-    public Map<Long, SpecialSchedule> readSpecialSchedule() {
+    public ResponseEntity<Map<Long, SpecialSchedule>> readSpecialSchedule() {
         User master = userService.findUserByUniqueId(0l);
 
-        return master.getSpecialSchedules();
+        HttpHeaders headers = hateosCreator.createHeaders("POST","/user-schedules");
+
+        return new ResponseEntity<Map<Long, SpecialSchedule>>(master.getSpecialSchedules(),headers,HttpStatus.valueOf(200));
     }
 
 
@@ -44,11 +53,13 @@ public class SpecialScheduleController {
      * 인증된 유저의 특별 일정 삭제
      */
     @DeleteMapping("/special-schedules/{targetId}")
-    public User deleteSpecialSchedule(@PathVariable Long targetId) {
+    public ResponseEntity<String> deleteSpecialSchedule(@PathVariable Long targetId) {
         User master = userService.findUserByUniqueId(0l);
 
         schedulerService.deleteSpecialSchedule(master, targetId);
 
-        return master;
+        HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
+
+        return new ResponseEntity<String>("ok",headers,HttpStatus.valueOf(200));
     }
 }

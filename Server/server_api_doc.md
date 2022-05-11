@@ -32,6 +32,8 @@ https://oapi.saramin.co.kr/job-search?access-key=jSzmOzrqgCNGWwUGJbBVBxqIPLxwXRz
 [DELETE] /api/special-schedules/{targetId}
 ~~~
 
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
 
 
 ## DFD
