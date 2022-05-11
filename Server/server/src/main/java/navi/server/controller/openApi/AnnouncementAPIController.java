@@ -2,16 +2,17 @@ package navi.server.controller.openApi;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import navi.server.dto.announcementApiDTO.RequestDTO;
 import navi.server.dto.announcementApiDTO.ResponseDTO;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
 
 
@@ -30,28 +31,28 @@ public class AnnouncementAPIController {
 
 
     @GetMapping("/announcements")
-    public ResponseDTO restTempateTestMethod(HttpServletRequest request){
+    public ResponseDTO restTempateTestMethod(HttpServletRequest request) throws UnsupportedEncodingException {
 
         HttpEntity<String> entity = makeEntity();
 
-        log.info(request.getQueryString());
+        String queryString = URLDecoder.decode(request.getQueryString(), "UTF-8");
 
-        String url = makeUri(request.getQueryString());
+        String url = makeUri(queryString);
 
         ResponseEntity<ResponseDTO> response = restTemplate.exchange(url,HttpMethod.GET,entity ,ResponseDTO.class);
 
-        ResponseDTO r = response.getBody();
-
-        return r;
+        return response.getBody();
     }
 
     private String makeUri(String param){
         //param : localhost:8080?keywords=개발자&job_type=1&edu_lv=0&loc_cd=101010&job_mid_cd=2
         // -> keywords=개발자&job_type=1&edu_lv=0&loc_cd=101010&job_mid_cd=2 이부분만 추출
 
-        String defaultUrl = "https://oapi.saramin.co.kr/job-search?access-key="+APP_KEY;
+        String defaultUrl = "https://oapi.saramin.co.kr/job-search?access-key=";
 
-        return String.format("%s&",defaultUrl,param);
+        log.info(String.format("%s%s&%s",defaultUrl,APP_KEY,param));
+
+        return String.format("%s%s&%s",defaultUrl,APP_KEY,param);
     }
 
 
