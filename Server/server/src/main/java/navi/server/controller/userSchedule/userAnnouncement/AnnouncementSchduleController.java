@@ -29,15 +29,14 @@ public class AnnouncementSchduleController {
      * 인증된 유저의 타겟 공고 추가
      */
     @PostMapping("/announcements/user-targets")
-    public ResponseEntity<String> addTargetAnnouncement(@RequestBody AddingAnDTO dto) {
+    public ResponseEntity<AnnouncementSchedule> addTargetAnnouncement(@RequestBody AddingAnDTO dto) {
         User master = userService.findUserByUniqueId(0l);
 
-
-        schedulerService.createAnnouncementSchedule(master, dto);
+        AnnouncementSchedule announcementSchedule = schedulerService.createAnnouncementSchedule(master, dto);
 
         HttpHeaders headers = hateosCreator.createHeaders("GET","/announcements/user-targets");
 
-        return new ResponseEntity<String>("ok",headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<AnnouncementSchedule>(announcementSchedule,headers,HttpStatus.valueOf(200));
 
     }
 

@@ -29,14 +29,14 @@ public class SpecialScheduleController {
      * 인증된 유저의 특별 일정 추가
      */
     @PostMapping("/special-schedules")
-    public ResponseEntity<String> addSpecialSchedule(@RequestBody AddingSpDTO dto) {
+    public ResponseEntity<SpecialSchedule> addSpecialSchedule(@RequestBody AddingSpDTO dto) {
         User master = userService.findUserByUniqueId(0l);
 
-        schedulerService.createSpecialSchedule(master, dto);
+        SpecialSchedule specialSchedule =  schedulerService.createSpecialSchedule(master, dto);
 
         HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
 
-        return new ResponseEntity<String>("ok",headers, HttpStatus.valueOf(200));
+        return new ResponseEntity<SpecialSchedule>(specialSchedule,headers, HttpStatus.valueOf(200));
     }
 
     @GetMapping("/special-schedules")

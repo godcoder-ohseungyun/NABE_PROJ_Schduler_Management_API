@@ -39,20 +39,20 @@ public class AnnouncementAPIController {
 
         String url = makeUri(queryString);
 
-        ResponseEntity<ResponseDTO> response = restTemplate.exchange(url,HttpMethod.GET,entity ,ResponseDTO.class);
+        ResponseEntity<ResponseDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, ResponseDTO.class);
 
         return response.getBody();
     }
 
-    private String makeUri(String param){
+    private String makeUri(String param) {
         //param : localhost:8080?keywords=개발자&job_type=1&edu_lv=0&loc_cd=101010&job_mid_cd=2
         // -> keywords=개발자&job_type=1&edu_lv=0&loc_cd=101010&job_mid_cd=2 이부분만 추출
 
         String defaultUrl = "https://oapi.saramin.co.kr/job-search?access-key=";
 
-        log.info(String.format("%s%s&%s",defaultUrl,APP_KEY,param));
+        log.info(String.format("%s%s&%s", defaultUrl, APP_KEY, param));
 
-        return String.format("%s%s&%s",defaultUrl,APP_KEY,param);
+        return String.format("%s%s&%s", defaultUrl, APP_KEY, param);
     }
 
 
@@ -74,7 +74,7 @@ public class AnnouncementAPIController {
     private void RestTemplateConverterSetting() {
 
         System.out.println("RestTemplate setting..");
-        restTemplate.getMessageConverters().add(0,new StringHttpMessageConverter(Charset.forName("UTF-8")));
+        restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
 
     }
 

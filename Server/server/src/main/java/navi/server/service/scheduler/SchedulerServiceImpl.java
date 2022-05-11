@@ -32,7 +32,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 
     //개인일정 추가
     @Override
-    public void createPersonalSchedule(User loginUser, CreatingPsDTO dto) {
+    public PersonalSchedule createPersonalSchedule(User loginUser, CreatingPsDTO dto) {
 
         String date = dto.getDate();
 
@@ -59,11 +59,13 @@ public class SchedulerServiceImpl implements SchedulerService {
             //개인일정 추가
             findUserSchedule.getPersonalSchedules().put(createdPersonalSchedule.getId(), createdPersonalSchedule);
         }
+
+        return createdPersonalSchedule;
     }
 
     //공고일정 추가
     @Override
-    public void createAnnouncementSchedule(User loginUser, AddingAnDTO dto) {
+    public AnnouncementSchedule createAnnouncementSchedule(User loginUser, AddingAnDTO dto) {
 
         if(!announcementScheduleService.isIn(dto.getAnno_id())){
             announcementScheduleService.createAnnouncementSchedule(new AnnouncementSchedule(dto.getAnno_id(),
@@ -80,11 +82,12 @@ public class SchedulerServiceImpl implements SchedulerService {
             loginUser.getAnnouncementSchedules().put(findAnnouncementSchedule.getAnno_id(),findAnnouncementSchedule);
         }
 
+        return announcementScheduleService.findAnnouncementSchedule(dto.getAnno_id());
     }
 
     //특별일정 추가
     @Override
-    public void createSpecialSchedule(User loginUser, AddingSpDTO dto) {
+    public SpecialSchedule createSpecialSchedule(User loginUser, AddingSpDTO dto) {
 
 
         if(!specialScheduleService.isIn(dto.getId())){
@@ -99,6 +102,8 @@ public class SchedulerServiceImpl implements SchedulerService {
         if(findSpecialSchedule!=null){
             loginUser.getSpecialSchedules().put(findSpecialSchedule.getId(),findSpecialSchedule);
         }
+
+        return specialScheduleService.findSpecialSchedule(dto.getId());
     }
 
 
@@ -126,19 +131,22 @@ public class SchedulerServiceImpl implements SchedulerService {
 
     //개인일정 내용만 변경
     @Override
-    public void updatePersonalScheduleContents(UpdatingPsDTO dto) {
+    public PersonalSchedule updatePersonalScheduleContents(UpdatingPsDTO dto) {
+        PersonalSchedule newOne = new PersonalSchedule(dto.getS_time(), dto.getE_time(), dto.isObservation(), dto.getDetail());
 
-        personalScheduleService.updatePersonalSchedule(dto.getTargetId(), new PersonalSchedule(dto.getS_time(), dto.getE_time(), dto.isObservation(), dto.getDetail()));
+        personalScheduleService.updatePersonalSchedule(dto.getTargetId(),newOne);
+
+        return newOne;
 
     }
 
     //개인일정 날짜변경
     //이 메서드는 필요한게 맞나 의구심이 든다. 그냥 삭제요청이후 생성요청 보내면 되는건데..없앨까?
-    @Override
-    public void updatePersonalSchedule(User loginUser, DeletingPsDTO oldOne , CreatingPsDTO newOne) {
-        deletePersonalSchedule(loginUser,oldOne);
-        createPersonalSchedule(loginUser,newOne);
-    }
+//    @Override
+//    public PersonalSchedule updatePersonalSchedule(User loginUser, DeletingPsDTO oldOne , CreatingPsDTO newOne) {
+//        deletePersonalSchedule(loginUser,oldOne);
+//        createPersonalSchedule(loginUser,newOne);
+//    }
     
 
 

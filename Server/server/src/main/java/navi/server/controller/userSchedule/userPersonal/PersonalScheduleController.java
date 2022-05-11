@@ -3,6 +3,7 @@ package navi.server.controller.userSchedule.userPersonal;
 
 import lombok.RequiredArgsConstructor;
 import navi.server.domain.schedule.UserSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
 import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
@@ -44,27 +45,27 @@ public class PersonalScheduleController {
      * 인증 유저의 스캐쥴에 개인 스캐쥴 추가
      */
     @PostMapping("/user-schedules")
-    public ResponseEntity<String> addPersonalSchedule(@RequestBody CreatingPsDTO dto) {
+    public ResponseEntity<PersonalSchedule> addPersonalSchedule(@RequestBody CreatingPsDTO dto) {
         User master = userService.findUserByUniqueId(0l);
 
-        schedulerService.createPersonalSchedule(master, dto);
+        PersonalSchedule personalSchedule = schedulerService.createPersonalSchedule(master, dto);
 
         HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
 
-        return new ResponseEntity<String>("ok",headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<PersonalSchedule>(personalSchedule,headers,HttpStatus.valueOf(200));
     }
 
     @PutMapping("/user-schedules")
-    public ResponseEntity<String> updatePersonalScheduleContents(@RequestBody UpdatingPsDTO dto) {
+    public ResponseEntity<PersonalSchedule> updatePersonalScheduleContents(@RequestBody UpdatingPsDTO dto) {
         User master = userService.findUserByUniqueId(0l);
 
         //+인증절차 추가해야함
-        
-        schedulerService.updatePersonalScheduleContents(dto);
+
+        PersonalSchedule personalSchedule = schedulerService.updatePersonalScheduleContents(dto);
 
         HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
 
-        return new ResponseEntity<String>("ok",headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<PersonalSchedule>(personalSchedule,headers,HttpStatus.valueOf(200));
     }
 
     //이 메서드는 필요한게 맞나 의구심이 든다. 그냥 삭제요청이후 생성요청 보내면 되는건데..없앨까?

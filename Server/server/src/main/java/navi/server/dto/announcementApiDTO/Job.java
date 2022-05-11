@@ -11,9 +11,12 @@ import lombok.NoArgsConstructor;
 public class Job {
 
     private String id;
-    private Company company; //정보
+    @JsonProperty(value = "url")
+    private String announcement_url; //공고 url
+    private Position position;
     @JsonProperty(value = "opening-timestamp")
     private String opening_timestamp; //시작일
     @JsonProperty(value = "expiration-timestamp")
     private String expiration_timestamp; //마감일
+    private Company company; //정보
 }

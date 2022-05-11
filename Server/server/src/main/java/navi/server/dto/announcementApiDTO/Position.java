@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Detail {
-    @JsonProperty(value = "href")
-    private String company_href;
-    @JsonProperty(value = "name")
-    private String company_name;
+public class Position {
+    @JsonProperty(value = "title")
+    private String announcement_title;
 }
