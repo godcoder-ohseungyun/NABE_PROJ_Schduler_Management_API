@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DeletingPsDTO {
     private String targetDate;
-    private Long targetId;
 }

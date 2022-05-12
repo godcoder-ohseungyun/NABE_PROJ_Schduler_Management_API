@@ -10,7 +10,7 @@ import java.net.URI;
 @Service
 public class HateosCreator {
     
-    private final String API_DOC_LINK = "명세서 링크";
+    private final String API_DOC_LINK = "https://documenter.getpostman.com/view/17055046/UyxgK8Ty";
     
     public HttpHeaders createHeaders(String method,String nextUrl){
         

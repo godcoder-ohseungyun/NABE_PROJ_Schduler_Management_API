@@ -28,9 +28,9 @@ public class AnnouncementSchduleController {
     /**
      * 인증된 유저의 타겟 공고 추가
      */
-    @PostMapping("/announcements/user-targets")
-    public ResponseEntity<AnnouncementSchedule> addTargetAnnouncement(@RequestBody AddingAnDTO dto) {
-        User master = userService.findUserByUniqueId(0l);
+    @PostMapping("/{userId}/user-targets")
+    public ResponseEntity<AnnouncementSchedule> addTargetAnnouncement(@PathVariable Long userId ,@RequestBody AddingAnDTO dto) {
+        User master = userService.findUserByUniqueId(userId);
 
         AnnouncementSchedule announcementSchedule = schedulerService.createAnnouncementSchedule(master, dto);
 
@@ -40,9 +40,13 @@ public class AnnouncementSchduleController {
 
     }
 
-    @GetMapping("/announcements/user-targets")
-    public ResponseEntity<Map<String, AnnouncementSchedule>> readTargetAnnouncement() {
-        User master = userService.findUserByUniqueId(0l);
+
+    /**
+     * 인증된 유저의 타겟 공고 조회
+     */
+    @GetMapping("/{userId}/user-targets")
+    public ResponseEntity<Map<String, AnnouncementSchedule>> readTargetAnnouncement(@PathVariable Long userId) {
+        User master = userService.findUserByUniqueId(userId);
 
         HttpHeaders headers = hateosCreator.createHeaders("POST","/announcements/user-targets");
 
@@ -53,9 +57,9 @@ public class AnnouncementSchduleController {
     /**
      * 인증된 유저의 타겟 공고 삭제
      */
-    @DeleteMapping("/announcements/user-targets/{targetId}")
-    public ResponseEntity<String> deleteTargetAnnouncement(@PathVariable  String targetId) {
-        User master = userService.findUserByUniqueId(0l);
+    @DeleteMapping("/{userId}/user-targets/{targetId}")
+    public ResponseEntity<String> deleteTargetAnnouncement(@PathVariable Long userId,@PathVariable  String targetId) {
+        User master = userService.findUserByUniqueId(userId);
 
         schedulerService.deleteAnnouncementSchedule(master, targetId);
 

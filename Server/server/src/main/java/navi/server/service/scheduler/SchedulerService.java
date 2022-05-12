@@ -24,7 +24,7 @@ public interface SchedulerService {
     //이 메서드는 필요한게 맞나 의구심이 든다. 그냥 삭제요청이후 생성요청 보내면 되는건데..없앨까?
     //PersonalSchedule updatePersonalSchedule(User loginUser, DeletingPsDTO oldOne , CreatingPsDTO newOne);
 
-    void deletePersonalSchedule( User loginUser , DeletingPsDTO dto);
+    void deletePersonalSchedule( User loginUser , Long targetId , DeletingPsDTO dto);
 
     /**
      * 공고일정

@@ -31,41 +31,43 @@ public class PersonalScheduleController {
     /**
      * 인증 유저의 스캐쥴 전체 조회
      */
-    @GetMapping("/user-schedules")
-    public ResponseEntity<Map<String, UserSchedule>> readUserSchedule() {
-        User master = userService.findUserByUniqueId(0l);
+    @GetMapping("/{userId}/user-schedules")
+    public ResponseEntity<Map<String, UserSchedule>> readUserSchedule(@PathVariable Long userId) {
 
-        HttpHeaders headers = hateosCreator.createHeaders("POST","/user-schedules");
+        User master = userService.findUserByUniqueId(userId);
 
-        return new ResponseEntity<Map<String, UserSchedule>>(master.getUserSchedules(),headers, HttpStatus.valueOf(200));
+        HttpHeaders headers = hateosCreator.createHeaders("POST", "/user-schedules");
+
+        return new ResponseEntity<Map<String, UserSchedule>>(master.getUserSchedules(), headers, HttpStatus.valueOf(200));
     }
 
 
     /**
      * 인증 유저의 스캐쥴에 개인 스캐쥴 추가
      */
-    @PostMapping("/user-schedules")
-    public ResponseEntity<PersonalSchedule> addPersonalSchedule(@RequestBody CreatingPsDTO dto) {
-        User master = userService.findUserByUniqueId(0l);
+    @PostMapping("/{userId}/user-schedules")
+    public ResponseEntity<PersonalSchedule> addPersonalSchedule(@PathVariable Long userId, @RequestBody CreatingPsDTO dto) {
+
+        User master = userService.findUserByUniqueId(userId);
 
         PersonalSchedule personalSchedule = schedulerService.createPersonalSchedule(master, dto);
 
-        HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
+        HttpHeaders headers = hateosCreator.createHeaders("GET", "/user-schedules");
 
-        return new ResponseEntity<PersonalSchedule>(personalSchedule,headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<PersonalSchedule>(personalSchedule, headers, HttpStatus.valueOf(200));
     }
 
-    @PutMapping("/user-schedules")
-    public ResponseEntity<PersonalSchedule> updatePersonalScheduleContents(@RequestBody UpdatingPsDTO dto) {
-        User master = userService.findUserByUniqueId(0l);
+    @PutMapping("/{userId}/user-schedules")
+    public ResponseEntity<PersonalSchedule> updatePersonalScheduleContents(@PathVariable Long userId, @RequestBody UpdatingPsDTO dto) {
+        User master = userService.findUserByUniqueId(userId);
 
         //+인증절차 추가해야함
 
         PersonalSchedule personalSchedule = schedulerService.updatePersonalScheduleContents(dto);
 
-        HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
+        HttpHeaders headers = hateosCreator.createHeaders("GET", "/user-schedules");
 
-        return new ResponseEntity<PersonalSchedule>(personalSchedule,headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<PersonalSchedule>(personalSchedule, headers, HttpStatus.valueOf(200));
     }
 
     //이 메서드는 필요한게 맞나 의구심이 든다. 그냥 삭제요청이후 생성요청 보내면 되는건데..없앨까?
@@ -82,15 +84,15 @@ public class PersonalScheduleController {
     /**
      * 인증 유저의 스캐쥴에 개인 스캐쥴 삭제
      */
-    @DeleteMapping("/user-schedules")
-    public ResponseEntity<String> deletePersonalSchedule(@RequestBody DeletingPsDTO dto) {
-        User master = userService.findUserByUniqueId(0l);
+    @DeleteMapping("/{userId}/user-schedules/{targetId}")
+    public ResponseEntity<String> deletePersonalSchedule(@PathVariable Long userId, @PathVariable Long targetId, @RequestBody DeletingPsDTO dto) {
+        User master = userService.findUserByUniqueId(userId);
 
-        schedulerService.deletePersonalSchedule(master, dto);
+        schedulerService.deletePersonalSchedule(master, targetId, dto);
 
-        HttpHeaders headers = hateosCreator.createHeaders("GET","/user-schedules");
+        HttpHeaders headers = hateosCreator.createHeaders("GET", "/user-schedules");
 
-        return new ResponseEntity<String>("ok",headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<String>("ok", headers, HttpStatus.valueOf(200));
     }
 
 

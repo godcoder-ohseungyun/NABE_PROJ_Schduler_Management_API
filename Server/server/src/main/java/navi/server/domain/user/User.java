@@ -19,7 +19,7 @@ public class User {
     private Long id;
     private String password;
     private String email;
-    private String name;
+    private String name; //unique 유저 검색조건으로 쓰일예정임
 
     private Map<String, AnnouncementSchedule> announcementSchedules; //취업 일정 데이터
     private Map<Long, SpecialSchedule> specialSchedules; //특별 일정 데이터

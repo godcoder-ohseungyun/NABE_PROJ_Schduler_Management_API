@@ -109,9 +109,9 @@ public class SchedulerServiceImpl implements SchedulerService {
 
     //개인일정 삭제
     @Override
-    public void deletePersonalSchedule(User loginUser, DeletingPsDTO dto) {
-        loginUser.getUserSchedules().get(dto.getTargetDate()).getPersonalSchedules().remove(dto.getTargetId());
-        personalScheduleService.deletePersonalSchedule(dto.getTargetId());
+    public void deletePersonalSchedule(User loginUser, Long targetId , DeletingPsDTO dto) {
+        loginUser.getUserSchedules().get(dto.getTargetDate()).getPersonalSchedules().remove(targetId);
+        personalScheduleService.deletePersonalSchedule(targetId);
     }
 
     //공고일정 삭제

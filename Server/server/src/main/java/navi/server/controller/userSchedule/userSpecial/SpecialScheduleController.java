@@ -28,9 +28,9 @@ public class SpecialScheduleController {
     /**
      * 인증된 유저의 특별 일정 추가
      */
-    @PostMapping("/special-schedules")
-    public ResponseEntity<SpecialSchedule> addSpecialSchedule(@RequestBody AddingSpDTO dto) {
-        User master = userService.findUserByUniqueId(0l);
+    @PostMapping("/{userId}/special-schedules")
+    public ResponseEntity<SpecialSchedule> addSpecialSchedule(@PathVariable Long userId, @RequestBody AddingSpDTO dto) {
+        User master = userService.findUserByUniqueId(userId);
 
         SpecialSchedule specialSchedule =  schedulerService.createSpecialSchedule(master, dto);
 
@@ -39,9 +39,12 @@ public class SpecialScheduleController {
         return new ResponseEntity<SpecialSchedule>(specialSchedule,headers, HttpStatus.valueOf(200));
     }
 
-    @GetMapping("/special-schedules")
-    public ResponseEntity<Map<Long, SpecialSchedule>> readSpecialSchedule() {
-        User master = userService.findUserByUniqueId(0l);
+    /**
+     * 인증된 유저의 특별 일정 조회
+     */
+    @GetMapping("/{userId}/special-schedules")
+    public ResponseEntity<Map<Long, SpecialSchedule>> readSpecialSchedule(@PathVariable Long userId) {
+        User master = userService.findUserByUniqueId(userId);
 
         HttpHeaders headers = hateosCreator.createHeaders("POST","/user-schedules");
 
@@ -52,9 +55,9 @@ public class SpecialScheduleController {
     /**
      * 인증된 유저의 특별 일정 삭제
      */
-    @DeleteMapping("/special-schedules/{targetId}")
-    public ResponseEntity<String> deleteSpecialSchedule(@PathVariable Long targetId) {
-        User master = userService.findUserByUniqueId(0l);
+    @DeleteMapping("/{userId}/special-schedules/{targetId}")
+    public ResponseEntity<String> deleteSpecialSchedule(@PathVariable Long userId,@PathVariable Long targetId) {
+        User master = userService.findUserByUniqueId(userId);
 
         schedulerService.deleteSpecialSchedule(master, targetId);
 

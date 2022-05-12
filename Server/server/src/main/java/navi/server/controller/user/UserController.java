@@ -6,6 +6,7 @@ import navi.server.domain.user.User;
 import navi.server.service.user.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,19 +19,12 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/user")
-    public User readUser(){
+    @GetMapping("/{userId}")
+    public User readUser(@PathVariable Long userId){
 
-        User master = userService.findUserByUniqueId(0l);
+        User master = userService.findUserByUniqueId(userId);
 
         return master;
     }
 
-    @GetMapping("/user/schedules")
-    public Map<String,UserSchedule> readUserSchedules(){
-
-        User master = userService.findUserByUniqueId(0l);
-
-        return master.getUserSchedules();
-    }
 }

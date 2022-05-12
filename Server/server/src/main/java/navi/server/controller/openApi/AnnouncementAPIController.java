@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import navi.server.dto.announcementApiDTO.RequestDTO;
 import navi.server.dto.announcementApiDTO.ResponseDTO;
+import navi.server.hateos.HateosCreator;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +27,13 @@ public class AnnouncementAPIController {
      * 사람인 채용공고 RestTemplate
      */
     private final RestTemplate restTemplate;
+    private final HateosCreator hateosCreator;
 
     private final String APP_KEY = "jSzmOzrqgCNGWwUGJbBVBxqIPLxwXRz2ZfUGUtAlQOyUmmr5NTka";
 
 
     @GetMapping("/announcements")
-    public ResponseDTO restTempateTestMethod(HttpServletRequest request) throws UnsupportedEncodingException {
+    public ResponseEntity<ResponseDTO> restTempateTestMethod(HttpServletRequest request) throws UnsupportedEncodingException {
 
         HttpEntity<String> entity = makeEntity();
 
@@ -41,7 +43,9 @@ public class AnnouncementAPIController {
 
         ResponseEntity<ResponseDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, ResponseDTO.class);
 
-        return response.getBody();
+        HttpHeaders headers = hateosCreator.createHeaders("POST","/announcements/user-targets");
+
+        return new ResponseEntity<ResponseDTO>(response.getBody(),headers,HttpStatus.valueOf(200));
     }
 
     private String makeUri(String param) {
