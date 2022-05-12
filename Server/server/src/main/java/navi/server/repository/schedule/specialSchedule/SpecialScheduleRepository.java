@@ -5,9 +5,9 @@ import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 public interface SpecialScheduleRepository {
     SpecialSchedule save(SpecialSchedule SpecialSchedule);
 
-    SpecialSchedule findById(Long id);
+    SpecialSchedule findById(String id);
 
-    void delete(Long id);
+    void delete(String id);
 
     void clearStore();
 }

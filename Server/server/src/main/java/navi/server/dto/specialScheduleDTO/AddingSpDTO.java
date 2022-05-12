@@ -9,9 +9,9 @@ import navi.server.domain.schedule.userScheduleSubclasses.enumType.Certification
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddingSpDTO {
-    private Long id;
     private String name;
-    private CertificationScheduleType certificationScheduleType;
+    private String test_date;
+    private String r_date;
     private String s_date;
     private String e_date;
 }

@@ -13,11 +13,6 @@ public class AnnouncementScheduleRepositoryImpl implements AnnouncementScheduleR
     private Map<String, AnnouncementSchedule> store = new ConcurrentHashMap<>();
 
 
-    /**
-     *
-     * @param announcementSchedule
-     * @return
-     */
     @Override
     public AnnouncementSchedule save(AnnouncementSchedule announcementSchedule) {
 

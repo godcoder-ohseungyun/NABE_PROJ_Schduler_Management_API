@@ -17,19 +17,19 @@ public class SpecialScheduleServiceImpl implements  SpecialScheduleService{
     }
 
     @Override
-    public boolean isIn(Long spId){
+    public boolean isIn(String spId){
         if(findSpecialSchedule(spId)==null) return false;
 
         return true;
     }
 
     @Override
-    public void deleteSpecialSchedule(Long id) {
-        specialScheduleRepository.delete(id);
+    public void deleteSpecialSchedule(String spId) {
+        specialScheduleRepository.delete(spId);
     }
 
     @Override
-    public SpecialSchedule findSpecialSchedule(Long spId) {
+    public SpecialSchedule findSpecialSchedule(String spId) {
         return specialScheduleRepository.findById(spId);
     }
 }

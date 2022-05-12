@@ -39,7 +39,7 @@ public interface SchedulerService {
      */
     SpecialSchedule createSpecialSchedule(User loginUser, AddingSpDTO dto);
     
-    void deleteSpecialSchedule(User loginUser, Long targetId);
+    void deleteSpecialSchedule(User loginUser, String targetId);
 
     
 

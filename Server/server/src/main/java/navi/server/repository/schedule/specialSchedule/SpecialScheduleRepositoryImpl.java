@@ -10,25 +10,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class SpecialScheduleRepositoryImpl implements SpecialScheduleRepository {
-    private Map<Long, SpecialSchedule> store = new ConcurrentHashMap<>();
-    private Long uniqueId = 0L; //임시
+    private Map<String, SpecialSchedule> store = new ConcurrentHashMap<>();
 
     @Override
     public SpecialSchedule save(SpecialSchedule specialSchedule) {
 
-        specialSchedule.setId(uniqueId++);//임시: 별도 unique id 생성 로직 짜야함
-        store.put(specialSchedule.getId(),specialSchedule);
+        store.put(specialSchedule.getName()+specialSchedule.getTest_date(),specialSchedule);
 
         return specialSchedule;
     }
 
     @Override
-    public SpecialSchedule findById(Long id) {
+    public SpecialSchedule findById(String id) {
         return store.get(id);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         store.remove(id);
     }
 

@@ -22,7 +22,7 @@ public class User {
     private String name; //unique 유저 검색조건으로 쓰일예정임
 
     private Map<String, AnnouncementSchedule> announcementSchedules; //취업 일정 데이터
-    private Map<Long, SpecialSchedule> specialSchedules; //특별 일정 데이터
+    private Map<String, SpecialSchedule> specialSchedules; //특별 일정 데이터
 
     //사용자 스캐쥴 객체
     private Map<String,UserSchedule> userSchedules;

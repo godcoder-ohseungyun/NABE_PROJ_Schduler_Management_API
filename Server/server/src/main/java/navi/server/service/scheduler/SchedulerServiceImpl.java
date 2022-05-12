@@ -82,28 +82,30 @@ public class SchedulerServiceImpl implements SchedulerService {
             loginUser.getAnnouncementSchedules().put(findAnnouncementSchedule.getAnno_id(),findAnnouncementSchedule);
         }
 
-        return announcementScheduleService.findAnnouncementSchedule(dto.getAnno_id());
+        return findAnnouncementSchedule;
     }
 
     //특별일정 추가
     @Override
     public SpecialSchedule createSpecialSchedule(User loginUser, AddingSpDTO dto) {
 
+        String id = dto.getName()+dto.getTest_date();
 
-        if(!specialScheduleService.isIn(dto.getId())){
+        if(!specialScheduleService.isIn(id)){
             specialScheduleService.createSpecialSchedule(new SpecialSchedule(dto.getName(),
-                    dto.getCertificationScheduleType(),
+                    dto.getTest_date(),
                     dto.getS_date(),
-                    dto.getE_date()));
+                    dto.getE_date(),
+                    dto.getR_date()));
         }
 
-        SpecialSchedule findSpecialSchedule = specialScheduleService.findSpecialSchedule(dto.getId());
+        SpecialSchedule findSpecialSchedule = specialScheduleService.findSpecialSchedule(id);
 
         if(findSpecialSchedule!=null){
-            loginUser.getSpecialSchedules().put(findSpecialSchedule.getId(),findSpecialSchedule);
+            loginUser.getSpecialSchedules().put(id,findSpecialSchedule);
         }
 
-        return specialScheduleService.findSpecialSchedule(dto.getId());
+        return findSpecialSchedule;
     }
 
 
@@ -123,7 +125,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 
     //특별일정 삭제
     @Override
-    public void deleteSpecialSchedule(User loginUser, Long targetId) {
+    public void deleteSpecialSchedule(User loginUser, String targetId) {
         loginUser.getSpecialSchedules().remove(targetId);
     }
 

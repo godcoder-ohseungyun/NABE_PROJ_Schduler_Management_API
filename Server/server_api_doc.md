@@ -4,6 +4,8 @@ https://documenter.getpostman.com/view/17055046/UyxgK8Ty
 
 
 
+api 동작 구조가 마음에 안드는것 투성이임..NPE 가능성도 많아보이고.. 나중에 예외처리하면서 리펙토링 한번 해봐야겠다..
+
 
 
 ### 사람인 url 분석

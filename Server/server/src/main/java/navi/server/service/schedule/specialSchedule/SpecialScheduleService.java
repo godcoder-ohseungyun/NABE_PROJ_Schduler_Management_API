@@ -5,7 +5,7 @@ import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 
 public interface SpecialScheduleService {
     SpecialSchedule createSpecialSchedule(SpecialSchedule scheduleService);
-    void deleteSpecialSchedule(Long id);
-    SpecialSchedule findSpecialSchedule(Long spId);
-    boolean isIn(Long spId);
+    void deleteSpecialSchedule(String spId);
+    SpecialSchedule findSpecialSchedule(String spId);
+    boolean isIn(String spId);
 }

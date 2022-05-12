@@ -43,12 +43,12 @@ public class SpecialScheduleController {
      * 인증된 유저의 특별 일정 조회
      */
     @GetMapping("/{userId}/special-schedules")
-    public ResponseEntity<Map<Long, SpecialSchedule>> readSpecialSchedule(@PathVariable Long userId) {
+    public ResponseEntity<Map<String, SpecialSchedule>> readSpecialSchedule(@PathVariable Long userId) {
         User master = userService.findUserByUniqueId(userId);
 
         HttpHeaders headers = hateosCreator.createHeaders("POST","/user-schedules");
 
-        return new ResponseEntity<Map<Long, SpecialSchedule>>(master.getSpecialSchedules(),headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<Map<String, SpecialSchedule>>(master.getSpecialSchedules(),headers,HttpStatus.valueOf(200));
     }
 
 
@@ -56,7 +56,7 @@ public class SpecialScheduleController {
      * 인증된 유저의 특별 일정 삭제
      */
     @DeleteMapping("/{userId}/special-schedules/{targetId}")
-    public ResponseEntity<String> deleteSpecialSchedule(@PathVariable Long userId,@PathVariable Long targetId) {
+    public ResponseEntity<String> deleteSpecialSchedule(@PathVariable Long userId,@PathVariable String targetId) {
         User master = userService.findUserByUniqueId(userId);
 
         schedulerService.deleteSpecialSchedule(master, targetId);
