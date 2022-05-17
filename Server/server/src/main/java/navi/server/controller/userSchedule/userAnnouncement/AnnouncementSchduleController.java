@@ -1,6 +1,7 @@
 package navi.server.controller.userSchedule.userAnnouncement;
 
 import lombok.RequiredArgsConstructor;
+import navi.server.common.ResponseDtoMaker;
 import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.announcementScheduleDTO.AddingAnDTO;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -24,6 +26,7 @@ public class AnnouncementSchduleController {
     private final SchedulerService schedulerService;
     private final UserService userService;
     private final HateosCreator hateosCreator;
+    private final ResponseDtoMaker responseDtoMaker;
 
     /**
      * 인증된 유저의 타겟 공고 추가
@@ -45,12 +48,13 @@ public class AnnouncementSchduleController {
      * 인증된 유저의 타겟 공고 조회
      */
     @GetMapping("/{userId}/user-targets")
-    public ResponseEntity<Map<String, AnnouncementSchedule>> readTargetAnnouncement(@PathVariable Long userId) {
+    public ResponseEntity<List<AnnouncementSchedule>> readTargetAnnouncement(@PathVariable Long userId) {
         User master = userService.findUserByUniqueId(userId);
+
 
         HttpHeaders headers = hateosCreator.createHeaders("POST","/announcements/user-targets");
 
-        return new ResponseEntity<Map<String, AnnouncementSchedule>>(master.getAnnouncementSchedules(),headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<>(responseDtoMaker.convertToAnnouncementResponseDTO(master), headers, HttpStatus.valueOf(200));
     }
 
 

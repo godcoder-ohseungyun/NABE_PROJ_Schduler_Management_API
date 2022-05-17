@@ -2,12 +2,16 @@ package navi.server.controller.userSchedule.userPersonal;
 
 
 import lombok.RequiredArgsConstructor;
+import navi.server.common.ResponseDtoMaker;
 import navi.server.domain.schedule.UserSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.AnnouncementSchedule;
 import navi.server.domain.schedule.userScheduleSubclasses.PersonalSchedule;
+import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.personalScheduleDTO.CreatingPsDTO;
 import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
 import navi.server.dto.personalScheduleDTO.UpdatingPsDTO;
+import navi.server.dto.responseDTO.UserScheduleResponseDTO;
 import navi.server.hateos.HateosCreator;
 import navi.server.service.scheduler.SchedulerService;
 import navi.server.service.user.UserService;
@@ -16,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -27,18 +32,19 @@ public class PersonalScheduleController {
     private final SchedulerService schedulerService;
     private final UserService userService;
     private final HateosCreator hateosCreator;
+    private final ResponseDtoMaker responseDtoMaker;
 
     /**
      * 인증 유저의 스캐쥴 전체 조회
      */
     @GetMapping("/{userId}/user-schedules")
-    public ResponseEntity<Map<String, UserSchedule>> readUserSchedule(@PathVariable Long userId) {
+    public ResponseEntity<List<UserScheduleResponseDTO>> readUserSchedule(@PathVariable Long userId) {
 
         User master = userService.findUserByUniqueId(userId);
 
         HttpHeaders headers = hateosCreator.createHeaders("POST", "/user-schedules");
 
-        return new ResponseEntity<Map<String, UserSchedule>>(master.getUserSchedules(), headers, HttpStatus.valueOf(200));
+        return new ResponseEntity<>(responseDtoMaker.convertToUserScheduleResponseDTO(master), headers, HttpStatus.valueOf(200));
     }
 
 

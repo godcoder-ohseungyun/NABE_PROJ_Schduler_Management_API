@@ -2,6 +2,7 @@ package navi.server.controller.userSchedule.userSpecial;
 
 
 import lombok.RequiredArgsConstructor;
+import navi.server.common.ResponseDtoMaker;
 import navi.server.domain.schedule.userScheduleSubclasses.SpecialSchedule;
 import navi.server.domain.user.User;
 import navi.server.dto.personalScheduleDTO.DeletingPsDTO;
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -24,6 +26,7 @@ public class SpecialScheduleController {
     private final SchedulerService schedulerService;
     private final UserService userService;
     private final HateosCreator hateosCreator;
+    private final ResponseDtoMaker responseDtoMaker;
 
     /**
      * 인증된 유저의 특별 일정 추가
@@ -43,12 +46,12 @@ public class SpecialScheduleController {
      * 인증된 유저의 특별 일정 조회
      */
     @GetMapping("/{userId}/special-schedules")
-    public ResponseEntity<Map<String, SpecialSchedule>> readSpecialSchedule(@PathVariable Long userId) {
+    public ResponseEntity<List<SpecialSchedule>> readSpecialSchedule(@PathVariable Long userId) {
         User master = userService.findUserByUniqueId(userId);
 
         HttpHeaders headers = hateosCreator.createHeaders("POST","/user-schedules");
 
-        return new ResponseEntity<Map<String, SpecialSchedule>>(master.getSpecialSchedules(),headers,HttpStatus.valueOf(200));
+        return new ResponseEntity<>(responseDtoMaker.convertToSpecialResponseDTO(master),headers,HttpStatus.valueOf(200));
     }
 
 
