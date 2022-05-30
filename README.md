@@ -7,7 +7,7 @@
 
 ## 프로토타입 아키텍쳐
 
-![KakaoTalk_20220525_210357494](https://user-images.githubusercontent.com/68331041/170258083-4330982a-3b55-4c66-a92a-91c2f61804fa.png)
+![image](https://user-images.githubusercontent.com/68331041/170906610-3f4532ad-42c5-47d7-80c5-2a584dc597f2.png)
 
 
 ## 개요
