@@ -2,12 +2,14 @@
 
 ---
 
-+ **API_Doc:** https://documenter.getpostman.com/view/17055046/UyxgK8Ty
++ **API_Doc:_오승윤** https://documenter.getpostman.com/view/17055046/UyxgK8Ty
++ **Schedule Server 요구사항 분석 문서_오승윤:** https://www.notion.so/_-13899865b81844a1beb16d955351abee
 
 
 ## 프로토타입 아키텍쳐
 
-![image](https://user-images.githubusercontent.com/68331041/170906610-3f4532ad-42c5-47d7-80c5-2a584dc597f2.png)
+![image](https://user-images.githubusercontent.com/68331041/177777216-ca145ec5-b7fa-4ad1-ab87-ead5b524bfc1.png)
+
 
 
 ## 개요
