@@ -3,7 +3,7 @@
 ---
 
 + **API_Doc:_오승윤** https://documenter.getpostman.com/view/17055046/UyxgK8Ty
-+ **Schedule Server 요구사항 분석 문서_오승윤:** https://www.notion.so/_-13899865b81844a1beb16d955351abee
++ **Schedule Server 요구사항 문서_오승윤:** https://citrine-sing-062.notion.site/Nabe-8b629b5cb7234528b2c16c09aa0892f2
 
 
 ## 프로토타입 아키텍쳐
