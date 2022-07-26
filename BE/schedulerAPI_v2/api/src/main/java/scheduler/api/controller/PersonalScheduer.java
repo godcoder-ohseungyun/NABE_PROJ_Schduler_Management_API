@@ -9,8 +9,10 @@ import scheduler.api.dto.CreatingPsDto;
 import scheduler.api.dto.UpdatingPsContentsDto;
 import scheduler.api.service.PersonalScheduleService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -20,11 +22,11 @@ public class PersonalScheduer {
     private final PersonalScheduleService personalScheduleService;
 
     @GetMapping("/{memberId}/personal-schedules")
-    public void getPersonalSchedules(@PathVariable Long memberId) {
+    public ResponseEntity<List<PersonalSchedule>> getPersonalSchedules(@PathVariable Long memberId) {
 
         List<PersonalSchedule> list = personalScheduleService.findAll(memberId);
 
-        //return new ResponseEntity<List<PersonalSchedule>>(list,null, HttpStatus.valueOf(200));
+        return new ResponseEntity<List<PersonalSchedule>>(list,null, HttpStatus.valueOf(200));
     }
 
 
@@ -57,6 +59,6 @@ public class PersonalScheduer {
 
     @DeleteMapping("/{memberId}/personal-schedules")
     public void deletePersonalSchedules(@PathVariable Long memberId , @RequestBody HashMap<String,Long> request){
-        personalScheduleService.delete(request.values().toArray(new Long[request.size()]));
+        personalScheduleService.delete(request.values().stream().collect(Collectors.toCollection(ArrayList::new)));
     }
 }

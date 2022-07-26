@@ -1,6 +1,7 @@
 package scheduler.api.repository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import scheduler.api.domain.PersonalSchedule;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * 읽기 - 전체 조회 , 특정 조건 조회
  */
 @Repository
+@Slf4j
 public class PersonalScheduleRepository {
     @PersistenceContext
     private EntityManager em;
@@ -26,25 +28,30 @@ public class PersonalScheduleRepository {
         }else{
             em.merge(ps);
         }
+
         
     }
     
-    //쿼리문 IN으로 바꾸면 1번의 쿼리로 처리 가능
-    public void delete(Long psId){
-        em.createQuery("delete from personal_schedule ps where ps.id = :id")
-                    .setParameter("id", psId);
+
+    public void delete(List<Long> ids){
+
+        log.info(ids.toString());
+        em.createQuery("delete from PersonalSchedule p where p.id in :ids").setParameter("ids",ids).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
+
     }
 
     public void update(Long psId,String title,String body){
-        PersonalSchedule findPersonalSchedule = em.createQuery("select * form personal_schedule ps where ps.id = :id", PersonalSchedule.class)
+        PersonalSchedule findPersonalSchedule = em.createQuery("select ps from PersonalSchedule  ps where ps.id = :id", PersonalSchedule.class)
                 .setParameter("id",psId).getSingleResult();
 
         findPersonalSchedule.updateThisContents(title, body);
+
     }
 
     public List<PersonalSchedule> findAll(Long memberId){
-        return em.createQuery("select * form personal_schedule ps where ps.member_id = :id", PersonalSchedule.class)
+        return em.createQuery("select ps from PersonalSchedule ps where ps.memberId = :id", PersonalSchedule.class)
                 .setParameter("id",memberId).getResultList();
+
     }
 
 

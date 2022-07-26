@@ -1,6 +1,7 @@
 package scheduler.api.service;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import java.util.List;
  * 읽기 - 전체 조회 , *특정 조건 조회
  */
 @Service
+@Slf4j
 @Transactional(readOnly = true)
 public class PersonalScheduleService {
 
@@ -30,12 +32,8 @@ public class PersonalScheduleService {
     }
 
     @Transactional
-    public void delete(Long... psIds){
-
-        for(Long id : psIds){
-            personalScheduleRepository.delete(id);
-        }
-
+    public void delete(List<Long> psIds){
+        personalScheduleRepository.delete(psIds);
     }
 
     @Transactional

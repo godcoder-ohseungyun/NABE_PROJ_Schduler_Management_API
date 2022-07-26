@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreatingPsDto {
-    private Long memberId;
     private String title;
     private String body;
     private String startTime;
