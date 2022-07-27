@@ -2,8 +2,10 @@ package nabe.server.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import nabe.server.domain.SearchHistory;
 import nabe.server.dto.announcementApiDTO.ResponseDTO;
 import nabe.server.hateoas.HateoasCreator;
+import nabe.server.service.AnnouncementRecommendationService;
 import org.springframework.http.*;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +29,16 @@ public class AnnouncementApiController {
     private final RestTemplate restTemplate;
     private final HateoasCreator hateoasCreator;
 
+    private final AnnouncementRecommendationService announcementRecommendationService;
+
     private final String APP_KEY = "jSzmOzrqgCNGWwUGJbBVBxqIPLxwXRz2ZfUGUtAlQOyUmmr5NTka";
 
-    // 채용공고 목록
+    // Member 서버에서 받을 memberId;
+    private Long memberId = 1L;
+
+    // 채용공고 목록 조회
     @GetMapping("/announcements")
-    public ResponseEntity<ResponseDTO> restTemplateTestMethod(HttpServletRequest request) throws UnsupportedEncodingException {
+    public ResponseEntity<ResponseDTO> getAnnouncements(HttpServletRequest request) throws UnsupportedEncodingException {
 
         HttpEntity<String> entity = makeEntity();
         String queryString = "";
@@ -42,6 +49,9 @@ public class AnnouncementApiController {
         } catch(NullPointerException e) {
             e.printStackTrace();
         }
+
+        // queryString 파싱해서 DB에 저장
+        saveQueryStringToDB(request);
 
         String url = makeUri(queryString);
         ResponseEntity<ResponseDTO> response = restTemplate.exchange(url, HttpMethod.GET, entity, ResponseDTO.class);
@@ -73,7 +83,6 @@ public class AnnouncementApiController {
 
     }
 
-
     // HttpEntity 생성
     private HttpEntity<String> makeEntity() {
         HttpHeaders headers = new HttpHeaders();
@@ -95,6 +104,19 @@ public class AnnouncementApiController {
         System.out.println("RestTemplate setting..");
         restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
 
+    }
+
+    private void saveQueryStringToDB(HttpServletRequest request) {
+        String keywords = request.getParameter("keywords");
+        String loc_cd = request.getParameter("loc_cd");
+        String job_cd = request.getParameter("job_cd");
+        String job_type = request.getParameter("job_type");
+        String edu_lv = request.getParameter("edu_lv");
+        String published = request.getParameter("published");
+        String deadline = request.getParameter("deadline");
+
+        SearchHistory history = SearchHistory.createSearchHistory(memberId, keywords, loc_cd, job_cd, job_type, edu_lv, published, deadline);
+        announcementRecommendationService.saveSearchHistory(history);
     }
 
 }
