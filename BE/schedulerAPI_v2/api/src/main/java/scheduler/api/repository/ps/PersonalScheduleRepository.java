@@ -1,9 +1,9 @@
-package scheduler.api.repository;
+package scheduler.api.repository.ps;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
-import scheduler.api.domain.PersonalSchedule;
+import scheduler.api.domain.ps.PersonalSchedule;
+import scheduler.api.dto.ps.UpdatingPsContentsDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,20 +31,19 @@ public class PersonalScheduleRepository {
 
         
     }
-    
 
     public void delete(List<Long> ids){
 
-        log.info(ids.toString());
+        //log.info(ids.toString());
         em.createQuery("delete from PersonalSchedule p where p.id in :ids").setParameter("ids",ids).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
 
     }
 
-    public void update(Long psId,String title,String body){
+    public void update(UpdatingPsContentsDto updatingPsContentsDto){
         PersonalSchedule findPersonalSchedule = em.createQuery("select ps from PersonalSchedule  ps where ps.id = :id", PersonalSchedule.class)
-                .setParameter("id",psId).getSingleResult();
+                .setParameter("id",updatingPsContentsDto.getPsId()).getSingleResult();
 
-        findPersonalSchedule.updateThisContents(title, body);
+        findPersonalSchedule.updateThisContents(updatingPsContentsDto.getTitle(), updatingPsContentsDto.getBody());
 
     }
 

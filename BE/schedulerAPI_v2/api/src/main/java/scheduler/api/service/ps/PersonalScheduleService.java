@@ -1,12 +1,13 @@
-package scheduler.api.service;
+package scheduler.api.service.ps;
 
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import scheduler.api.domain.PersonalSchedule;
-import scheduler.api.repository.PersonalScheduleRepository;
+import scheduler.api.domain.ps.PersonalSchedule;
+import scheduler.api.dto.ps.UpdatingPsContentsDto;
+import scheduler.api.repository.ps.PersonalScheduleRepository;
 
 import java.util.List;
 
@@ -42,8 +43,8 @@ public class PersonalScheduleService {
     }
 
     @Transactional
-    public void update(Long psId,String title,String body){
-        personalScheduleRepository.update(psId,title,body);
+    public void update(UpdatingPsContentsDto updatingPsContentsDto){
+        personalScheduleRepository.update(updatingPsContentsDto);
     }
 
 }

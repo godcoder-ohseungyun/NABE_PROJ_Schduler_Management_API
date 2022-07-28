@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import scheduler.api.domain.PersonalSchedule;
-import scheduler.api.dto.CreatingPsDto;
-import scheduler.api.dto.UpdatingPsContentsDto;
-import scheduler.api.service.PersonalScheduleService;
+import scheduler.api.domain.ps.PersonalSchedule;
+import scheduler.api.dto.ps.CreatingPsDto;
+import scheduler.api.dto.ps.UpdatingPsContentsDto;
+import scheduler.api.service.ps.PersonalScheduleService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class PersonalScheduer {
+public class PersonalScheduler {
 
     private final PersonalScheduleService personalScheduleService;
 
@@ -53,7 +53,7 @@ public class PersonalScheduer {
 
     @PutMapping("/{memberId}/personal-schedules")
     public void updatePersonalSchedule(@PathVariable Long memberId , @RequestBody UpdatingPsContentsDto request){
-        personalScheduleService.update(request.getPsId(),request.getTitle(),request.getBody());
+        personalScheduleService.update(request);
     }
 
 

@@ -1,4 +1,4 @@
-package scheduler.api.domain;
+package scheduler.api.domain.ps;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

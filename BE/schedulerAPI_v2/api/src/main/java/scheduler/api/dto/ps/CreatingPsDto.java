@@ -1,4 +1,4 @@
-package scheduler.api.dto;
+package scheduler.api.dto.ps;
 
 import lombok.*;
 
