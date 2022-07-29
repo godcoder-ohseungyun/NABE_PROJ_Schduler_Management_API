@@ -21,7 +21,7 @@ public class AnnouncementScheduler {
 
 
     @PostMapping("/{memberId}/announcement-schedules")
-    public void subscript(@PathVariable Long memberId, @RequestBody AnnouncementDto announcementDto) {
+    public void subscribe(@PathVariable Long memberId, @RequestBody AnnouncementDto announcementDto) {
 
         AnnouncementSchedule newAnnouncementSchedule = new AnnouncementSchedule(announcementDto.getId(),
                 announcementDto.getTitle(),
