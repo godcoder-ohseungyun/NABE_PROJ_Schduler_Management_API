@@ -30,7 +30,6 @@ public class AnnouncementSubscriptionRepository {
         }
     }
 
-
     public AnnouncementSubscription isMapped(Long memberId, Long anId) {
         try {
             return em.createQuery("select a from AnnouncementSubscription a where a.announcementSchedule.id = :anId and a.memberId = :memberId", AnnouncementSubscription.class)

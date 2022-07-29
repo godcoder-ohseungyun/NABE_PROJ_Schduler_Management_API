@@ -3,15 +3,21 @@ package scheduler.api.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scheduler.api.domain.ps.PersonalSchedule;
 import scheduler.api.dto.ps.CreatingPsDto;
 import scheduler.api.dto.ps.UpdatingPsContentsDto;
+import scheduler.api.exception.exceptionDomain.ValidatedException;
 import scheduler.api.service.ps.PersonalScheduleService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
@@ -31,11 +37,11 @@ public class PersonalScheduler {
 
 
     @PostMapping("/{memberId}/personal-schedules")
-    public ResponseEntity<String> savePersonalSchedule(@PathVariable Long memberId ,@RequestBody CreatingPsDto request){
+    public ResponseEntity<String> savePersonalSchedule(@PathVariable Long memberId , @Validated @RequestBody CreatingPsDto request, BindingResult bindingResult) throws ValidatedException {
 
-        //TODO
-        //중복 저장 check
-        //소유자 정보 null check
+
+        isValidated(bindingResult);
+
         PersonalSchedule newPersonalSchedule
                 = new PersonalSchedule(
                 request.getTitle(),
@@ -52,7 +58,8 @@ public class PersonalScheduler {
     }
 
     @PutMapping("/{memberId}/personal-schedules")
-    public void updatePersonalSchedule(@PathVariable Long memberId , @RequestBody UpdatingPsContentsDto request){
+    public void updatePersonalSchedule(@PathVariable Long memberId , @Validated @RequestBody UpdatingPsContentsDto request, BindingResult bindingResult) throws ValidatedException {
+        isValidated(bindingResult);
         personalScheduleService.update(request);
     }
 
@@ -60,5 +67,12 @@ public class PersonalScheduler {
     @DeleteMapping("/{memberId}/personal-schedules")
     public void deletePersonalSchedules(@PathVariable Long memberId , @RequestBody HashMap<String,Long> request){
         personalScheduleService.delete(request.values().stream().collect(Collectors.toCollection(ArrayList::new)));
+    }
+
+    private void isValidated(BindingResult bindingResult) throws ValidatedException {
+        if(bindingResult.hasErrors()){
+            List<String> errors = bindingResult.getAllErrors().stream().map(e->e.getDefaultMessage()).collect(Collectors.toList()); // 문서화 필요
+            throw new ValidatedException(errors.toString(),HttpStatus.BAD_REQUEST);
+        }
     }
 }
