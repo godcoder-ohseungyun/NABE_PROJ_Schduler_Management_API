@@ -30,7 +30,7 @@ public class AnnouncementScheduler {
 
         isValidated(bindingResult);
 
-        //준영속 entity
+        //준영속 entity?
         AnnouncementSchedule newAnnouncementSchedule = new AnnouncementSchedule(announcementDto.getId(),
                 announcementDto.getTitle(),
                 announcementDto.getOriginalUrl(),
@@ -38,7 +38,7 @@ public class AnnouncementScheduler {
                 announcementDto.getEndDate());
 
         announcementSupscriptionService.subscribe(memberId, newAnnouncementSchedule);
-        //https://thatisgood.tistory.com/entry/JPA-Referential-integrity-constraint-violation-오류
+
     }
 
     @DeleteMapping("/{memberId}/announcement-schedules")

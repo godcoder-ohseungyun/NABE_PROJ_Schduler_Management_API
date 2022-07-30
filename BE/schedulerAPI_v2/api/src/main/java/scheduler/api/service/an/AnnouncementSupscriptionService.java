@@ -27,12 +27,13 @@ public class AnnouncementSupscriptionService {
     public void subscribe(Long memberId, AnnouncementSchedule announcementSchedule) throws DuplicateDataException {
 
         //구독하고자 하는 공고
-        AnnouncementSchedule getAnnouncementSchedule = announcementScheduleService.createOrGet(announcementSchedule);
+        AnnouncementSchedule getAnnouncementSchedule = announcementScheduleService.createOrGet(announcementSchedule); //무조건 영속상태로 반환함
 
 
+        //신규 맵핑인 경우
         if (announcementSubscriptionRepository.isMapped(memberId, getAnnouncementSchedule.getId()) == null) {
 
-            AnnouncementSubscription newAnnouncementSubscription = new AnnouncementSubscription(getAnnouncementSchedule, memberId); //당연히 여기서 문제가 발생함, 공고일정이 준영속상태라
+            AnnouncementSubscription newAnnouncementSubscription = new AnnouncementSubscription(getAnnouncementSchedule, memberId);
             announcementSubscriptionRepository.save(newAnnouncementSubscription);
 
         } else {
