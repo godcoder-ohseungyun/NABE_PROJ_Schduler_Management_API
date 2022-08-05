@@ -17,11 +17,11 @@ public class AnnouncementSubscription {
 
     @Id
     @GeneratedValue
-    @Column(name = "an_sub_id")
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "an_id")
+    @JoinColumn(name = "announcement_schedule_id")
     private AnnouncementSchedule announcementSchedule; //양방향 의존관계일 필요 없음 n측인 여기에서만 fk 보윤
 
     @Column(name = "member_id")

@@ -18,7 +18,7 @@ public class AnnouncementSchedule {
 
     @Id
     //@GeneratedValue 이부분 주석 으로 처리한 이유 정리해야함
-    @Column(name = "an_id")
+    @Column(name = "id")
     private Long id;
 
     private String title;

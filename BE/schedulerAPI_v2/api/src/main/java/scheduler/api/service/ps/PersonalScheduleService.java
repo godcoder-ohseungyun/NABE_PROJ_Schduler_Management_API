@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import scheduler.api.domain.ps.PersonalSchedule;
-import scheduler.api.dto.ps.UpdatingPsContentsDto;
+import scheduler.api.dto.ps.UpdatingPersonalScheduleContentsDto;
 import scheduler.api.repository.ps.PersonalScheduleRepository;
 
 import java.util.List;
@@ -33,17 +33,17 @@ public class PersonalScheduleService {
     }
 
     @Transactional
-    public void delete(List<Long> psIds){
-        personalScheduleRepository.delete(psIds);
+    public void delete(List<Long> personalScheduleIdList){
+        personalScheduleRepository.deleteThese(personalScheduleIdList);
     }
 
     @Transactional
-    public List<PersonalSchedule> findAll(Long memberId){
-        return personalScheduleRepository.findAll(memberId);
+    public List<PersonalSchedule> findAllByMemberId(Long memberId){
+        return personalScheduleRepository.findAllByMemberId(memberId);
     }
 
     @Transactional
-    public void update(UpdatingPsContentsDto updatingPsContentsDto){
+    public void update(UpdatingPersonalScheduleContentsDto updatingPsContentsDto){
         personalScheduleRepository.update(updatingPsContentsDto);
     }
 

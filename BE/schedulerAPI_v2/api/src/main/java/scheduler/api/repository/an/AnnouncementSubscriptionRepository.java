@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import scheduler.api.domain.an.AnnouncementSubscription;
-import scheduler.api.dto.an.ReadingAsubDto;
+import scheduler.api.dto.an.AnnouncementSubscriptionDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -30,10 +30,10 @@ public class AnnouncementSubscriptionRepository {
         }
     }
 
-    public AnnouncementSubscription isMapped(Long memberId, Long anId) {
+    public AnnouncementSubscription isMapped(Long memberId, Long announcementScheduleId) {
         try {
-            return em.createQuery("select a from AnnouncementSubscription a where a.announcementSchedule.id = :anId and a.memberId = :memberId", AnnouncementSubscription.class)
-                    .setParameter("anId", anId)
+            return em.createQuery("select a from AnnouncementSubscription a where a.announcementSchedule.id = :announcementScheduleId and a.memberId = :memberId", AnnouncementSubscription.class)
+                    .setParameter("announcementScheduleId", announcementScheduleId)
                     .setParameter("memberId", memberId)
                     .getSingleResult();
         } catch (NoResultException e) {
@@ -41,18 +41,18 @@ public class AnnouncementSubscriptionRepository {
         }
     }
 
-    public List<ReadingAsubDto> findAll(Long memberId) {
+    public List<AnnouncementSubscriptionDto> findAllByMemberId(Long memberId) {
         return em.createQuery("select new scheduler.api.dto.an.ReadingAsubDto(a.id," +
                         "a.announcementSchedule.title," +
                         "a.announcementSchedule.originalUrl," +
                         "a.announcementSchedule.startDate," +
-                        "a.announcementSchedule.endDate) from AnnouncementSubscription a where a.memberId = :id", ReadingAsubDto.class)
+                        "a.announcementSchedule.endDate) from AnnouncementSubscription a where a.memberId = :id", AnnouncementSubscriptionDto.class)
                 .setParameter("id", memberId).getResultList();
 
     }
 
 
-    public void deleteThem(List<Long> asubIds) {
-        em.createQuery("delete from AnnouncementSubscription a where a.id in :ids").setParameter("ids", asubIds).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
+    public void deleteThese(List<Long> announcementSubscriptionIdList) {
+        em.createQuery("delete from AnnouncementSubscription a where a.id in :idList").setParameter("idList", announcementSubscriptionIdList).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
     }
 }

@@ -15,10 +15,15 @@ public class AnnouncementScheduleService {
     @Autowired
     AnnouncementScheduleRepository announcementScheduleRepository;
 
-    @Transactional
-    public AnnouncementSchedule createOrGet(AnnouncementSchedule announcementSchedule){
 
-        AnnouncementSchedule find = announcementScheduleRepository.findOne(announcementSchedule.getId());
+    /**
+     * 이미 존재하는 경우 해당 객체 반환
+     * else 생성 후 반환
+     */
+    @Transactional
+    public AnnouncementSchedule findOne(AnnouncementSchedule announcementSchedule){
+
+        AnnouncementSchedule find = announcementScheduleRepository.findOneById(announcementSchedule.getId());
 
         if(find==null){
             return announcementScheduleRepository.save(announcementSchedule);

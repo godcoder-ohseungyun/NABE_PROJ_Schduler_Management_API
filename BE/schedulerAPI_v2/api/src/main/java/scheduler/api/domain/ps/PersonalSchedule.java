@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name="personal_schedule")
@@ -17,7 +16,7 @@ public class PersonalSchedule {
 
     @Id
     @GeneratedValue
-    @Column(name = "ps_id")
+    @Column(name = "id")
     private Long id;
 
     private String title;

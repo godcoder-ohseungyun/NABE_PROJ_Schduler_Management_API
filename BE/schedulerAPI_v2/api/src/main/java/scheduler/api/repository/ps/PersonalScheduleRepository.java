@@ -3,7 +3,7 @@ package scheduler.api.repository.ps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import scheduler.api.domain.ps.PersonalSchedule;
-import scheduler.api.dto.ps.UpdatingPsContentsDto;
+import scheduler.api.dto.ps.UpdatingPersonalScheduleContentsDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,34 +22,31 @@ public class PersonalScheduleRepository {
     private EntityManager em;
 
     //update 역할도 같이 하나? merge?
-    public void save(PersonalSchedule ps){
-        if(ps.getId() == null){
-            em.persist(ps);
-        }else{
-            em.merge(ps);
-        }
+    public void save(PersonalSchedule personalSchedule) {
 
-        
+        em.persist(personalSchedule);
+
+
     }
 
-    public void delete(List<Long> ids){
+    public void deleteThese(List<Long> personalScheduleIdList) {
 
         //log.info(ids.toString());
-        em.createQuery("delete from PersonalSchedule p where p.id in :ids").setParameter("ids",ids).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
+        em.createQuery("delete from PersonalSchedule p where p.id in :idList").setParameter("idList", personalScheduleIdList).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
 
     }
 
-    public void update(UpdatingPsContentsDto updatingPsContentsDto){
+    public void update(UpdatingPersonalScheduleContentsDto updatingPsContentsDto) {
         PersonalSchedule findPersonalSchedule = em.createQuery("select ps from PersonalSchedule  ps where ps.id = :id", PersonalSchedule.class)
-                .setParameter("id",updatingPsContentsDto.getPsId()).getSingleResult();
+                .setParameter("id", updatingPsContentsDto.getPersonalScheduleId()).getSingleResult();
 
         findPersonalSchedule.updateThisContents(updatingPsContentsDto.getTitle(), updatingPsContentsDto.getBody());
 
     }
 
-    public List<PersonalSchedule> findAll(Long memberId){
+    public List<PersonalSchedule> findAllByMemberId(Long memberId) {
         return em.createQuery("select ps from PersonalSchedule ps where ps.memberId = :id", PersonalSchedule.class)
-                .setParameter("id",memberId).getResultList();
+                .setParameter("id", memberId).getResultList();
 
     }
 

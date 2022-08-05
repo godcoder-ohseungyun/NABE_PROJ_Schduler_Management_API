@@ -26,8 +26,9 @@ public class AnnouncementScheduleRepository {
         return announcementSchedule;
     }
 
-    public AnnouncementSchedule findOne(Long anId) {
-        return em.find(AnnouncementSchedule.class, anId);
+
+    public AnnouncementSchedule findOneById(Long announcementScheduleId) {
+        return em.find(AnnouncementSchedule.class, announcementScheduleId);
     }
 
 }

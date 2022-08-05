@@ -2,14 +2,13 @@ package scheduler.api.dto.ps;
 
 import lombok.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreatingPsDto {
+public class CreatingPersonalScheduleDto {
     @NotBlank(message = " 제목은 필수 입력값 입니다.")
     private String title;
 
