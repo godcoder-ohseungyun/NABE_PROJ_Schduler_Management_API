@@ -4,8 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import scheduler.api.domain.embededType.EndTime;
+import scheduler.api.domain.embededType.StartDate;
+import scheduler.api.domain.embededType.StartTime;
+import scheduler.api.exception.exceptionDomain.ValidatedException;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="personal_schedule")
@@ -19,17 +24,20 @@ public class PersonalSchedule {
     @Column(name = "id")
     private Long id;
 
+    @NotNull( message = "제목은 필수 입력 값 입니다.")
     private String title;
 
     private String body;
 
     @Column(name = "start_time")
-    private String startTime;
+    @Embedded
+    private StartTime startTime;
 
     @Column(name = "end_time")
-    private String endTime; //2330 -> 밤 11시 30분
+    @Embedded
+    private EndTime endTime;
 
-    private String date; //20220726
+    private StartDate startDate;
 
     @Column(name = "member_id")
     private Long memberId;
@@ -39,12 +47,21 @@ public class PersonalSchedule {
         this.body = body;
     }
 
-    public PersonalSchedule(String title, String body, String startTime, String endTime, String date, Long memberId) {
+    private PersonalSchedule(String title, String body, StartTime startTime, EndTime endTime, StartDate startDate, Long memberId) {
         this.title = title;
         this.body = body;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.date = date;
+        this.startDate = startDate;
         this.memberId = memberId;
+    }
+
+    public static PersonalSchedule createPersonalSchedule(String title, String body, String startTime, String endTime, String startDate, Long memberId) throws ValidatedException {
+        return new PersonalSchedule(title,
+                body,
+                StartTime.from(startTime),
+                EndTime.from(endTime),
+                StartDate.from(startDate),
+                memberId);
     }
 }

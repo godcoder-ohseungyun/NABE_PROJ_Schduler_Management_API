@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scheduler.api.domain.ps.PersonalSchedule;
 import scheduler.api.dto.ps.CreatingPersonalScheduleDto;
+import scheduler.api.dto.ps.ReadingPersonalScheduleDto;
 import scheduler.api.dto.ps.UpdatingPersonalScheduleContentsDto;
 import scheduler.api.exception.exceptionDomain.ValidatedException;
 import scheduler.api.service.ps.PersonalScheduleService;
@@ -25,12 +26,13 @@ public class PersonalScheduler {
     private final PersonalScheduleService personalScheduleService;
 
     @GetMapping("/{memberId}/personal-schedules")
-    public ResponseEntity<List<PersonalSchedule>> getPersonalScheduleList(@PathVariable Long memberId) {
+    public ResponseEntity<List<ReadingPersonalScheduleDto>> getPersonalScheduleList(@PathVariable Long memberId) {
 
-        List<PersonalSchedule> list = personalScheduleService.findAllByMemberId(memberId);
+        List<ReadingPersonalScheduleDto> PersonalScheduleList = personalScheduleService.findAllByMemberId(memberId);
 
-        return new ResponseEntity<List<PersonalSchedule>>(list,null, HttpStatus.valueOf(200));
+        return new ResponseEntity<List<ReadingPersonalScheduleDto>>(PersonalScheduleList,null, HttpStatus.valueOf(200));
     }
+
 
 
     @PostMapping("/{memberId}/personal-schedules")
@@ -40,7 +42,7 @@ public class PersonalScheduler {
         isValidated(bindingResult);
 
         PersonalSchedule newPersonalSchedule
-                = new PersonalSchedule(
+                = PersonalSchedule.createPersonalSchedule(
                 creatingPsDto.getTitle(),
                 creatingPsDto.getBody(),
                 creatingPsDto.getStartTime(),
@@ -51,22 +53,27 @@ public class PersonalScheduler {
         personalScheduleService.save(newPersonalSchedule);
 
 
-        return null;
+        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
     }
 
     /**
      * Contents는 title & body 를 의미 합니다.
      */
     @PutMapping("/{memberId}/personal-schedules")
-    public void updatePersonalScheduleContents(@Validated @RequestBody UpdatingPersonalScheduleContentsDto updatingPsContentsDto, BindingResult bindingResult) throws ValidatedException {
+    public ResponseEntity<String> updatePersonalScheduleContents(@Validated @RequestBody UpdatingPersonalScheduleContentsDto updatingPsContentsDto, BindingResult bindingResult) throws ValidatedException {
+
         isValidated(bindingResult);
         personalScheduleService.update(updatingPsContentsDto);
+
+        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
     }
 
 
     @DeleteMapping("/{memberId}/personal-schedules")
-    public void deletePersonalScheduleList(@RequestBody HashMap<String,Long> personalScheduleIdList){
+    public ResponseEntity<String> deletePersonalScheduleList(@RequestBody HashMap<String,Long> personalScheduleIdList){
         personalScheduleService.delete(personalScheduleIdList.values().stream().collect(Collectors.toCollection(ArrayList::new)));
+
+        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
     }
 
     private void isValidated(BindingResult bindingResult) throws ValidatedException {

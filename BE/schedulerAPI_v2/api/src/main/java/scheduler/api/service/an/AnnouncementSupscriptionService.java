@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import scheduler.api.domain.an.AnnouncementSchedule;
 import scheduler.api.domain.an.AnnouncementSubscription;
-import scheduler.api.dto.an.AnnouncementSubscriptionDto;
+import scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto;
 import scheduler.api.exception.exceptionDomain.DuplicateDataException;
 import scheduler.api.repository.an.AnnouncementSubscriptionRepository;
 
@@ -27,13 +27,12 @@ public class AnnouncementSupscriptionService {
     public void subscribe(Long memberId, AnnouncementSchedule announcementSchedule) throws DuplicateDataException {
 
         //구독하고자 하는 공고
-        AnnouncementSchedule getAnnouncementSchedule = announcementScheduleService.findOne(announcementSchedule); //무조건 영속상태로 반환함
+        AnnouncementSchedule getAnnouncementSchedule = announcementScheduleService.getFindOrCreation(announcementSchedule); //무조건 영속상태로 반환함
 
 
-        //신규 맵핑인 경우
-        if (announcementSubscriptionRepository.isMapped(memberId, getAnnouncementSchedule.getId()) == null) {
+        if (announcementSubscriptionRepository.isNotMapped(memberId, getAnnouncementSchedule.getId())){
 
-            AnnouncementSubscription newAnnouncementSubscription = new AnnouncementSubscription(getAnnouncementSchedule, memberId);
+            AnnouncementSubscription newAnnouncementSubscription = AnnouncementSubscription.createAnnouncementSubscription(getAnnouncementSchedule, memberId);
             announcementSubscriptionRepository.save(newAnnouncementSubscription);
 
         } else {
@@ -49,7 +48,7 @@ public class AnnouncementSupscriptionService {
 
 
     @Transactional
-    public List<AnnouncementSubscriptionDto> findAllByMemberId(Long memberId) {
+    public List<ReadingAnnouncementSubscriptionDto> findAllByMemberId(Long memberId) {
         return announcementSubscriptionRepository.findAllByMemberId(memberId);
     }
 

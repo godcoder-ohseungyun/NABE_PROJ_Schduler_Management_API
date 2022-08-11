@@ -2,12 +2,13 @@ package scheduler.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scheduler.api.domain.an.AnnouncementSchedule;
 import scheduler.api.dto.an.CreatingAnnouncementDto;
-import scheduler.api.dto.an.AnnouncementSubscriptionDto;
+import scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto;
 import scheduler.api.exception.exceptionDomain.DuplicateDataException;
 import scheduler.api.exception.exceptionDomain.ValidatedException;
 import scheduler.api.service.an.AnnouncementSupscriptionService;
@@ -26,12 +27,12 @@ public class AnnouncementScheduler {
 
 
     @PostMapping("/{memberId}/announcement-schedules")
-    public void subscribe(@PathVariable Long memberId, @Validated @RequestBody CreatingAnnouncementDto creatingAnnouncementDto , BindingResult bindingResult) throws DuplicateDataException, ValidatedException {
+    public ResponseEntity<String> subscribe(@PathVariable Long memberId, @Validated @RequestBody CreatingAnnouncementDto creatingAnnouncementDto , BindingResult bindingResult) throws DuplicateDataException, ValidatedException {
 
         isValidated(bindingResult);
 
         //준영속 entity?
-        AnnouncementSchedule newAnnouncementSchedule = new AnnouncementSchedule(creatingAnnouncementDto.getId(),
+        AnnouncementSchedule newAnnouncementSchedule = AnnouncementSchedule.createAnnouncementSchedule(creatingAnnouncementDto.getId(),
                 creatingAnnouncementDto.getTitle(),
                 creatingAnnouncementDto.getOriginalUrl(),
                 creatingAnnouncementDto.getStartDate(),
@@ -39,15 +40,18 @@ public class AnnouncementScheduler {
 
         announcementSupscriptionService.subscribe(memberId, newAnnouncementSchedule);
 
+        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
+
     }
 
     @DeleteMapping("/{memberId}/announcement-schedules")
-    public void cancelSubscribeList(@RequestBody HashMap<String, Long> announcementSubscriptionIdList) {
+    public ResponseEntity<String> cancelSubscribeList(@RequestBody HashMap<String, Long> announcementSubscriptionIdList) {
         announcementSupscriptionService.cancelSubscribe(announcementSubscriptionIdList.values().stream().collect(Collectors.toCollection(ArrayList::new)));
+        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
     }
 
     @GetMapping("/{memberId}/announcement-schedules")
-    public List<AnnouncementSubscriptionDto> getAnnounceScheduleList(@PathVariable Long memberId){
+    public List<ReadingAnnouncementSubscriptionDto> getAnnounceScheduleList(@PathVariable Long memberId){
         return announcementSupscriptionService.findAllByMemberId(memberId);
     }
 

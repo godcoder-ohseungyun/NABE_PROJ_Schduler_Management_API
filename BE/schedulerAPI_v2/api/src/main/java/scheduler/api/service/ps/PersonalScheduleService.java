@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import scheduler.api.domain.ps.PersonalSchedule;
+import scheduler.api.dto.ps.ReadingPersonalScheduleDto;
 import scheduler.api.dto.ps.UpdatingPersonalScheduleContentsDto;
 import scheduler.api.repository.ps.PersonalScheduleRepository;
 
@@ -38,7 +39,7 @@ public class PersonalScheduleService {
     }
 
     @Transactional
-    public List<PersonalSchedule> findAllByMemberId(Long memberId){
+    public List<ReadingPersonalScheduleDto> findAllByMemberId(Long memberId){
         return personalScheduleRepository.findAllByMemberId(memberId);
     }
 

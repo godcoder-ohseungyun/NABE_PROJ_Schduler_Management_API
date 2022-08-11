@@ -3,18 +3,15 @@ package scheduler.api.repository.ps;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import scheduler.api.domain.ps.PersonalSchedule;
+import scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto;
+import scheduler.api.dto.ps.ReadingPersonalScheduleDto;
 import scheduler.api.dto.ps.UpdatingPersonalScheduleContentsDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-/**
- * 삽입 - 단일 삽입
- * 삭제 - 단일~여러개 삭제
- * 수정 - 단일 수정
- * 읽기 - 전체 조회 , 특정 조건 조회
- */
+
 @Repository
 @Slf4j
 public class PersonalScheduleRepository {
@@ -36,6 +33,7 @@ public class PersonalScheduleRepository {
 
     }
 
+    //NoResultException 위험 있음
     public void update(UpdatingPersonalScheduleContentsDto updatingPsContentsDto) {
         PersonalSchedule findPersonalSchedule = em.createQuery("select ps from PersonalSchedule  ps where ps.id = :id", PersonalSchedule.class)
                 .setParameter("id", updatingPsContentsDto.getPersonalScheduleId()).getSingleResult();
@@ -44,8 +42,13 @@ public class PersonalScheduleRepository {
 
     }
 
-    public List<PersonalSchedule> findAllByMemberId(Long memberId) {
-        return em.createQuery("select ps from PersonalSchedule ps where ps.memberId = :id", PersonalSchedule.class)
+    public List<ReadingPersonalScheduleDto> findAllByMemberId(Long memberId) {
+        return em.createQuery("select new scheduler.api.dto.ps.ReadingPersonalScheduleDto(" +
+                        "ps.title," +
+                        "ps.body," +
+                        "ps.startTime," +
+                        "ps.endTime," +
+                        "ps.startDate) from PersonalSchedule ps where ps.memberId = :id", ReadingPersonalScheduleDto.class)
                 .setParameter("id", memberId).getResultList();
 
     }

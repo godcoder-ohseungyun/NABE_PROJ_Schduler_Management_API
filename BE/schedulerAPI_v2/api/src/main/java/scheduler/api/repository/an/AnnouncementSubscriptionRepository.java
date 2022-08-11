@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import scheduler.api.domain.an.AnnouncementSubscription;
-import scheduler.api.dto.an.AnnouncementSubscriptionDto;
+import scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -30,23 +30,26 @@ public class AnnouncementSubscriptionRepository {
         }
     }
 
-    public AnnouncementSubscription isMapped(Long memberId, Long announcementScheduleId) {
+    public Boolean isNotMapped(Long memberId, Long announcementScheduleId) {
         try {
-            return em.createQuery("select a from AnnouncementSubscription a where a.announcementSchedule.id = :announcementScheduleId and a.memberId = :memberId", AnnouncementSubscription.class)
+            em.createQuery("select a from AnnouncementSubscription a where a.announcementSchedule.id = :announcementScheduleId and a.memberId = :memberId", AnnouncementSubscription.class)
                     .setParameter("announcementScheduleId", announcementScheduleId)
                     .setParameter("memberId", memberId)
                     .getSingleResult();
+
+            return false;
+
         } catch (NoResultException e) {
-            return null;
+            return true;
         }
     }
 
-    public List<AnnouncementSubscriptionDto> findAllByMemberId(Long memberId) {
-        return em.createQuery("select new scheduler.api.dto.an.ReadingAsubDto(a.id," +
+    public List<ReadingAnnouncementSubscriptionDto> findAllByMemberId(Long memberId) {
+        return em.createQuery("select new scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto(a.id," +
                         "a.announcementSchedule.title," +
                         "a.announcementSchedule.originalUrl," +
                         "a.announcementSchedule.startDate," +
-                        "a.announcementSchedule.endDate) from AnnouncementSubscription a where a.memberId = :id", AnnouncementSubscriptionDto.class)
+                        "a.announcementSchedule.endDate) from AnnouncementSubscription a where a.memberId = :id", ReadingAnnouncementSubscriptionDto.class)
                 .setParameter("id", memberId).getResultList();
 
     }

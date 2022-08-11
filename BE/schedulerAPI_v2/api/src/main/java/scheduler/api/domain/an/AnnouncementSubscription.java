@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class AnnouncementSubscription {
 
     @Id
@@ -27,8 +26,12 @@ public class AnnouncementSubscription {
     @Column(name = "member_id")
     private Long memberId;
 
-    public AnnouncementSubscription(AnnouncementSchedule announcementSchedule, Long memberId) {
+    private AnnouncementSubscription(AnnouncementSchedule announcementSchedule, Long memberId) {
         this.announcementSchedule = announcementSchedule;
         this.memberId = memberId;
+    }
+
+    public static AnnouncementSubscription createAnnouncementSubscription(AnnouncementSchedule announcementSchedule, Long memberId){
+        return new AnnouncementSubscription(announcementSchedule,memberId);
     }
 }

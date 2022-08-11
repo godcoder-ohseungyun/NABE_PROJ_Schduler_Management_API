@@ -21,7 +21,7 @@ public class AnnouncementScheduleService {
      * else 생성 후 반환
      */
     @Transactional
-    public AnnouncementSchedule findOne(AnnouncementSchedule announcementSchedule){
+    public AnnouncementSchedule getFindOrCreation(AnnouncementSchedule announcementSchedule){
 
         AnnouncementSchedule find = announcementScheduleRepository.findOneById(announcementSchedule.getId());
 
