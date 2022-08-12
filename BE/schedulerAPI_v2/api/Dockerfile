@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:18
 WORKDIR /user/src/nabe
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
