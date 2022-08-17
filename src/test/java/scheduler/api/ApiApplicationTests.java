@@ -11,8 +11,7 @@ public class ApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		PersonalScheduleServiceTest p = new PersonalScheduleServiceTest();
-		p.test();
+		assertEquals(1,2);
 	}
 
 
