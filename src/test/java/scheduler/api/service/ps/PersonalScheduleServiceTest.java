@@ -23,6 +23,6 @@ public class PersonalScheduleServiceTest {
 
     @Test
     public void test() {
-        assertEquals(1,2);
+        throw new RuntimeException();
     }
 }
