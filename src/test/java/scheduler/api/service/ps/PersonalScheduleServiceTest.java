@@ -21,7 +21,7 @@ public class PersonalScheduleServiceTest {
 
     @Test
     public void test() throws Exception{
-        
+
         assertEquals(1,2);
     }
 }

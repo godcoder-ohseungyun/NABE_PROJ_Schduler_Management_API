@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/scheduler/api/DummyTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
       <recent name="scheduler.api.service.ps" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonalScheduleServiceTest">
+  <component name="RunManager" selected="JUnit.ApiApplicationTests">
     <configuration name="DummyTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -81,6 +83,21 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
+    </configuration>
+    <configuration name="ApiApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="api.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="scheduler.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="scheduler.api" />
+      <option name="MAIN_CLASS_NAME" value="scheduler.api.ApiApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="DummyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="api.test" />
@@ -114,6 +131,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiApplicationTests" />
         <item itemvalue="JUnit.PersonalScheduleServiceTest" />
         <item itemvalue="JUnit.DummyTest" />
         <item itemvalue="Gradle.DummyTest" />
@@ -141,5 +159,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
