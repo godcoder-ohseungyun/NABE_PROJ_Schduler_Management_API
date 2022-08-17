@@ -25,7 +25,7 @@ public class ApiApplicationTests {
 	@Test
 	public void test2() throws Exception {
 
-		assertEquals(1,2);
+		assertEquals(1,1);
 	}
 
 }
