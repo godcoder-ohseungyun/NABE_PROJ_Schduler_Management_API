@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java" afterDir="false" />
     </list>
@@ -164,13 +163,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java</url>
-          <line>27</line>
+          <line>26</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/scheduler/api/service/ps/PersonalScheduleServiceTest.java</url>
-          <line>28</line>
+          <line>27</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

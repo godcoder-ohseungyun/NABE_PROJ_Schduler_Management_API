@@ -15,15 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class PersonalScheduleServiceTest extends ApiApplicationTests {
+public class PersonalScheduleServiceTest {
 
     @Autowired
     PersonalScheduleService personalScheduleService;
 
 
     @Test
-    public void test() throws Exception{
-
+    public void test() {
         assertEquals(1,2);
     }
 }
