@@ -43,14 +43,14 @@ jobs:
   SSH:
     runs-on: ubuntu-latest
     steps:
-  ### deploy to production
+  ### deploy to production!
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_IP}}
           username: ${{ secrets.USER_NAME }}
           password: Ru5gn9da!!
-          port: 3000
+          port: 22
           script: |
             echo "hello world"
             sudo docker rm -f $(docker ps -qa)
