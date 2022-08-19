@@ -43,13 +43,13 @@ jobs:
   SSH:
     runs-on: ubuntu-latest
     steps:
-  ### deploy to production!
+  ### deploy to production!!
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_IP}}
           username: ${{ secrets.USER_NAME }}
-          password: Ru5gn9da!!
+          key: -----BEGIN RSA PRIVATE KEY-----MIIEowIBAAKCAQEAgIupPjE8OEfEpSEqYXisAZIRJPFVvHjDXMW3FGKHAfYtfyF+1ZwogimYPL3lAmPh8/9Jb4iiB2mRDwjCUJtZuQ72PpjDvFjwE5CQHeP9a/ca6zyA/rneU60DBav9mA5RNCwQ0aAeDwWJTScScfgnAVDrXXnyjxBsfPV8yp2Gpz5S54y/E6qOBGvSvsHuNO7Vrt2Po8ubPckkyNrsX8qiu0G8UIvcqSSfQJntfkz+BYslpQO+fGQBBYMQDOIiAtYhH6hbvbMgs2sjHjsMPuc1oJWni/gy90l+rinFK0hqajw/yZ4X1JIwzrRWvhF4xQTw8ub4tuIsaMKPWD1AvDNydQIDAQABAoIBAHDbrZyn14pGIHUm WDI5ozLBzoGTzUVq9YMHJ8Ui+AuV2r4KZ3Qd5UbaRAnYYy8lCKWTliLxX+iIG86KTyg8LJsYcsPklb1QjH9w5ccIe2AGFMFBXrPF9leax9N7/Gs67rqSkbWqEZn4r2Jokn4zc/No2yw3u+k1bzqKwaSWhzlfc8nmTwAp4koOoi7Fd80OysmuY5MhoNSGdG/2fx3eDMDG4L+VrrVFZSDsyC0/0G5w5pwJUyT1DBg2HxlbE/DLHQ1NTFXCOAjxRvRx IbEs3I1AR5f/cSkBwlQOZRTpoWARwp8QdiDeTh9o/tjDYx3NalHRoqVXaWuHCMZXX3yl90ECgYEAxqggjlQwvFWJtMOCDkCazYJN571Ay+d9wXEcHXK//Wjs8GjR85Gs20dTFKKgbMz8MfShh2e3kUIMDBlAyiBNeKb8sOGqHzOBsogwb+Qvl2uyms1aZit6rjyiLO8ccRQYuc7Zi/yGPHSQLfqDynK7sXpGRhpvpI64loKsR9C/5cUCgYEApaae0DiuJwk4ItMkVP3XpKKsEAWXjErFGErjOEfEniVY8x40R1+7Bq2zByNZnBbOPa3CShhetssMvK/64+DPz0eOBjkBuTfLSvKOi6IQ36zoeVfCui7tMQtcSBGbpF4qGJx2jBiX1yhz2fPdpEdiIatyOWTa3Ci3P1xQEsGB1PECgYBhvpu2LCqGoDfPX1sAlD0W3QRj/7SAH3i602KYArwAfb4HVCvpgkXg5qk0QAhbQEjec5V+wEOMD0lKMqq0SUyVDuTKS16fV4J7S5M5mrbn9C+/B0dxefc0/9Rz83q1EMRRuDtGK4wI9vlyBg8Ob4F2g8lL+Pnxp9+e/tCxzT5+WQKBgQCCa9hYWngLdf/Ds3fEjwOMtSNBjhWOuIPLp5KUijTsyrzo1ZwVofKvxGzTLurrsSz6dOcmzV8tDltd6DRh3GvhaBYTIikQOjSOMsE2gQhGA24Zs5Y2XqITXj1u5KYlWJpOPEo97VMHbOsh7BZStH03wzOwqo6CjnAQq87DpaViEQKBgGc9meuD/3IVs+thabhsGNY3VrTGUvdVC/Ra/Y9CN4e7mwXCZ7X/UARV+mWVtAEW07fyGHr70qhR5947cKhQQxrhJ4F+zh9IIHwVs0RfVSluHuDSgfjuWTTxhGHT/Un6+4GDaS5wMO7otaSZPHTKu/0UI5YoBNBtsuAKGpGpeSnr-----END RSA PRIVATE KEY-----
           port: 22
           script: |
             echo "hello world"
