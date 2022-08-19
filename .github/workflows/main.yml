@@ -49,8 +49,9 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "hello world"
-            sudo docker rm -f $(docker ps -qa)
+            echo "I might need docker install"
+            docker rm -f $(docker ps -aq)
+            docker rmi $(docker images -q)
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
             docker-compose up -d
