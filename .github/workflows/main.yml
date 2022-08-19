@@ -4,9 +4,6 @@ on:
   push:
     branches: [ "OSY_CI_CD_TEST" ]
 
-permissions:
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
