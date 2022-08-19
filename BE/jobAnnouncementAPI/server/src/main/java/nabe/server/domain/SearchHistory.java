@@ -42,7 +42,7 @@ public class SearchHistory {
     // - : 마감된 공고
     private String deadline;
 
-    // Setter 대신 생성 메소드 사용
+    // Setter 대신 생성 메소드 사용(테스트 데이터용)
     public static SearchHistory createSearchHistory(Long memberId, String keywords, String loc_cd, String job_cd, String job_type, String edu_lv, String published, String deadline) {
         SearchHistory searchHistory = new SearchHistory();
 
@@ -54,6 +54,18 @@ public class SearchHistory {
         searchHistory.edu_lv = edu_lv;
         searchHistory.published = published;
         searchHistory.deadline = deadline;
+
+        return searchHistory;
+    }
+
+    public static SearchHistory createCompactSearchHistory(Long memberId, String loc_cd, String job_cd, String job_type, String edu_lv) {
+        SearchHistory searchHistory = new SearchHistory();
+
+        searchHistory.memberId = memberId;
+        searchHistory.loc_cd = loc_cd;
+        searchHistory.job_cd = job_cd;
+        searchHistory.job_type = job_type;
+        searchHistory.edu_lv = edu_lv;
 
         return searchHistory;
     }
