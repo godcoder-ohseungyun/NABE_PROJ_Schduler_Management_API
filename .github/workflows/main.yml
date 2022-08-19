@@ -41,7 +41,7 @@ jobs:
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
 
 
-  ## deploy to production
+  ### deploy to production
   SSH:
     runs-on: ubuntu-latest
     steps:
