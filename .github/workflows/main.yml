@@ -29,9 +29,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build -x test
 
-      ## gradle build!
-      - name: Test with Gradle
-        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
+#      ## gradle Test!
+#      - name: Test with Gradle
+#        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
 
       ## 웹 이미지 빌드 및 도커허브에 push
       - name: web docker build and push
@@ -41,18 +41,21 @@ jobs:
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
 
 
-      ## deploy to production
-      - name: Deploy to prod
+    ## deploy to production
+  SSH:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run scripts in server
         uses: appleboy/ssh-action@master
-        id: deploy-prod
-        if: contains(github.ref, 'main')
         with:
-          host: ${{ secrets.HOST_PROD }}
-          username: ec2-user
-          key: ${{ secrets.PRIVATE_KEY }}
-          envs: GITHUB_SHA
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.USER_NAME }}
           script: |
+            echo "hello world"
             sudo docker rm -f $(docker ps -qa)
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
             docker-compose up -d
             docker image prune -f
