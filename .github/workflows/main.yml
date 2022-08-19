@@ -36,22 +36,20 @@ jobs:
       ## 웹 이미지 빌드 및 도커허브에 push
       - name: web docker build and push
         run: |
+          sudo docker rm -f $(docker ps -qa)
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker build -t ${{ secrets.DOCKER_IMAGE_NAME }} .
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
 
 
   ### deploy to production
-  SSH:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run scripts in server
+      - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          key: ${{ secrets.SSH_KEY }}
-          host: ${{ secrets.HOST_IP }}
+          host: ${{ secrets.HOST_IP}}
           username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
           script: |
             echo "hello world"
             sudo docker rm -f $(docker ps -qa)
