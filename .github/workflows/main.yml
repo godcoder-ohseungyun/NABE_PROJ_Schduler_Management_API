@@ -36,11 +36,8 @@ jobs:
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker build -t ${{ secrets.DOCKER_IMAGE_NAME }} .
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
-
-  SSH:
-    runs-on: ubuntu-latest
-    steps:
-  ### deploy to production!!!!!
+      
+      ### deploy to production!!!!!
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
