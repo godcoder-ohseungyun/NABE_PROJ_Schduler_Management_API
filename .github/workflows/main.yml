@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
 
 
-      ## gradle build!!
+      ## gradle build!!!
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
@@ -44,8 +44,8 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_IP}}
-          username: ${{ secrets.USER_NAME }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
