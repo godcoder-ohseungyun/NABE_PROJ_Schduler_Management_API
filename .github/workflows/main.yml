@@ -54,5 +54,5 @@ jobs:
             docker rmi $(docker images -q)
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
-            docker-compose up -d
+            docker run -p 8080 : 8080 ${{ secrets.DOCKER_IMAGE_NAME }}
             docker image prune -f
