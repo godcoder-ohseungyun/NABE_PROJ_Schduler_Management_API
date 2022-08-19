@@ -13,5 +13,5 @@ public class CreatingPersonalScheduleDto {
     private String body;
     private String startTime;
     private String endTime; //2330 -> 밤 11시 30분
-    private String date; //20220726
+    private String startDate; //20220726
 }

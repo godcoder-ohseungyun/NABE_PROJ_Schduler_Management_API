@@ -47,7 +47,7 @@ public class PersonalScheduler {
                 creatingPsDto.getBody(),
                 creatingPsDto.getStartTime(),
                 creatingPsDto.getEndTime(),
-                creatingPsDto.getDate(),
+                creatingPsDto.getStartDate(),
                 memberId);
 
         personalScheduleService.save(newPersonalSchedule);

@@ -44,6 +44,7 @@ public class PersonalScheduleRepository {
 
     public List<ReadingPersonalScheduleDto> findAllByMemberId(Long memberId) {
         return em.createQuery("select new scheduler.api.dto.ps.ReadingPersonalScheduleDto(" +
+                        "ps.id," +
                         "ps.title," +
                         "ps.body," +
                         "ps.startTime," +

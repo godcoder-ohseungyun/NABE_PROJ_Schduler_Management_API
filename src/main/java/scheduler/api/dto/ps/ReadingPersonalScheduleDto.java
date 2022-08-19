@@ -11,13 +11,16 @@ import scheduler.api.domain.embededType.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReadingPersonalScheduleDto {
+
+    private Long id;
     private String title;
     private String body;
     private String startTime;
     private String endTime;
     private String startDate;
 
-    public ReadingPersonalScheduleDto(String title, String body, StartTime startTime, EndTime endTime, StartDate startDate) {
+    public ReadingPersonalScheduleDto(Long id,String title, String body, StartTime startTime, EndTime endTime, StartDate startDate) {
+        this.id = id;
         this.title = title;
         this.body = body;
         this.startTime = startTime.getStartTime();
