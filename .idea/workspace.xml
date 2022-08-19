@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/PersonalScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/PersonalScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/dto/ps/CreatingPersonalScheduleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/dto/ps/CreatingPersonalScheduleDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/dto/ps/ReadingPersonalScheduleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/dto/ps/ReadingPersonalScheduleDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/repository/ps/PersonalScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/repository/ps/PersonalScheduleRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
