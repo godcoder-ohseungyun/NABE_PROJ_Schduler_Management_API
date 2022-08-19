@@ -15,7 +15,7 @@
 #  org.hibernate.SQL: debug
 #  org.hibernate.type: trace
 
-
+#
 #?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
 spring:
   datasource:
