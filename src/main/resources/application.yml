@@ -4,7 +4,7 @@ spring:
 #    username: sa
 #    password:
 #    driver-class-name: org.h2.Driver
-# RDS와 연동시 작성할 스크립츠 입니다.s
+# RDS와 연동시 작성할 스크립츠 입니다.
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://nabedb.cnj4z7xbg66d.ap-northeast-2.rds.amazonaws.com:3306/nabedb
