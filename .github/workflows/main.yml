@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "OSY_CI_CD_TEST" ]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,7 +40,8 @@ jobs:
           docker build -t ${{ secrets.DOCKER_IMAGE_NAME }} .
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
 
-      ### deploy to production!!!!!
+      ##  deploy to production!
+      ##  docker run -d -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -51,4 +55,4 @@ jobs:
             docker rmi $(docker images -q)
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
-            docker run -d -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
+            docker-compose up -d

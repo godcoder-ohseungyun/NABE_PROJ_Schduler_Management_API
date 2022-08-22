@@ -1,28 +1,29 @@
-spring:
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/api
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        format_sql: true
-
-logging.level:
-  org.hibernate.SQL: debug
-  org.hibernate.type: trace
-
-#?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
 #spring:
 #  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://database-demo.cnj4z7xbg66d.ap-northeast-2.rds.amazonaws.com:3306/demo
-#    username: admin
-#    password: admin777
+#    url: jdbc:h2:tcp://localhost/~/api
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
 #  jpa:
-#    database: mysql
-#    generate-ddl: true
-#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        format_sql: true
+#
+#logging.level:
+#  org.hibernate.SQL: debug
+#  org.hibernate.type: trace
+
+#
+#?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-demo.cnj4z7xbg66d.ap-northeast-2.rds.amazonaws.com:3306/demo
+    username: admin
+    password: admin777
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true
