@@ -1,25 +1,29 @@
-spring:
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/api
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-  #     show_sql: true
-        format_sql: true
-logging.level:
-  org.hibernate.SQL: debug
-# org.hibernate.type: trace
-
-
-# RDS와 연동시 작성할 스크립츠 입니다.
 #spring:
 #  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://{엔드포인트}:{포트번호}/{db이름}
-#    username: {마스터 사용자 이름}
-#    password: {마스터 암호}
+#    url: jdbc:h2:tcp://localhost/~/api
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        format_sql: true
+#
+#logging.level:
+#  org.hibernate.SQL: debug
+#  org.hibernate.type: trace
+
+#
+#?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-demo.cnj4z7xbg66d.ap-northeast-2.rds.amazonaws.com:3306/demo
+    username: admin
+    password: admin777
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true

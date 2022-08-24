@@ -5,7 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/controller/PersonalScheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/controller/PersonalScheduler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/dto/ps/CreatingPersonalScheduleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/dto/ps/CreatingPersonalScheduleDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/dto/ps/ReadingPersonalScheduleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/dto/ps/ReadingPersonalScheduleDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/repository/ps/PersonalScheduleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/scheduler/api/repository/ps/PersonalScheduleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/ApiApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/controller/AnnouncementScheduler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/controller/PersonalScheduler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/an/AnnouncementSchedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/an/AnnouncementSubscription.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/embededType/EndDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/embededType/EndTime.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/embededType/OriginalUrl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/embededType/StartDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/embededType/StartTime.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/ps/PersonalSchedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/validation/DateTypeValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/validation/TimeTypeValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/validation/UrlTypeValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/domain/validation/Validator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/dto/an/CreatingAnnouncementDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/dto/an/ReadingAnnouncementSubscriptionDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/dto/ps/CreatingPersonalScheduleDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/dto/ps/ReadingPersonalScheduleDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/dto/ps/UpdatingPersonalScheduleContentsDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/exception/exceptionController/ExceptionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/exception/exceptionDomain/DuplicateDataException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/exception/exceptionDomain/ValidatedException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/exception/exceptionDto/ExceptionResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/repository/an/AnnouncementScheduleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/repository/an/AnnouncementSubscriptionRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/repository/ps/PersonalScheduleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/service/an/AnnouncementScheduleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/service/an/AnnouncementSupscriptionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/service/ps/PersonalScheduleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/scheduler/api/ApiApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/scheduler/api/service/ps/PersonalScheduleServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +98,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;문제&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oseung-yun/Nabe/build.gradle&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -73,7 +113,7 @@
       <recent name="scheduler.api.service.ps" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ApiApplicationTests">
+  <component name="RunManager" selected="애플리케이션.ApiApplication">
     <configuration name="ApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="scheduler.api.ApiApplication" />
       <module name="api.main" />
@@ -150,8 +190,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ApiApplicationTests" />
         <item itemvalue="애플리케이션.ApiApplication" />
+        <item itemvalue="JUnit.ApiApplicationTests" />
         <item itemvalue="JUnit.ApiApplicationTests.contextLoads" />
         <item itemvalue="JUnit.PersonalScheduleServiceTest" />
         <item itemvalue="JUnit.DummyTest" />
