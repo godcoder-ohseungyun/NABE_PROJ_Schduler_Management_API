@@ -93,7 +93,7 @@
 
 <img width="984" alt="image" src="https://user-images.githubusercontent.com/68331041/190093368-34002372-ffe5-4aa6-9f1d-9cc039cad900.png">
 
-⭐`레거시 코드를 유지보수가 용이하게 개선`**하고** `주요 ****문제 해결 과정을 문서화` **했습니다.**
+⭐`레거시 코드를 유지보수가 용이하게 개선`**하고** `주요 문제 해결 과정을 문서화` **했습니다.**
 
 [OOP를 이용해 도메인과 검증 로직을 분리하기(feat. 래퍼클래스&디자인 패턴 등)](https://www.notion.so/OOP-feat-4e0fedd161944108848b5693c75450b5)
 
@@ -103,7 +103,7 @@
 
 [[INFRA] GitHub Actions 을 이용한 CI/CD 배포 파이프라인 구축 (feat. DOCKER , AWS RDS) ](https://www.notion.so/INFRA-GitHub-Actions-CI-CD-feat-DOCKER-AWS-RDS-e5e41eaed8f04e2c829cfbed104531e4)
 
-img width="1018" alt="image" src="https://user-images.githubusercontent.com/68331041/190093439-40a938d2-dc2d-4fb9-a834-8c3c05d4634c.png">
+<img width="1018" alt="image" src="https://user-images.githubusercontent.com/68331041/190093439-40a938d2-dc2d-4fb9-a834-8c3c05d4634c.png">
 
 ⭐`함께 자라기`**를 위해 팀에** `문서화를 통해 지식공유` **했습니다**.
 
@@ -123,7 +123,7 @@ img width="1018" alt="image" src="https://user-images.githubusercontent.com/6833
 
 [[ML] 멀티 스레드를 이용해 Open API 수집 속도 향상을 통한 ML 수행 속도 개선(feat. 동기 → 비동기) ](https://www.notion.so/ML-Open-API-ML-feat-80c53558d1b04d6e9828610a7d833b28)
 
-<img width="976" alt="image" src="[https://user-images.githubusercontent.com/68331041/190093590-b829aae1-51c4-47f8-ac89-1756af29f714.png](https://user-images.githubusercontent.com/68331041/190093590-b829aae1-51c4-47f8-ac89-1756af29f714.png)">
+<img width="976" alt="image" src="https://user-images.githubusercontent.com/68331041/190093590-b829aae1-51c4-47f8-ac89-1756af29f714.png">
 
 ⭐ **본 프로젝트를 진행하며** `깨닫고 개선한 점` **입니다.**
 
