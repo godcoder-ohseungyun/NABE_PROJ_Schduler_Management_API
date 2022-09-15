@@ -103,7 +103,8 @@
 
 [[INFRA] GitHub Actions 을 이용한 CI/CD 배포 파이프라인 구축 (feat. DOCKER , AWS RDS)](https://www.notion.so/INFRA-GitHub-Actions-CI-CD-feat-DOCKER-AWS-RDS-e5e41eaed8f04e2c829cfbed104531e4)
 
-![https://user-images.githubusercontent.com/68331041/190093439-40a938d2-dc2d-4fb9-a834-8c3c05d4634c.png](https://user-images.githubusercontent.com/68331041/190093439-40a938d2-dc2d-4fb9-a834-8c3c05d4634c.png)
+<img width="1228" alt="image" src="https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png">
+
 
 ⭐`함께 자라기`**를 위해 팀에** **학습한 내용을** `문서화하여 지식공유` **했습니다**.
 
