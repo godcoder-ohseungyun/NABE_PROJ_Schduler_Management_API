@@ -20,9 +20,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://database-demo.cnj4z7xbg66d.ap-northeast-2.rds.amazonaws.com:3306/demo
-    username: admin
-    password: admin777
+    url: jdbc:mysql://schedulermanagementdb.cjvk6aeowwma.ap-northeast-2.rds.amazonaws.com:3306/schedulerManagementDB
+    username: masterisosy
+    password: supermasterisosy0602
   jpa:
     database: mysql
     generate-ddl: true
