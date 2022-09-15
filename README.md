@@ -90,7 +90,8 @@
 
 [Scheduler Server API 명세서](https://www.notion.so/Scheduler-Server-API-0eff9253bc7d4362bbaeaa1dae9f3a7a)
 
-![https://user-images.githubusercontent.com/68331041/190093368-34002372-ffe5-4aa6-9f1d-9cc039cad900.png](https://user-images.githubusercontent.com/68331041/190093368-34002372-ffe5-4aa6-9f1d-9cc039cad900.png)
+<img width="1295" alt="image" src="https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png">
+
 
 ⭐`프로젝트 유지보수가 용이하게 개선`**하고** `주요 도전 과제 해결 과정을 문서화` **했습니다.**
 
