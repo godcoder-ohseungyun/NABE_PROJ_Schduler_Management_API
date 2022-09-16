@@ -18,7 +18,6 @@ public class PersonalScheduleRepository {
     @PersistenceContext
     private EntityManager em;
 
-    //update 역할도 같이 하나? merge?
     public void save(PersonalSchedule personalSchedule) {
 
         em.persist(personalSchedule);
@@ -29,7 +28,7 @@ public class PersonalScheduleRepository {
     public void deleteThese(List<Long> personalScheduleIdList) {
 
         //log.info(ids.toString());
-        em.createQuery("delete from PersonalSchedule p where p.id in :idList").setParameter("idList", personalScheduleIdList).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
+        em.createQuery("delete from PersonalSchedule p where p.id in :idList").setParameter("idList", personalScheduleIdList).executeUpdate();
 
     }
 
