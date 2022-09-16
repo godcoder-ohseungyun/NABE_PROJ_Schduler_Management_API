@@ -1,4 +1,4 @@
-package scheduler.api.controller;
+package scheduler.api.controller.adminController;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Query;
@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+/**
+ * @contents: API 테스트 및 작업시 수행을 보조하는 admin 전용 DB 관리 컨트롤러 입니다.
+ * @user: FE admin , BE admin
+ */
 @RestController
 @RequestMapping("/api/admin/database")
 @RequiredArgsConstructor
@@ -21,7 +25,6 @@ public class DatabaseMangement {
     /**
      * 임시 방편 코드 : 테이블의 변경이 있을 때마다 매번 sql 파일을 수정하는 것은 비효율적 -> 수정 예정
      * https://steady-coding.tistory.com/579
-     *
      */
     @DeleteMapping("/tables")
     @Transactional

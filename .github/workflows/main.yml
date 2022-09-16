@@ -37,6 +37,13 @@ jobs:
           java-version: '18'
           distribution: 'temurin'
 
+      ##add code for jasypt key env
+      - name: add code in application.yml for jasypt key env
+        run: |
+          cd ./src/main/resources
+          echo "${{ secrets.JASYPT_KEY }}" >> ./application.yml
+        sell: bash
+
 
       ## gradle build
       - name: Grant execute permission for gradlew
@@ -45,9 +52,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build -x test
 
-      #      ## gradle Test!
-      #      - name: Test with Gradle
-      #        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
+      ## gradle Test!
+      - name: Test with Gradle
+        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
 
       ## 웹 이미지 빌드 및 도커허브에 push
       - name: web docker build and push
@@ -57,7 +64,6 @@ jobs:
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
 
       ##  deploy to production!
-      ##  docker run -d -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:

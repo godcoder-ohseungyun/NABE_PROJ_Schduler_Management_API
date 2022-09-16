@@ -1,4 +1,4 @@
-package scheduler.api.exception.exceptionDto;
+package scheduler.api.exception.exceptionResultDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

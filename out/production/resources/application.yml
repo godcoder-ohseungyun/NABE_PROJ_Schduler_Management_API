@@ -20,10 +20,11 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://schedulermanagementdb.cjvk6aeowwma.ap-northeast-2.rds.amazonaws.com:3306/schedulerManagementDB
-    username: masterisosy
-    password: supermasterisosy0602
+    url: ENC(HLNVkrnK/9aSB19Ehc53W5UiVqENUH3QLhMEEW8T5wNrAHXCAahkCLVkvOyqjRyN6+U5tkR3aH/Kk9jFz5giV6qzXqWOeeegDATsQYL/SQcYd5QRhpAmFXCtSBDqGupfX7G1uq275emdG1nYaT3JQ5MfYsHqInRY)
+    username: ENC(d76s+swPRMX6c0RNNI3HYK2GKo78htB6)
+    password: ENC(Dbu9GoFb1HX3q0swGDX2zv7ccNGmGBzSQfxQqGydNs0=)
   jpa:
     database: mysql
     generate-ddl: true
     show-sql: true
+

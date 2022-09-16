@@ -4,9 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import scheduler.api.exception.exceptionDomain.ValidatedException;
-import scheduler.api.exception.exceptionDto.ExceptionResult;
-import scheduler.api.exception.exceptionDomain.DuplicateDataException;
+import scheduler.api.exception.userDefinedException.ValidatedException;
+import scheduler.api.exception.exceptionResultDto.ExceptionResult;
+import scheduler.api.exception.userDefinedException.DuplicateDataException;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;

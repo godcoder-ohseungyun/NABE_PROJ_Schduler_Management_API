@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import scheduler.api.domain.an.AnnouncementSchedule;
 import scheduler.api.domain.an.AnnouncementSubscription;
 import scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto;
-import scheduler.api.exception.exceptionDomain.DuplicateDataException;
+import scheduler.api.exception.userDefinedException.DuplicateDataException;
 import scheduler.api.repository.an.AnnouncementSubscriptionRepository;
 
 import java.util.List;

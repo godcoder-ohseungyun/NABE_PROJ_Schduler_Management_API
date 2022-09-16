@@ -1,4 +1,4 @@
-package scheduler.api.exception.exceptionDomain;
+package scheduler.api.exception.userDefinedException;
 
 import org.springframework.http.HttpStatus;
 

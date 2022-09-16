@@ -1,14 +1,13 @@
 package scheduler.api.domain.an;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import scheduler.api.domain.embededType.EndDate;
 import scheduler.api.domain.embededType.OriginalUrl;
 import scheduler.api.domain.embededType.StartDate;
-import scheduler.api.exception.exceptionDomain.ValidatedException;
+import scheduler.api.exception.userDefinedException.ValidatedException;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

@@ -1,7 +1,7 @@
 package scheduler.api.domain.validation;
 
 import org.springframework.http.HttpStatus;
-import scheduler.api.exception.exceptionDomain.ValidatedException;
+import scheduler.api.exception.userDefinedException.ValidatedException;
 
 import java.util.regex.Pattern;
 

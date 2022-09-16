@@ -7,7 +7,7 @@ import lombok.Setter;
 import scheduler.api.domain.embededType.EndTime;
 import scheduler.api.domain.embededType.StartDate;
 import scheduler.api.domain.embededType.StartTime;
-import scheduler.api.exception.exceptionDomain.ValidatedException;
+import scheduler.api.exception.userDefinedException.ValidatedException;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

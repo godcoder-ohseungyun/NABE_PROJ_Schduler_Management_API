@@ -1,7 +1,7 @@
 package scheduler.api.domain.validation;
 
 import org.springframework.http.HttpStatus;
-import scheduler.api.exception.exceptionDomain.ValidatedException;
+import scheduler.api.exception.userDefinedException.ValidatedException;
 
 public class TimeTypeValidator implements Validator{
     private final static int MAX_TIME = 2400;
