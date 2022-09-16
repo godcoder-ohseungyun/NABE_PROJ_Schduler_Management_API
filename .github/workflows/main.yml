@@ -11,7 +11,7 @@ jobs:
   sshCheck:
     runs-on: ubuntu-latest
     steps:
-      ## check ssh!!!
+      ##ssh 접속이 원활한지 확인
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -34,14 +34,13 @@ jobs:
           java-version: '18'
           distribution: 'temurin'
 
+      #jasypt 복호화 키 환경변수 application.yml에 생성하기 in 리눅스 명령어
       - name: add code in application.yml for jasypt key env
         run: |
           cd ./src/main/resources
           echo "${{ secrets.JASYPT_KEY }}" >> ./application.yml
         shell: bash
 
-
-      ## gradle build
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
@@ -59,7 +58,7 @@ jobs:
           docker build -t ${{ secrets.DOCKER_IMAGE_NAME }} .
           docker push ${{ secrets.DOCKER_IMAGE_NAME }}
 
-      ##  deploy to production!
+      ## ec2 ssh접속 후 도커 허브에서 이미지 받아와서 실행하기
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -73,5 +72,5 @@ jobs:
             docker rmi $(docker images -q)
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
-            docker run -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
+            docker run -d -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
         ##-d 옵션으로 반드시 백그라운드 수행
