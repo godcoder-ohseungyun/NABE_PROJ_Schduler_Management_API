@@ -41,7 +41,7 @@ jobs:
       - name: add code in application.yml for jasypt key env
         run: |
           cd ./src/main/resources
-          echo ${{ secrets.JASYPT_KEY }} >> ./application.yml
+          echo "${{ secrets.JASYPT_KEY }}" >> ./application.yml
           cat ./application.yml
         shell: bash
 
