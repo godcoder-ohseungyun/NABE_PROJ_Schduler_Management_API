@@ -52,9 +52,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build -x test
 
-      ## gradle Test!
-      - name: Test with Gradle
-        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
+      ## gradle Test! - tdd 적용 예정
+#      - name: Test with Gradle
+#        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
 
       ## 웹 이미지 빌드 및 도커허브에 push
       - name: web docker build and push
