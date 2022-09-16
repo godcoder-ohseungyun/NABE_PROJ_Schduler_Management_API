@@ -21,13 +21,10 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             echo "success ssh connect"
-            
-            
 
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: checkout
         uses: actions/checkout@v3
 
@@ -37,7 +34,6 @@ jobs:
           java-version: '18'
           distribution: 'temurin'
 
-      ##add code for jasypt key env
       - name: add code in application.yml for jasypt key env
         run: |
           cd ./src/main/resources
@@ -77,5 +73,5 @@ jobs:
             docker rmi $(docker images -q)
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
-            docker run -d -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
+            docker run -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
         ##-d 옵션으로 반드시 백그라운드 수행
