@@ -42,7 +42,7 @@ jobs:
         run: |
           cd ./src/main/resources
           echo "${{ secrets.JASYPT_KEY }}" >> ./application.yml
-        sell: bash
+        shell: bash
 
 
       ## gradle build
