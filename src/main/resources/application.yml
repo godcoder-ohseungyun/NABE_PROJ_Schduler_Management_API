@@ -25,3 +25,5 @@ spring:
     database: mysql
     generate-ddl: true
     show-sql: true
+
+#jasypt 환경변수는 git workflow에서 추가됨
