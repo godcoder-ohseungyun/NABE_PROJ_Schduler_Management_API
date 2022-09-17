@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AuthorizationAOP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/aopDto/AccessToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/userDefinedException/AuthenticationImpossibleException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/ApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/scheduler/api/ApiApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/controller/adminController/DatabaseMangement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/ApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/adminController/DatabaseMangement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/adminController/DatabaseMangementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/exceptionController/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/exceptionController/ExceptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/aop/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/scheduler/api/aop/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/aop/AuthorizationAOP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/scheduler/api/aop/AuthorizationAOP.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +197,7 @@
       <workItem from="1663321600484" duration="1891000" />
       <workItem from="1663332987622" duration="8434000" />
       <workItem from="1663341904432" duration="2160000" />
-      <workItem from="1663385236931" duration="8103000" />
+      <workItem from="1663385236931" duration="8276000" />
     </task>
     <servers />
   </component>

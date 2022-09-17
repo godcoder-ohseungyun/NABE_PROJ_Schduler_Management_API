@@ -9,9 +9,3 @@ spring:
     generate-ddl: true
     show-sql: true
 
-logging:
-  level:
-    org.apache.http: DEBUG
-    httpclient.wire: DEBUG
-
-enviroment: osy
