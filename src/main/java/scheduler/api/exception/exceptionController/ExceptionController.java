@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import scheduler.api.exception.userDefinedException.AuthenticationImpossibleException;
 import scheduler.api.exception.userDefinedException.ValidatedException;
 import scheduler.api.exception.exceptionResultDto.ExceptionResult;
 import scheduler.api.exception.userDefinedException.DuplicateDataException;
@@ -29,6 +30,17 @@ public class ExceptionController  {
     public ResponseEntity<ExceptionResult> VlEx(ValidatedException e , HttpServletRequest request) {
         ExceptionResult exceptionResult = new ExceptionResult(new Date(),
                 "Wrong-Validated",
+                e.getMessage(),
+                request.getRequestURI());
+
+
+        return new ResponseEntity<>(exceptionResult,e.getStatus());
+    }
+
+    @ExceptionHandler(AuthenticationImpossibleException.class)
+    public ResponseEntity<ExceptionResult> AieEx(ValidatedException e , HttpServletRequest request) {
+        ExceptionResult exceptionResult = new ExceptionResult(new Date(),
+                "Authentication-impossible: access-Token is not valid",
                 e.getMessage(),
                 request.getRequestURI());
 

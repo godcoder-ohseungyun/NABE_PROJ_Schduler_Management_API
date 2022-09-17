@@ -1,7 +1,6 @@
 package scheduler.api.controller.adminController;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ import javax.persistence.PersistenceContext;
 @RestController
 @RequestMapping("/api/admin/database")
 @RequiredArgsConstructor
-public class DatabaseMangement {
+public class DatabaseMangementController {
 
     @PersistenceContext
     private EntityManager em;
