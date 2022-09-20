@@ -80,7 +80,7 @@
 
 </br>
 
-- `링크를 통해 노션에 정리된 문서를 조회하실 수 있습니다.`
+*링크를 통해 노션에 정리된 문서 전문을 조회하실 수 있습니다.*
 
 </br>
 
@@ -89,19 +89,19 @@
 - [요구사항 추적 및 버전별 데이터베이스 설계 과정](https://www.notion.so/dbf1cc2b6ac7480bbcc6b5de2f2b32f0)
 - [Scheduler Server API 명세서](https://www.notion.so/Scheduler-Server-API-0eff9253bc7d4362bbaeaa1dae9f3a7a)
 
-<img width="1295" alt="image" src="[https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png](https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png)">
+![https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png](https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png)
 
 </br>
 
 `프로젝트 유지보수가 용이하게 개선`**하고** `주요 도전 과제 해결 과정을 문서화` **했습니다.**
 
 - [전략 패턴과 래퍼 클래스 개념을 이용한 도메인과 검증 로직 최적 분리](https://www.notion.so/4e0fedd161944108848b5693c75450b5)
-- [API  사용성 개선: 사용자 정의 예외를 이용한 API 응답 세분화 및 상세화](https://www.notion.so/API-API-0e34aa4024124318a43869f2ae3117f3)
+- [API 사용성 개선: 사용자 정의 예외를 이용한 API 응답 세분화 및 상세화](https://www.notion.so/API-API-0e34aa4024124318a43869f2ae3117f3)
 - [AOP를 이용한 Access-Token 유효성 검증 로직(횡단관심사) 분리](https://www.notion.so/AOP-Access-Token-a5fd488650d44a94a4c553b74a663174)
 - [민첩한 비즈니스 대응을 위한 GitHub Actions CI/CD 배포 파이프라인 구축](https://www.notion.so/GitHub-Actions-CI-CD-e5e41eaed8f04e2c829cfbed104531e4)
 - [Github Action Workflow로 J**scrypt 암,복호화 KEY 숨기기**](https://www.notion.so/Github-Action-Workflow-Jscrypt-KEY-8a2e5b89c2134661b3a099baae7bda65)
 
-<img width="1228" alt="image" src="[https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png](https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png)">
+![https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png](https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png)
 
 </br>
 
@@ -125,7 +125,7 @@
 **본 프로젝트를 진행하며 다음을 `깨닫고 개선`할 수 있었습니다.**
 
 - 개발자의 `문서화와 커뮤니케이션 역량을 개선`하고, 명확한 전달을 통한 `원활한 프로젝트 협업`을 이끌어 냈습니다.
-- 다양한 `기업 기술 블로그 참고`하여 문제 해결 `인사이트를 얻고`,  CS `기본기를 응용하여 명확한 최적화` 했습니다.
+- 다양한 `기업 기술 블로그 참고`하여 문제 해결 `인사이트를 얻고`, CS `기본기를 응용하여 명확한 최적화` 했습니다.
 - 문서화를 통한 `과정 기록과 공유`를 습관화하여 `함께 자라기를 실천`하고, `리펙토링과 클린코드` 중심의 개발을 통한 `생산성 개선` 했습니다.
 
 </br>
@@ -137,7 +137,7 @@
 
 </br>
 
-**[팀 소개]**
+***[팀 소개]***
 
 `대학 동료들과` 요구사항 추적, 아키텍처 적절성 판단, 레거시 개선 등 체계적인 프로젝트 `개발 역량`과
 
@@ -145,7 +145,7 @@
 
 </br>
 
-**[팀 구성(총 10명)]**
+***[팀 구성(총 10명)]***
 
 - **[DESIGN]** 3인 - Figma, HTML, CSS, JS
 - **[FE]** 2인 - Vue.js , Flutter
@@ -154,13 +154,13 @@
 
 </br>
 
-**[협업 방식]**
+***[협업 방식]***
 
 주기적인 페어 리뷰를 통한 부족한 점을 보완 및 발생 가능한 위험을 초기 대응을 위한  `에자일 스크럼` 방식을 사용하고 있으며,
 
 데일리 스크럼 , 스프린트 리뷰를 통해 정확한 작업 검토가 가능해져, 프로젝트를 성공적으로 운영하고 있습니다.
 
 - 주 1회 스프린트 회의: `목표설정` , `도전 과제 해결 과정 및 지식 공유 문서 페어리뷰`
-- 매일 20분씩 Daily Scrum**:** `작업검토 및 전략회의`, `도전과제 설계`
+- 매일 20분씩 Daily Scrum: `작업검토 및 전략회의`, `도전과제 설계`
 
 ![https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png](https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png)
