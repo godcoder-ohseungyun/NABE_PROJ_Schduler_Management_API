@@ -38,8 +38,8 @@
 
 ---
 
-- 회원 및 인증 관리 , 스케줄러 관리 , 채용 공고 관리 등 책임별 REST API를 가진 MSA + SPA 구조 입니다. MSA 아키텍쳐를 통해 FE ,BE ,ML 팀간 서로 다른 개발 주기로 인한 개발 지연 문제를 해결하였습니다.
-- 웹 서비스는 전체적인 트래픽 감소와 렌더링 효율성을 위해 `SPA 구조`로 개발 되었습니다. (vue.js web server가 API GATEWAY의 역할을 포함하고 있습니다.)
+- `회원 및 인증 관리 , 스케줄러 관리 , 채용 공고 관리 등 책임별 REST API를 가진 MSA + SPA 구조` 입니다. MSA 아키텍쳐를 통해 FE ,BE ,ML 팀간 서로 다른 개발 주기로 인한 개발 지연 문제를 해결하였습니다.
+- 웹 서비스는 전체적인 트래픽 감소와 렌더링 효율성을 위해 SPA 구조로 개발 되었습니다. (vue.js web server가 API GATEWAY의 역할을 포함하고 있습니다.)
 
 ![https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png](https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png)
 
@@ -121,6 +121,8 @@
 - [로지스틱 회귀 분석 및 클러스터링을 이용한 자격증 취득 소요기간 예측 모듈 설계](https://www.notion.so/ML-a92a2c6fe1c24bb29250b6beb7bd0a30)
 
 ![https://user-images.githubusercontent.com/68331041/191207374-8c6ee10b-f408-48b3-af7a-197ccadbdd67.png](https://user-images.githubusercontent.com/68331041/191207374-8c6ee10b-f408-48b3-af7a-197ccadbdd67.png)
+
+</br>
 
 **본 프로젝트를 진행하며 다음을 `깨닫고 개선`할 수 있었습니다.**
 
