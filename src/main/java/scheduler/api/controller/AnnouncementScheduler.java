@@ -7,10 +7,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import scheduler.api.domain.an.AnnouncementSchedule;
+import scheduler.api.domain.ps.PersonalSchedule;
 import scheduler.api.dto.an.CreatingAnnouncementDto;
 import scheduler.api.dto.an.ReadingAnnouncementSubscriptionDto;
 import scheduler.api.exception.userDefinedException.DuplicateDataException;
 import scheduler.api.exception.userDefinedException.ValidatedException;
+import scheduler.api.rest.RestHeaderCreator;
 import scheduler.api.service.an.AnnouncementSupscriptionService;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class AnnouncementScheduler {
 
     private final AnnouncementSupscriptionService announcementSupscriptionService;
 
+    private final RestHeaderCreator restHeaderCreator;
 
     /**
      * @title: 공고 구독
@@ -49,7 +52,9 @@ public class AnnouncementScheduler {
 
         announcementSupscriptionService.subscribe(memberId, newAnnouncementSchedule);
 
-        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
+        return new ResponseEntity<String>("",restHeaderCreator.createRestfulHeader(AnnouncementScheduler.class,
+                "/{memberId}/announcement-schedules",
+                "[GET],[DELETE]"), HttpStatus.valueOf(200));
 
     }
 
@@ -62,7 +67,9 @@ public class AnnouncementScheduler {
     @DeleteMapping("/{memberId}/announcement-schedules")
     public ResponseEntity<String> cancelSubscribeList(@RequestBody HashMap<String, Long> announcementSubscriptionIdList) {
         announcementSupscriptionService.cancelSubscribe(announcementSubscriptionIdList.values().stream().collect(Collectors.toCollection(ArrayList::new)));
-        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
+        return new ResponseEntity<String>("",restHeaderCreator.createRestfulHeader(AnnouncementScheduler.class,
+                "/{memberId}/announcement-schedules",
+                "[GET],[POST]"), HttpStatus.valueOf(200));
     }
 
     /**
@@ -71,8 +78,13 @@ public class AnnouncementScheduler {
      * 2. 사용자가 구독한 모든 공고를 응답
      */
     @GetMapping("/{memberId}/announcement-schedules")
-    public List<ReadingAnnouncementSubscriptionDto> getAnnounceScheduleList(@PathVariable Long memberId){
-        return announcementSupscriptionService.findAllByMemberId(memberId);
+    public ResponseEntity<List<ReadingAnnouncementSubscriptionDto>> getAnnounceScheduleList(@PathVariable Long memberId){
+
+        List<ReadingAnnouncementSubscriptionDto> findlist = announcementSupscriptionService.findAllByMemberId(memberId);
+
+        return new ResponseEntity<List<ReadingAnnouncementSubscriptionDto>>(findlist,restHeaderCreator.createRestfulHeader(AnnouncementScheduler.class,
+                "/{memberId}/announcement-schedules",
+                "[POST],[DELETE]"), HttpStatus.valueOf(200));
     }
 
     private void isValidated(BindingResult bindingResult) throws ValidatedException {
