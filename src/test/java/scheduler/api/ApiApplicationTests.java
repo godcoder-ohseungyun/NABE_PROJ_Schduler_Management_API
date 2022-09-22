@@ -16,16 +16,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ApiApplicationTests {
 
-	@Test
-	public void test1() throws Exception {
-
-		assertEquals(1,1);
-	}
-
-	@Test
-	public void test2() throws Exception {
-
-		assertEquals(1,1);
-	}
 
 }

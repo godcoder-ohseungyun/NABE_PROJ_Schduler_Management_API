@@ -11,6 +11,7 @@ import scheduler.api.dto.ps.CreatingPersonalScheduleDto;
 import scheduler.api.dto.ps.ReadingPersonalScheduleDto;
 import scheduler.api.dto.ps.UpdatingPersonalScheduleContentsDto;
 import scheduler.api.exception.userDefinedException.ValidatedException;
+import scheduler.api.rest.RestHeaderCreator;
 import scheduler.api.service.ps.PersonalScheduleService;
 
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class PersonalScheduler {
 
     private final PersonalScheduleService personalScheduleService;
 
+    private final RestHeaderCreator restHeaderCreator;
+
+
     /**
      * @title: 개인 일정 조회
      * @contents: 사용자가 개인 일정을 모두 응답
@@ -38,7 +42,11 @@ public class PersonalScheduler {
 
         List<ReadingPersonalScheduleDto> PersonalScheduleList = personalScheduleService.findAllByMemberId(memberId);
 
-        return new ResponseEntity<List<ReadingPersonalScheduleDto>>(PersonalScheduleList,null, HttpStatus.valueOf(200));
+        return new ResponseEntity<List<ReadingPersonalScheduleDto>>(PersonalScheduleList,
+                restHeaderCreator.createRestfulHeader(PersonalSchedule.class,
+                        "/{memberId}/personal-schedules",
+                        "[POST],[PUT],[DELETE] "),
+                HttpStatus.valueOf(200));
     }
 
 
@@ -64,7 +72,10 @@ public class PersonalScheduler {
         personalScheduleService.save(newPersonalSchedule);
 
 
-        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
+        return new ResponseEntity<String>("",restHeaderCreator.createRestfulHeader(PersonalSchedule.class,
+                "/{memberId}/personal-schedules",
+                "[GET],[PUT],[DELETE]")
+                , HttpStatus.valueOf(200));
     }
 
 
@@ -80,7 +91,9 @@ public class PersonalScheduler {
         isValidated(bindingResult);
         personalScheduleService.update(updatingPsContentsDto);
 
-        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
+        return new ResponseEntity<String>("",restHeaderCreator.createRestfulHeader(PersonalSchedule.class,
+                "/{memberId}/personal-schedules",
+                "[GET],[DELETE]"), HttpStatus.valueOf(200));
     }
 
     /**
@@ -93,7 +106,9 @@ public class PersonalScheduler {
     public ResponseEntity<String> deletePersonalScheduleList(@RequestBody HashMap<String,Long> personalScheduleIdList){
         personalScheduleService.delete(personalScheduleIdList.values().stream().collect(Collectors.toCollection(ArrayList::new)));
 
-        return new ResponseEntity<String>("",null, HttpStatus.valueOf(200));
+        return new ResponseEntity<String>("",restHeaderCreator.createRestfulHeader(PersonalSchedule.class,
+                "/{memberId}/personal-schedules",
+                "[GET],[POST]"), HttpStatus.valueOf(200));
     }
 
     private void isValidated(BindingResult bindingResult) throws ValidatedException {
