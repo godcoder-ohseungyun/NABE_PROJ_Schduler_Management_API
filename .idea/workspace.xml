@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/rest/RestHeaderCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/aop/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/scheduler/api/aop/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/scheduler/api/rest/RestHeaderCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/scheduler/api/rest/RestHeaderCreator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/AnnouncementScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/AnnouncementScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/PersonalScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/PersonalScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/scheduler/api/ApiApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
