@@ -14,7 +14,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 public class RestHeaderCreator {
 
     private static final String self_descriptive_msg_info = "; href=next state";
-    private static final String hateoas_msg_info = "<https://exmaple.org/docs/>;  rel=\"api doc\"";
+    private static final String hateoas_msg_info = "<https://citrine-sing-062.notion.site/Scheduler-Server-API-0eff9253bc7d4362bbaeaa1dae9f3a7a>;  rel=\"api doc\"";
 
 
     public HttpHeaders createRestfulHeader(Class<?> controller , String remainUrls ,String httpMethod ){

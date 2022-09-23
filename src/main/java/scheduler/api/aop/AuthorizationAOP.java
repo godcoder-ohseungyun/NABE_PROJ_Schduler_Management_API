@@ -32,7 +32,7 @@ import java.util.HashMap;
 public class AuthorizationAOP {
 
     private final RestTemplate restTemplate ;
-    private final String url = "http://localhost:8080/fortest/accesstoken";
+    private final String account_server_end_point = "";
 
     //com/example/aop/controller 패키지 하위 클래스들 전부 적용하겠다고 지점 설정
     @Pointcut("execution(* scheduler.api.controller..*.*(..))")
@@ -52,7 +52,7 @@ public class AuthorizationAOP {
         try {
             //인증 서버로 보낼 요청 생성
             RequestEntity<AccessToken> requestForAccountServer = RequestEntity
-                    .post(url)
+                    .post(account_server_end_point)
                     .body(new AccessToken(request.getHeader("access-token")));
 
             //응답 상태 코드가 4xx , 5xx 일때 restTemplate에서 예외 발생시킴

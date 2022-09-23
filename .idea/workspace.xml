@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="변경">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AccountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AuthorizationAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AuthorizationAOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/rest/RestHeaderCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/rest/RestHeaderCreator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +91,7 @@
       <recent name="scheduler.api.service.ps" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.ApiApplication">
+  <component name="RunManager" selected="Application.ApiApplication">
     <configuration name="ApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="scheduler.api.ApiApplication" />
       <module name="api.main" />
@@ -172,7 +175,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.ApiApplication" />
         <item itemvalue="JUnit.ApiApplicationTests" />
         <item itemvalue="JUnit.ApiApplicationTests.contextLoads" />
         <item itemvalue="JUnit.PersonalScheduleServiceTest" />
@@ -198,6 +200,7 @@
       <workItem from="1663385236931" duration="8624000" />
       <workItem from="1663395746896" duration="4462000" />
       <workItem from="1663414546556" duration="840000" />
+      <workItem from="1663916273692" duration="136000" />
     </task>
     <servers />
   </component>
