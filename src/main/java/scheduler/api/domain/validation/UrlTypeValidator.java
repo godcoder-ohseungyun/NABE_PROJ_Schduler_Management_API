@@ -5,6 +5,10 @@ import scheduler.api.exception.userDefinedException.ValidatedException;
 
 import java.util.regex.Pattern;
 
+/**
+ * @detail
+ * - 기준 형식: https://www.nabe.com
+ */
 public class UrlTypeValidator implements Validator{
 
     private final static String ERROR_MSG = "잘못된 양식의 URL 입니다. (양식: https://www.nabe.com)";

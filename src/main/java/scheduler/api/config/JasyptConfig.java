@@ -7,6 +7,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ * @detail
+ * - Jasypt설정: AWS RDS 연결을 위한 application.yml의 DB정보 암호화
+ * - 복호화키 {enviroment}는 git Actions CI/CD 동작 수행 중 application.yml에 생성됩니다.
+ */
 @Configuration
 public class JasyptConfig {
     @Value("${enviroment}")

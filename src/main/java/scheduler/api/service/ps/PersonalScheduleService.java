@@ -13,12 +13,6 @@ import scheduler.api.repository.ps.PersonalScheduleRepository;
 import java.util.List;
 
 
-/**
- * 삽입 - 단일일정 삽입 후 id 반환
- * 삭제 - 다수일정 동시 삭제 가능
- * 수정 - 단일일정 제목,내용 수정
- * 읽기 - 전체 조회 , *특정 조건 조회
- */
 @Service
 @Slf4j
 @Transactional(readOnly = true)

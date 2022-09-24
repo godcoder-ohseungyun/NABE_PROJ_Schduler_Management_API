@@ -17,6 +17,7 @@ public class StartTime {
 
     private String startTime;
 
+    //고유 검증 전략 DI
     private final static Validator validator = new TimeTypeValidator();
 
     private StartTime(String startTime) {

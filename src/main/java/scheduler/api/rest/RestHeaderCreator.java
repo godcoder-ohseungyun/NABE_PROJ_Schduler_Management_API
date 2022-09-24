@@ -20,21 +20,17 @@ public class RestHeaderCreator {
     public HttpHeaders createRestfulHeader(Class<?> controller , String remainUrls ,String httpMethod ){
 
         HttpHeaders restfulHeader = new HttpHeaders();
+
         addSelfDescriptiveHeader(restfulHeader, controller,remainUrls,httpMethod);
         addHateoasHeader(restfulHeader);
+
         return restfulHeader;
     }
 
-    /**
-     * Hateoas 정보 해더 생성
-     */
     private void addHateoasHeader(HttpHeaders headers){
         headers.add("Link" , hateoas_msg_info);
     }
 
-    /**
-     * SelfDescriptive 정보 해더 생성
-     */
     private void addSelfDescriptiveHeader(HttpHeaders header ,Class<?> controller , String remainUrls ,String httpMethod){
 
         StringBuffer link = new StringBuffer(httpMethod);

@@ -3,6 +3,10 @@ package scheduler.api.domain.validation;
 import org.springframework.http.HttpStatus;
 import scheduler.api.exception.userDefinedException.ValidatedException;
 
+/**
+ * @detail
+ * - 기준 형식: YYYYMMDD
+ */
 public class DateTypeValidator implements Validator{
 
     private final static int MAX_DATE = 20501231;

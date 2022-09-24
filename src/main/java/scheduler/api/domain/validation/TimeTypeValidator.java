@@ -3,6 +3,10 @@ package scheduler.api.domain.validation;
 import org.springframework.http.HttpStatus;
 import scheduler.api.exception.userDefinedException.ValidatedException;
 
+/**
+ * @detail
+ * - 기준 형식: hhmm
+ */
 public class TimeTypeValidator implements Validator{
     private final static int MAX_TIME = 2400;
     private final static int MIN_TIME = 0;

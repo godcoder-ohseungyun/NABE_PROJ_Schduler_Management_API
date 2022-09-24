@@ -26,12 +26,11 @@ public class AnnouncementSupscriptionService {
     @Transactional
     public void subscribe(Long memberId, AnnouncementSchedule announcementSchedule) throws DuplicateDataException {
 
-        //구독하고자 하는 공고
-        AnnouncementSchedule getAnnouncementSchedule = announcementScheduleService.getFindOrCreation(announcementSchedule); //무조건 영속상태로 반환함
+        //주의: 한번이라도 저장된 공고는 DB에 중복 저장되지 않습니다.
+        AnnouncementSchedule getAnnouncementSchedule = announcementScheduleService.getFindOrCreation(announcementSchedule);
 
-
+        //사용자와 공고간 구독 여부 조회
         if (announcementSubscriptionRepository.isNotMapped(memberId, getAnnouncementSchedule.getId())){
-
             AnnouncementSubscription newAnnouncementSubscription = AnnouncementSubscription.createAnnouncementSubscription(getAnnouncementSchedule, memberId);
             announcementSubscriptionRepository.save(newAnnouncementSubscription);
 

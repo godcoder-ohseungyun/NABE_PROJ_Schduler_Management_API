@@ -4,13 +4,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @detail
+ * - 웹 관련 필요한 설정
+ * - CORS
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     private final long MAX_AGE_SECS = 3600;
-    /**
-     * CORS 설정
-     */
+
+    //TODO: FE 웹 서버 배포 완료시, 해당 주소로 origins 제한
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
