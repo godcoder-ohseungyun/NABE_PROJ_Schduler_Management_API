@@ -12,6 +12,11 @@ import scheduler.api.exception.userDefinedException.DuplicateDataException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
+/**
+ * @detail
+ * - 사용자 정의 예외를 다루는 익셉션 리졸버 입니다.
+ * - 발생시각, 예외코드, 전달할 메세지, 발생위치 정보를 포함합니다.
+ */
 @Slf4j
 @RestControllerAdvice
 public class ExceptionController  {

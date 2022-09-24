@@ -10,8 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * @contents: API 테스트 및 작업시 수행을 보조하는 admin 전용 DB 관리 컨트롤러 입니다.
- * @user: FE admin , BE admin
+ * @detail
+ * - admin 전용 DB 관리 컨트롤러로 초기화 등 민감한 동작을 지원합니다.
+ * - TODO: 어드민만 접근 가능하게 제한하는 시스템 추가
  */
 @RestController
 @RequestMapping("/api/admin/database")
@@ -22,8 +23,7 @@ public class DatabaseMangementController {
     private EntityManager em;
 
     /**
-     * 임시 방편 코드 : 테이블의 변경이 있을 때마다 매번 sql 파일을 수정하는 것은 비효율적 -> 수정 예정
-     * https://steady-coding.tistory.com/579
+     * TODO: 임시 방편 코드 임, 테이블의 변경이 있을 때마다 매번 sql 파일을 수정하는 것은 비효율적 -> 수정 예정(https://steady-coding.tistory.com/579)
      */
     @DeleteMapping("/tables")
     @Transactional
@@ -33,7 +33,7 @@ public class DatabaseMangementController {
         tableNames[1] = "announcement_subscription";
         tableNames[2] = "personal_schedule";
 
-        //foreign key 걸린 테이블 강제 삭제
+        //주의: FK 걸린 테이블도 강제 삭제
         em.createNativeQuery("SET FOREIGN_KEY_CHECKS = 0").executeUpdate();
         for(String tableName : tableNames){
             em.createNativeQuery("TRUNCATE TABLE " + tableName).executeUpdate();

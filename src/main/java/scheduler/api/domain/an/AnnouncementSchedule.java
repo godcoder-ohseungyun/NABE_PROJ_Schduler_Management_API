@@ -12,6 +12,11 @@ import scheduler.api.exception.userDefinedException.ValidatedException;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @detail
+ * - 서비스에서 제공한 공고 중 사용자가 구독 신청한 공고의 내용을 다루는 도메인 입니다.
+ * - 각 임베디드 타입에는 고유 검증 로직이 포함 되어 있습니다. * 임베디드 타입 클래스 참고바람
+ */
 @Entity
 @Table(name="announcement_schedule")
 @Getter
@@ -20,7 +25,7 @@ import javax.validation.constraints.NotNull;
 public class AnnouncementSchedule {
 
     @Id
-    //@GeneratedValue 이부분 주석 으로 처리한 이유 정리해야함
+    //@GeneratedValue
     @Column(name = "id")
     private Long id;
 

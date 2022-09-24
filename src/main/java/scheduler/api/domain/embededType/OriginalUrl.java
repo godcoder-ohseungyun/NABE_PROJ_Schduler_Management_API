@@ -17,6 +17,7 @@ public class OriginalUrl {
 
     private String originalUrl;
 
+    //고유 검증 전략 DI
     private final static Validator validator = new UrlTypeValidator();
 
     private OriginalUrl(String originalUrl) {

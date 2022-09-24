@@ -12,6 +12,12 @@ import scheduler.api.exception.userDefinedException.ValidatedException;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @detail
+ * - 사용자의 개인일정을 다루는 도메인 입니다.
+ * - 각 임베디드 타입에는 고유 검증 로직이 포함 되어 있습니다. * 임베디드 타입 클래스 참고바람
+ */
+
 @Entity
 @Table(name="personal_schedule")
 @Getter @Setter

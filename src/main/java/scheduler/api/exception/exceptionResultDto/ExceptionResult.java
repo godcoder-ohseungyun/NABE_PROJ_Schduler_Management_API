@@ -12,8 +12,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExceptionResult {
-    private Date timeStamp;
-    private String code;
-    private String message;
-    private String details;
+    private Date timeStamp; //예외 발생 시간 yyyy mm dd
+    private String code; //예외 제목(발생 원인)
+    private String message; //예외 발생시 전달한 메세지
+    private String details; //예외 발생 위치
 }

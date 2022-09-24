@@ -16,6 +16,7 @@ public class EndDate {
 
     private String endDate;
 
+    //고유 검증 전략 DI
     private final static Validator validator = new DateTypeValidator();
 
     private EndDate(String endDate) {
