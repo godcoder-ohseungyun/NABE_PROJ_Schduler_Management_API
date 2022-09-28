@@ -7,29 +7,7 @@
     <list default="true" id="89f4928a-e87e-4c5f-8cb7-c01bc3399665" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AuthorizationAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/AuthorizationAOP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/aopDto/AccessToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/aop/aopDto/AccessTokenValidationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/config/JasyptConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/config/JasyptConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/AnnouncementScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/AnnouncementScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/PersonalScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/PersonalScheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/adminController/DatabaseMangementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/controller/adminController/DatabaseMangementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/an/AnnouncementSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/an/AnnouncementSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/an/AnnouncementSubscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/an/AnnouncementSubscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/EndDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/EndDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/EndTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/EndTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/OriginalUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/OriginalUrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/StartDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/StartDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/StartTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/embededType/StartTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/ps/PersonalSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/ps/PersonalSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/DateTypeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/DateTypeValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/TimeTypeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/TimeTypeValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/UrlTypeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/UrlTypeValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/domain/validation/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/exceptionController/ExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/exceptionController/ExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/exceptionResultDto/ExceptionResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/exception/exceptionResultDto/ExceptionResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/rest/RestHeaderCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/rest/RestHeaderCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/service/an/AnnouncementSupscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/service/an/AnnouncementSupscriptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scheduler/api/service/ps/PersonalScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scheduler/api/service/ps/PersonalScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,6 +174,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ApiApplication" />
         <item itemvalue="JUnit.ApiApplicationTests" />
         <item itemvalue="JUnit.ApiApplicationTests.contextLoads" />
         <item itemvalue="JUnit.PersonalScheduleServiceTest" />
@@ -223,6 +202,7 @@
       <workItem from="1663414546556" duration="840000" />
       <workItem from="1663916273692" duration="1637000" />
       <workItem from="1663990528290" duration="4368000" />
+      <workItem from="1664353593743" duration="136000" />
     </task>
     <servers />
   </component>

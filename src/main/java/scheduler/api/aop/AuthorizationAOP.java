@@ -28,7 +28,7 @@ public class AuthorizationAOP {
     private final RestTemplate restTemplate ;
 
     //유효성을 검증해줄 인증 관리 서버 엔드포인트
-    private final String account_management_server_end_point = "";
+    private final String account_management_server_end_point = "15.164.210.47:8000/accounts/kakao/userinfo";
 
     @Pointcut("execution(* scheduler.api.controller..*.*(..))")
     private void pointCut() {
@@ -48,7 +48,7 @@ public class AuthorizationAOP {
                     .body(new AccessTokenValidationDto(request.getHeader("access-token")));
 
             //TODO: 인증 서버 배포 완료시 아래 질의 요청부 해제
-            //ResponseEntity<String> response = restTemplate.exchange(requestForAccountServer, String.class);
+            ResponseEntity<String> response = restTemplate.exchange(requestForAccountServer, String.class);
 
         }catch(Exception e){
             //질의 응답 상태 코드가 4xx , 5xx 일때 발생
