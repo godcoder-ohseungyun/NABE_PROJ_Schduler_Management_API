@@ -47,7 +47,9 @@ public class PersonalScheduler {
 
     //입력 일정 내용이 동일해도 별도로 구분하며, 중복 생성 합니다.
     @PostMapping("/{memberId}/personal-schedules")
-    public ResponseEntity<String> savePersonalSchedule(@PathVariable Long memberId, @Validated @RequestBody CreatingPersonalScheduleDto creatingPsDto, BindingResult bindingResult) throws ValidatedException {
+    public ResponseEntity<String> savePersonalSchedule(@PathVariable Long memberId
+            , @Validated @RequestBody CreatingPersonalScheduleDto creatingPsDto
+            , BindingResult bindingResult) throws ValidatedException {
 
 
         isValidated(bindingResult);
@@ -73,7 +75,9 @@ public class PersonalScheduler {
 
     //내용(Contents)만을 수정하며 이는 title & body 를 의미 합니다.
     @PutMapping("/{memberId}/personal-schedules")
-    public ResponseEntity<String> updatePersonalScheduleContents(@Validated @RequestBody UpdatingPersonalScheduleContentsDto updatingPsContentsDto, BindingResult bindingResult) throws ValidatedException {
+    public ResponseEntity<String> updatePersonalScheduleContents(
+            @Validated @RequestBody UpdatingPersonalScheduleContentsDto updatingPsContentsDto
+            , BindingResult bindingResult) throws ValidatedException {
 
         isValidated(bindingResult);
         personalScheduleService.update(updatingPsContentsDto);
@@ -86,7 +90,10 @@ public class PersonalScheduler {
     //@RequestBody: '가변 json'을 이용해 가변적으로 요청된 모든 id값 제거
     @DeleteMapping("/{memberId}/personal-schedules")
     public ResponseEntity<String> deletePersonalScheduleList(@RequestBody HashMap<String, Long> personalScheduleIdList) {
-        personalScheduleService.delete(personalScheduleIdList.values().stream().collect(Collectors.toCollection(ArrayList::new)));
+        personalScheduleService.delete(personalScheduleIdList
+                .values()
+                .stream()
+                .collect(Collectors.toCollection(ArrayList::new)));
 
         return new ResponseEntity<String>("", restHeaderCreator.createRestfulHeader(PersonalSchedule.class,
                 "/{memberId}/personal-schedules",
@@ -95,7 +102,11 @@ public class PersonalScheduler {
 
     private void isValidated(BindingResult bindingResult) throws ValidatedException {
         if (bindingResult.hasErrors()) {
-            List<String> errors = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList()); // 문서화 필요
+            List<String> errors = bindingResult.getAllErrors()
+                    .stream()
+                    .map(e -> e.getDefaultMessage())
+                    .collect(Collectors.toList()); // 문서화 필요
+
             throw new ValidatedException(errors.toString(), HttpStatus.BAD_REQUEST);
         }
     }
