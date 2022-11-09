@@ -32,7 +32,9 @@ public class AnnouncementSubscriptionRepository {
 
     public Boolean isNotMapped(Long memberId, Long announcementScheduleId) {
         try {
-            em.createQuery("select a from AnnouncementSubscription a where a.announcementSchedule.id = :announcementScheduleId and a.memberId = :memberId", AnnouncementSubscription.class)
+            em.createQuery("select a from AnnouncementSubscription a " +
+                            "where a.announcementSchedule.id = :announcementScheduleId " +
+                            "and a.memberId = :memberId", AnnouncementSubscription.class)
                     .setParameter("announcementScheduleId", announcementScheduleId)
                     .setParameter("memberId", memberId)
                     .getSingleResult();
@@ -56,6 +58,8 @@ public class AnnouncementSubscriptionRepository {
 
 
     public void deleteThese(List<Long> announcementSubscriptionIdList) {
-        em.createQuery("delete from AnnouncementSubscription a where a.id in :idList").setParameter("idList", announcementSubscriptionIdList).executeUpdate(); //delete는 excuteUpdate()없이 쿼리 안남감 왜?
+        em.createQuery("delete from AnnouncementSubscription a " +
+                "where a.id in :idList")
+                .setParameter("idList", announcementSubscriptionIdList).executeUpdate();
     }
 }
