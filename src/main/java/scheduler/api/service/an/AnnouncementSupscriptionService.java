@@ -31,7 +31,10 @@ public class AnnouncementSupscriptionService {
 
         //사용자와 공고간 구독 여부 조회
         if (announcementSubscriptionRepository.isNotMapped(memberId, getAnnouncementSchedule.getId())){
-            AnnouncementSubscription newAnnouncementSubscription = AnnouncementSubscription.createAnnouncementSubscription(getAnnouncementSchedule, memberId);
+
+            AnnouncementSubscription newAnnouncementSubscription = AnnouncementSubscription
+                    .createAnnouncementSubscription(getAnnouncementSchedule, memberId);
+
             announcementSubscriptionRepository.save(newAnnouncementSubscription);
 
         } else {
