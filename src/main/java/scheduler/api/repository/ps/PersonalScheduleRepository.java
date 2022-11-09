@@ -28,14 +28,18 @@ public class PersonalScheduleRepository {
     public void deleteThese(List<Long> personalScheduleIdList) {
 
         //log.info(ids.toString());
-        em.createQuery("delete from PersonalSchedule p where p.id in :idList").setParameter("idList", personalScheduleIdList).executeUpdate();
+        em.createQuery("delete from PersonalSchedule p where p.id in :idList")
+                .setParameter("idList", personalScheduleIdList)
+                .executeUpdate();
 
     }
 
     //NoResultException 위험 있음
     public void update(UpdatingPersonalScheduleContentsDto updatingPsContentsDto) {
-        PersonalSchedule findPersonalSchedule = em.createQuery("select ps from PersonalSchedule  ps where ps.id = :id", PersonalSchedule.class)
-                .setParameter("id", updatingPsContentsDto.getPersonalScheduleId()).getSingleResult();
+        PersonalSchedule findPersonalSchedule = em.createQuery("select ps from PersonalSchedule  ps " +
+                        "where ps.id = :id", PersonalSchedule.class)
+                .setParameter("id", updatingPsContentsDto.getPersonalScheduleId())
+                .getSingleResult();
 
         findPersonalSchedule.updateThisContents(updatingPsContentsDto.getTitle(), updatingPsContentsDto.getBody());
 
