@@ -47,7 +47,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - MSA 아키텍쳐를 통해 FE ,BE ,ML 팀간 서로 다른 개발 주기로 인한 개발 지연 문제를 해결하였습니다.
 - 웹 서비스는 전체적인 트래픽 감소와 렌더링 효율성을 위해 SPA 구조로 개발 되었습니다. (vue.js web server가 API GATEWAY의 역할을 포함하고 있습니다.)
 
-<img src = "https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png" width="70%" height="70%">
+<img src = "[https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png](https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png)" width="70%" height="70%">
 
 **회원 관리 및 인증/인가 API 서버**
 
@@ -79,9 +79,9 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 
 ---
 
-<img src = "https://user-images.githubusercontent.com/68331041/191921273-c0b804b8-ec28-429c-9b1f-5fde56ead7ec.png" width="70%" height="70%">
+<img src = "[https://user-images.githubusercontent.com/68331041/191921273-c0b804b8-ec28-429c-9b1f-5fde56ead7ec.png](https://user-images.githubusercontent.com/68331041/191921273-c0b804b8-ec28-429c-9b1f-5fde56ead7ec.png)" width="70%" height="70%">
 
-**✅ 활용기술:** `Spring boot` , `Spring Data JPA` , `AWS EC2` , `AWS RDS` , `GIT ACTIONS CI/CD`   
+**✅ 활용기술:** `Spring boot` , `Spring Data JPA` , `AWS EC2` , `AWS RDS` , `GIT ACTIONS CI/CD`
 
 ✅ 개발 과정에 있었던 `상세한 도전과제는 다음 챕터` “[스케줄러 관리 API 서버] 설계 및 주요 도전 과제 해결 과정”을 참고해 주시면 감사하겠습니다.
 
@@ -109,10 +109,10 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 
 `개발 이론들을 학습하여 프로젝트를 유지보수가 용이하게 개선`**하고** `주요 도전 과제 해결 과정을 문서화` **했습니다.**
 
-- [‘전략 패턴과 래퍼 클래스 개념’을 이용한 도메인과 사용자 입력 유효성 검증 로직 ‘최적 분리](https://www.notion.so/4e0fedd161944108848b5693c75450b5)’
+- [‘전략 패턴과 래퍼 클래스 개념’을 이용한 도메인과 사용자 입력 유효성 검증 로직 ‘최적 분리’](https://www.notion.so/4e0fedd161944108848b5693c75450b5)
 - [API 사용성 개선: 사용자 정의 예외를 이용한 API 응답 세분화 및 상세화](https://www.notion.so/API-API-0e34aa4024124318a43869f2ae3117f3)
 - [AOP를 이용한 Access-Token 유효성 검증 로직(횡단관심사) 분리](https://www.notion.so/AOP-Access-Token-a5fd488650d44a94a4c553b74a663174)
-- [민첩한 비즈니스 대응을 위한 GitHub Actions CI/CD 배포 파이프라인 구축](https://www.notion.so/GitHub-Actions-CI-CD-e5e41eaed8f04e2c829cfbed104531e4)
+- [민첩한 비즈니스 대응을 위한 GitHub Actions CI/CD 배포 파이프라인 구축](https://www.notion.so/e5e41eaed8f04e2c829cfbed104531e4)
 - [Github Action Workflow로 J**scrypt 암,복호화 KEY 숨기기**](https://www.notion.so/Github-Action-Workflow-Jscrypt-KEY-8a2e5b89c2134661b3a099baae7bda65)
 
 ![https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png](https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png)
@@ -179,4 +179,4 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - 주 1회 스프린트 회의: `목표설정` , `도전 과제 해결 과정 및 지식 공유 문서 페어리뷰`
 - 매일 20분씩 Daily Scrum: `작업검토 및 전략회의`, `도전과제 설계`
 
-<img src = "https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png" width="70%" height="70%">
+<img src = "[https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png](https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png)" width="70%" height="70%">
