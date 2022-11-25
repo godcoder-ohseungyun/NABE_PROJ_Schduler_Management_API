@@ -47,7 +47,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - MSA 아키텍쳐를 통해 FE ,BE ,ML 팀간 서로 다른 개발 주기로 인한 개발 지연 문제를 해결하였습니다.
 - 웹 서비스는 전체적인 트래픽 감소와 렌더링 효율성을 위해 SPA 구조로 개발 되었습니다. (vue.js web server가 API GATEWAY의 역할을 포함하고 있습니다.)
 
-<img src = "[https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png](https://user-images.githubusercontent.com/68331041/190093225-b0a2a9e8-aa10-4771-8b5e-a3ff5ef2ca95.png)" width="70%" height="70%">
+![system](readMeFiles/system.png)
 
 **회원 관리 및 인증/인가 API 서버**
 
@@ -79,7 +79,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 
 ---
 
-<img src = "[https://user-images.githubusercontent.com/68331041/191921273-c0b804b8-ec28-429c-9b1f-5fde56ead7ec.png](https://user-images.githubusercontent.com/68331041/191921273-c0b804b8-ec28-429c-9b1f-5fde56ead7ec.png)" width="70%" height="70%">
+![sytemflow](readMeFiles/systemflow.png)
 
 **✅ 활용기술:** `Spring boot` , `Spring Data JPA` , `AWS EC2` , `AWS RDS` , `GIT ACTIONS CI/CD`
 
@@ -103,7 +103,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - [요구사항 추적 및 버전별 데이터베이스 설계 과정](https://www.notion.so/dbf1cc2b6ac7480bbcc6b5de2f2b32f0)
 - [Scheduler Server API 명세서](https://www.notion.so/Scheduler-Server-API-0eff9253bc7d4362bbaeaa1dae9f3a7a)
 
-![https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png](https://user-images.githubusercontent.com/68331041/190341529-d120df5d-56d8-435e-ab93-ca2ef3d56981.png)
+![ex1](readMeFiles/example1.png)
 
 </br>
 
@@ -115,7 +115,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - [민첩한 비즈니스 대응을 위한 GitHub Actions CI/CD 배포 파이프라인 구축](https://www.notion.so/e5e41eaed8f04e2c829cfbed104531e4)
 - [Github Action Workflow로 J**scrypt 암,복호화 KEY 숨기기**](https://www.notion.so/Github-Action-Workflow-Jscrypt-KEY-8a2e5b89c2134661b3a099baae7bda65)
 
-![https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png](https://user-images.githubusercontent.com/68331041/190343818-7a773ce5-4097-4bd8-bcd6-08280062cebe.png)
+![ex2](readMeFiles/example2.png)
 
 </br>
 
@@ -125,7 +125,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - [REST API 정확하게 설계하기(feat.Self-descriptive messages 와 HATEOAS)](https://www.notion.so/REST-API-feat-Self-descriptive-messages-HATEOAS-070913d4c8664f9cbcd1d05d5b0d4b06)
 - [CORS 이슈 발생! 정의와 동작 원리를 알아보자](https://www.notion.so/CORS-abace1a36cda420cbceebd997a5e752c)
 
-![https://user-images.githubusercontent.com/68331041/190093516-dc97183e-95c5-4cff-a621-7497de1020c8.png](https://user-images.githubusercontent.com/68331041/190093516-dc97183e-95c5-4cff-a621-7497de1020c8.png)
+![ex3](readMeFiles/example3.png)
 
 </br>
 
@@ -134,7 +134,7 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - [멀티 스레딩을 이용한 ML 모듈 수행 속도 개선](https://www.notion.so/ML-ML-feat-80c53558d1b04d6e9828610a7d833b28)
 - [로지스틱 회귀 분석 및 클러스터링을 이용한 자격증 취득 소요기간 예측 모듈 설계](https://www.notion.so/ML-a92a2c6fe1c24bb29250b6beb7bd0a30)
 
-![https://user-images.githubusercontent.com/68331041/191207374-8c6ee10b-f408-48b3-af7a-197ccadbdd67.png](https://user-images.githubusercontent.com/68331041/191207374-8c6ee10b-f408-48b3-af7a-197ccadbdd67.png)
+![ex4](readMeFiles/example4.png)
 
 </br>
 
@@ -179,4 +179,4 @@ ML요소 기술을 사용하여 자격증 취득 소요기간 예측 기능, 사
 - 주 1회 스프린트 회의: `목표설정` , `도전 과제 해결 과정 및 지식 공유 문서 페어리뷰`
 - 매일 20분씩 Daily Scrum: `작업검토 및 전략회의`, `도전과제 설계`
 
-<img src = "[https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png](https://user-images.githubusercontent.com/68331041/190093649-7f5a93bf-4ce7-4f9d-98b2-5c4248a1372f.png)" width="70%" height="70%">
+![ex5](readMeFiles/ex5.png)
