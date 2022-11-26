@@ -41,7 +41,7 @@ class PersonalScheduleTest {
     }
 
 
-    @DisplayName("시간 및 날짜 양식 불만족시 예외")
+    @DisplayName("시간(4) 및 날짜(8) 양식 길이 불만족시 예외")
     @MethodSource("failCaseArguments")
     @ParameterizedTest
     public void failPersonalScheduleTableCreation(String title
@@ -70,7 +70,42 @@ class PersonalScheduleTest {
                         ,"내용"
                         ,"1020"
                         ,"1100"
-                        ,"2022901020"
+                        ,"2022657012"
+                        ,20023197l)
+        );
+    }
+
+    @DisplayName("시간 및 날짜 지원 범위 불만족시 예외")
+    @MethodSource("failCase2Arguments")
+    @ParameterizedTest
+    public void fail2PersonalScheduleTableCreation(String title
+            ,String body
+            ,String startTime
+            ,String endTime
+            ,String startDate
+            ,Long memberId){
+
+        assertThatThrownBy(()->assertThat(PersonalSchedule.createPersonalSchedule(title
+                ,body
+                ,startTime
+                ,endTime
+                ,startDate
+                ,memberId)))
+                .isInstanceOf(ValidatedException.class);
+    }
+
+    private static Stream<Arguments> failCase2Arguments() {
+        return Stream.of(Arguments.arguments("제목"
+                        ,"내용"
+                        ,"2500"
+                        ,"1100"
+                        ,"20220131"
+                        ,20023197l)
+                ,Arguments.arguments("제목"
+                        ,"내용"
+                        ,"2300"
+                        ,"1100"
+                        ,"20510131"
                         ,20023197l)
         );
     }
