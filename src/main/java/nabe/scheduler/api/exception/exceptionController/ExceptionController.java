@@ -1,6 +1,7 @@
 package nabe.scheduler.api.exception.exceptionController;
 
 import lombok.extern.slf4j.Slf4j;
+import nabe.scheduler.api.exception.definedException.AuthenticationImpossibleException;
 import nabe.scheduler.api.exception.definedException.DuplicateDataException;
 import nabe.scheduler.api.exception.exceptionResultDto.ExceptionResult;
 import nabe.scheduler.api.exception.definedException.ValidatedException;
@@ -36,5 +37,14 @@ public class ExceptionController  {
         return new ResponseEntity<>(exceptionResult,e.getStatus());
     }
 
+    @ExceptionHandler(AuthenticationImpossibleException.class)
+    public ResponseEntity<ExceptionResult> AieEx(ValidatedException e , HttpServletRequest request) {
+        ExceptionResult exceptionResult = new ExceptionResult(new Date(),
+                "Authentication-impossible: access-Token is not valid",
+                e.getMessage(),
+                request.getRequestURI());
+
+        return new ResponseEntity<>(exceptionResult, e.getStatus());
+    }
 
 }
