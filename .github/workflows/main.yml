@@ -1,0 +1,76 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  sshCheck:
+    runs-on: ubuntu-latest
+    steps:
+      ##ssh 접속이 원활한지 확인
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo "success ssh connect"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 18
+        uses: actions/setup-java@v3
+        with:
+          java-version: '18'
+          distribution: 'temurin'
+
+      #jasypt 복호화 키 환경변수 application.yml에 생성하기 in 리눅스 명령어
+      - name: add code in application.yml for jasypt key env
+        run: |
+          cd ./src/main/resources
+          echo "${{ secrets.JASYPT_KEY }}" >> ./application.yml
+        shell: bash
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build -x test
+
+      ## gradle Test! - tdd 적용 예정
+#      - name: Test with Gradle
+#        run: SPRING_PROFILES_ACTIVE=[test] ./gradlew test
+
+      ## 웹 이미지 빌드 및 도커허브에 push
+      - name: web docker build and push
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -t ${{ secrets.DOCKER_IMAGE_NAME }} .
+          docker push ${{ secrets.DOCKER_IMAGE_NAME }}
+
+      ## ec2 ssh접속 후 도커 허브에서 이미지 받아와서 실행하기
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo "I might need docker install"
+            docker rm -f $(docker ps -aq)
+            docker rmi $(docker images -q)
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker pull ${{ secrets.DOCKER_IMAGE_NAME }}
+            docker run -d -p 8080:8080 ${{ secrets.DOCKER_IMAGE_NAME }}
+        ##-d 옵션으로 반드시 백그라운드 수행
