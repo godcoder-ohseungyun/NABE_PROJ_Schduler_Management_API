@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequiredArgsConstructor
 public class AuthorizationAOP {
 
+    private static String AUTHENTICATION_IMPOSSIBLE_ERROR_MSG = "유효하지 않는 사용자";
     private final RestTemplate restTemplate ;
     private final String account_management_server_end_point_for_accreditation_check = "15.164.210.47:8000/accounts/kakao/userinfo";
 
@@ -42,7 +43,7 @@ public class AuthorizationAOP {
             ResponseEntity<String> response = restTemplate.exchange(requestForAccountServer, String.class); //질의 응답 상태 코드가 4xx , 5xx 일때 예외 발생
 
         }catch(Exception e){
-            throw new AuthenticationImpossibleException("유효하지 않는 사용자",HttpStatus.UNAUTHORIZED);
+            throw new AuthenticationImpossibleException(AUTHENTICATION_IMPOSSIBLE_ERROR_MSG,HttpStatus.UNAUTHORIZED);
         }
 
     }
