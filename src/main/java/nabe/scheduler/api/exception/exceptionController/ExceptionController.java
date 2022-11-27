@@ -1,6 +1,7 @@
 package nabe.scheduler.api.exception.exceptionController;
 
 import lombok.extern.slf4j.Slf4j;
+import nabe.scheduler.api.exception.definedException.DuplicateDataException;
 import nabe.scheduler.api.exception.exceptionResultDto.ExceptionResult;
 import nabe.scheduler.api.exception.definedException.ValidatedException;
 import org.springframework.http.ResponseEntity;
@@ -24,4 +25,16 @@ public class ExceptionController  {
 
         return new ResponseEntity<>(exceptionResult,e.getStatus());
     }
+
+    @ExceptionHandler(DuplicateDataException.class)
+    public ResponseEntity<ExceptionResult> DpEx(DuplicateDataException e , HttpServletRequest request){
+        ExceptionResult exceptionResult = new ExceptionResult(new Date(),
+                "Duplicate-Data-Denied",
+                e.getMessage(),
+                request.getRequestURI());
+
+        return new ResponseEntity<>(exceptionResult,e.getStatus());
+    }
+
+
 }
