@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="announcement_schedule")
+@Table(name="recruitment_schedule")
 @Getter
 @Setter
 @NoArgsConstructor
