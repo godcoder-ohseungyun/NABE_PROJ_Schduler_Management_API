@@ -11,7 +11,6 @@ import nabe.scheduler.api.domain.embededType.StartDate;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -24,7 +23,6 @@ import javax.validation.constraints.NotNull;
 public class RecruitmentSchedule {
 
     @Id
-    @GeneratedValue
     @Column(name = "id")
     private Long id;
 
@@ -44,10 +42,12 @@ public class RecruitmentSchedule {
     private EndDate endDate;
 
     private RecruitmentSchedule(
-            String title
+            Long id
+            , String title
             , OriginalUrl originalUrl
             , StartDate startDate
             , EndDate endDate) {
+        this.id = id;
         this.title = title;
         this.originalUrl = originalUrl;
         this.startDate = startDate;
@@ -55,15 +55,17 @@ public class RecruitmentSchedule {
     }
 
     public static RecruitmentSchedule createRecruitmentSchedule(
-            String title
+            Long id
+            , String title
             , String originalUrl
             , String startDate
-            , String endDate){
+            , String endDate) {
         return new RecruitmentSchedule(
-                title
-                ,OriginalUrl.from(originalUrl)
-                ,StartDate.from(startDate)
-                ,EndDate.from(endDate));
+                id
+                , title
+                , OriginalUrl.from(originalUrl)
+                , StartDate.from(startDate)
+                , EndDate.from(endDate));
     }
 
 }

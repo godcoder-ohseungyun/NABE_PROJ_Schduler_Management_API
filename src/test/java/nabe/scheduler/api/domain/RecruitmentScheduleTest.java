@@ -15,13 +15,17 @@ class RecruitmentScheduleTest {
 
     @MethodSource("successCaseArguments")
     @ParameterizedTest
-    public void createRecruitmentScheduleTable(String title
+    public void createRecruitmentScheduleTable(
+            Long id
+            , String title
             , String originalUrl
             , String startDate
             , String endDate
     ) {
 
-        assertThat(RecruitmentSchedule.createRecruitmentSchedule(title
+        assertThat(RecruitmentSchedule.createRecruitmentSchedule(
+                id
+                , title
                 , originalUrl
                 , startDate
                 , endDate
@@ -30,7 +34,8 @@ class RecruitmentScheduleTest {
 
     private static Stream<Arguments> successCaseArguments() {
         return Stream.of(Arguments.arguments(
-                        "제목"
+                        1l
+                        , "제목"
                         , "https://www.test.com"
                         , "20221020"
                         , "20221024"
@@ -43,14 +48,16 @@ class RecruitmentScheduleTest {
     @MethodSource("failCaseArguments")
     @ParameterizedTest
     public void failRecruitmentScheduleTableCreation(
-            String title
+            Long id
+            , String title
             , String originalUrl
             , String startDate
             , String endDate
     ) {
 
         assertThatThrownBy(() -> RecruitmentSchedule.createRecruitmentSchedule(
-                title
+                id
+                , title
                 , originalUrl
                 , startDate
                 , endDate
@@ -59,13 +66,15 @@ class RecruitmentScheduleTest {
 
     private static Stream<Arguments> failCaseArguments() {
         return Stream.of(Arguments.arguments(
-                        "제목"
+                        1l
+                        , "제목1"
                         , "httpsdf://wdfww.test.com"
                         , "20221020"
                         , "20221024"
                 )
                 , Arguments.arguments(
-                        "제목"
+                        2l
+                        , "제목2"
                         , "https://www.test.com"
                         , "1990201112"
                         , "20221024"
